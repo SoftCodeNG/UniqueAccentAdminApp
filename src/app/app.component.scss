@@ -1,0 +1,30 @@
+.mainDiv {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  //background: black;
+  height: 100vh;
+
+  .leftDiv {
+
+  }
+
+  .rightDiv {
+    height: 100vh;
+    background: white;
+
+    :first-child {
+      //height: 70px;
+    }
+
+    .mainArea {
+      //border-radius: 10px;
+      //background: #FF6600;
+      background: white;
+      box-sizing: border-box;
+      padding: 20px;
+      //height: calc(100vh - 160px);
+      overflow-y: auto;
+      margin: 30px 20px 0 0;
+    }
+  }
+}

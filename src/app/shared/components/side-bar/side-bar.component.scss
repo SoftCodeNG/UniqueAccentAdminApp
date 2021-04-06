@@ -1,0 +1,50 @@
+.sidebarDiv {
+  background: #FAFAFA;
+  height: 100vh;
+
+  .logo {
+    font-family: 'Averia Serif Libre', cursive;
+    font-size: 30px;
+    color: black;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+
+    img {
+      height: 60px;
+      cursor: pointer;
+      margin-left: 50px;
+    }
+  }
+
+  > :nth-child(2) {
+    //max-height: 95vh;
+    //overflow-y: auto;
+    box-sizing: border-box;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+
+    div {
+      text-decoration: none;
+      color: black;
+      margin: 10px 0;
+      padding: 10px 0 10px 0;
+      font-size: 1.3em;
+      cursor: pointer;
+
+      &:hover, &:active, &.active {
+        //padding-left: 25px;
+        background: #FFFFFF;
+        padding: 8px 5px;
+        border-radius: 10px;
+        box-shadow: 0 0 5px black;
+        border: none;
+      }
+
+      i {
+        margin-right: 10px;
+        font-size: 1.1em !important;
+      }
+    }
+  }
+}
