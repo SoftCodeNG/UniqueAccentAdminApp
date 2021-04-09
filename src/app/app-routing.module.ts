@@ -4,6 +4,8 @@ import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {CoursesComponent} from './pages/courses/courses.component';
 import {SettingsComponent} from './pages/settings/settings.component';
 import {QuizComponent} from './pages/quiz/quiz.component';
+import {TrainingsComponent} from './pages/trainings/trainings.component';
+import {UsersComponent} from './pages/users/users.component';
 
 const routes: Routes = [
     {
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path: 'quiz',
     component: QuizComponent
+  },
+  {
+    path: 'trainings',
+    component: TrainingsComponent
+  },
+  {
+    path: 'users',
+    component: UsersComponent
   },
   {
     path: 'settings',

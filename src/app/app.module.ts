@@ -9,6 +9,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
+import { TrainingsComponent } from './pages/trainings/trainings.component';
+import { UsersComponent } from './pages/users/users.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { QuizComponent } from './pages/quiz/quiz.component';
     DashboardComponent,
     CoursesComponent,
     SettingsComponent,
-    QuizComponent
+    QuizComponent,
+    TrainingsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
