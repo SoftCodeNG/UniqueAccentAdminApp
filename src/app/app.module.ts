@@ -8,9 +8,10 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { SettingsComponent } from './pages/settings/settings.component';
-import { QuizComponent } from './pages/quiz/quiz.component';
+import { AudioQuizComponent } from './pages/audio-quiz/audio-quiz.component';
 import { TrainingsComponent } from './pages/trainings/trainings.component';
 import { UsersComponent } from './pages/users/users.component';
+import { CreateQuizComponent } from './pages/audio-quiz/create-quiz/create-quiz.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { UsersComponent } from './pages/users/users.component';
     DashboardComponent,
     CoursesComponent,
     SettingsComponent,
-    QuizComponent,
+    AudioQuizComponent,
     TrainingsComponent,
-    UsersComponent
+    UsersComponent,
+    CreateQuizComponent
   ],
   imports: [
     BrowserModule,

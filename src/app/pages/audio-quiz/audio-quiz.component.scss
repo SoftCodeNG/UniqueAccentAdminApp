@@ -1,0 +1,67 @@
+.quizDiv {
+
+  .rightDiv {
+    button {
+      background: #FF6600;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+  }
+
+  .bottomDiv {
+    background: #FFFFFF;
+    margin-top: 20px;
+    border-radius: 15px;
+    padding: 25px;
+
+    .quizText {
+      font-weight: bold;
+    }
+  }
+
+  .tableDiv {
+    margin-top: 20px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      thead {
+
+        th {
+          background: #E4E4E4;
+          color: black;
+          width: 150px;
+          text-align: center;
+          border: none;
+          padding: 10px;
+        }
+
+        td {
+          width: 150px;
+          text-align: center;
+          border: none;
+          padding: 10px;
+          cursor: pointer;
+
+          a {
+            cursor: pointer;
+            background: #E4E4E4;
+            color: black;
+            border-radius: 5px;
+            border: none;
+            padding: 5px 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
