@@ -1,4 +1,5 @@
 .dashboardDiv {
+  background: #F5F5F5;
 
   .cards {
     display: grid;
@@ -8,13 +9,15 @@
     gap: 20px;
 
     div {
-      border-radius: 30px;
+      border-radius: 15px;
       height: 150px;
       width: 250px;
       text-align: center;
-      box-shadow: 0 20px 15px #0f0e10;
-      font-family: 'Averia Serif Libre', cursive;
+      background: #FF6600;
+      box-shadow: 0 18px 6px rgba(0, 0, 0, 0.15);
+      //font-family: 'Averia Serif Libre', cursive;
       font-size: 1.5em;
+      margin-top: 20px;
     }
   }
 }

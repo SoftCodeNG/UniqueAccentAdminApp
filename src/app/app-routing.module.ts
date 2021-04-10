@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {CoursesComponent} from './pages/courses/courses.component';
 import {SettingsComponent} from './pages/settings/settings.component';
-import {QuizComponent} from './pages/quiz/quiz.component';
+import {AudioQuizComponent} from './pages/audio-quiz/audio-quiz.component';
 import {TrainingsComponent} from './pages/trainings/trainings.component';
 import {UsersComponent} from './pages/users/users.component';
+import {CreateQuizComponent} from './pages/audio-quiz/create-quiz/create-quiz.component';
 
 const routes: Routes = [
     {
@@ -17,8 +18,8 @@ const routes: Routes = [
     component: CoursesComponent
   },
   {
-    path: 'quiz',
-    component: QuizComponent
+    path: 'audio-quiz',
+    component: AudioQuizComponent
   },
   {
     path: 'trainings',
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent
+  },
+  {
+    path: 'audio-quiz/create-quiz',
+    component: CreateQuizComponent
   },
 ];
 
