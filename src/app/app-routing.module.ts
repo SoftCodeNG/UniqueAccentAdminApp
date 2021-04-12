@@ -7,6 +7,8 @@ import {AudioQuizComponent} from './pages/audio-quiz/audio-quiz.component';
 import {TrainingsComponent} from './pages/trainings/trainings.component';
 import {UsersComponent} from './pages/users/users.component';
 import {CreateQuizComponent} from './pages/audio-quiz/create-quiz/create-quiz.component';
+import {QuizDetailsComponent} from './pages/audio-quiz/quiz-details/quiz-details.component';
+import {CreateTrainingComponent} from './pages/trainings/create-training/create-training.component';
 
 const routes: Routes = [
     {
@@ -36,6 +38,14 @@ const routes: Routes = [
   {
     path: 'audio-quiz/create-quiz',
     component: CreateQuizComponent
+  },
+  {
+    path: 'audio-quiz/create-quiz/quiz-details',
+    component: QuizDetailsComponent
+  },
+  {
+    path: 'trainings/create-training',
+    component: CreateTrainingComponent
   },
 ];
 

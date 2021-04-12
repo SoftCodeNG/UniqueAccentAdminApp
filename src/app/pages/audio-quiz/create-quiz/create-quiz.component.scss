@@ -1,6 +1,9 @@
 .createQuizDiv {
+  padding: 50px 15%;
+
 
   .saveButton {
+    margin-bottom: 30px;
 
     button {
       background: #FF6600;
@@ -11,31 +14,86 @@
       border: none;
       border-radius: 10px;
       margin-bottom: 30px;
+      float: right;
     }
   }
 
-  .bottomDiv {
-    div {
-      //display: flex;
+  .createQuizRow1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    gap: 0 10px;
 
-      label {
-        input {
-          width: 100%;
-          padding: 12px 20px;
-          margin: 8px 0;
-          box-sizing: border-box;
-        }
+    label {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+
+
+      span {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 26px;
+
       }
-    }
 
-    .instructionDiv {
-      label {
-        input {
-           width: 100%;
-          padding: 12px 20px;
-          margin: 8px 0;
-          box-sizing: border-box;
-        }
+      input {
+        width: 100%;
+        max-width: -webkit-fill-available;
+        padding: 15px 10px;
+        border-radius: 10px;
+        border: solid 1px #707070;
+
+      }
+
+    }
+  }
+
+  .createQuizRow2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    gap: 0 10px;
+
+    label {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+
+
+      span {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 26px;
+
+      }
+
+      input {
+        width: 100%;
+        max-width: -webkit-fill-available;
+        padding: 15px 10px;
+        border-radius: 10px;
+        border: solid 1px #707070;
+
+      }
+
+    }
+  }
+
+  .row3 {
+    label {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+
+      span {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 26px;
       }
     }
   }

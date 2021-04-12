@@ -12,6 +12,8 @@ import { AudioQuizComponent } from './pages/audio-quiz/audio-quiz.component';
 import { TrainingsComponent } from './pages/trainings/trainings.component';
 import { UsersComponent } from './pages/users/users.component';
 import { CreateQuizComponent } from './pages/audio-quiz/create-quiz/create-quiz.component';
+import { QuizDetailsComponent } from './pages/audio-quiz/quiz-details/quiz-details.component';
+import { CreateTrainingComponent } from './pages/trainings/create-training/create-training.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CreateQuizComponent } from './pages/audio-quiz/create-quiz/create-quiz.
     AudioQuizComponent,
     TrainingsComponent,
     UsersComponent,
-    CreateQuizComponent
+    CreateQuizComponent,
+    QuizDetailsComponent,
+    CreateTrainingComponent
   ],
   imports: [
     BrowserModule,
