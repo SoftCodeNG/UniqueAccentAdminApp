@@ -14,6 +14,10 @@ import { UsersComponent } from './pages/users/users.component';
 import { CreateQuizComponent } from './pages/audio-quiz/create-quiz/create-quiz.component';
 import { QuizDetailsComponent } from './pages/audio-quiz/quiz-details/quiz-details.component';
 import { CreateTrainingComponent } from './pages/trainings/create-training/create-training.component';
+import { CreateTextQuestionComponent } from './pages/audio-quiz/create-text-question/create-text-question.component';
+import { TrainingDetailsComponent } from './pages/trainings/training-details/training-details.component';
+import { AudioQuestionComponent } from './pages/audio-quiz/audio-question/audio-question.component';
+import { AudioQuestionReplayComponent } from './pages/audio-quiz/audio-question-replay/audio-question-replay.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { CreateTrainingComponent } from './pages/trainings/create-training/creat
     UsersComponent,
     CreateQuizComponent,
     QuizDetailsComponent,
-    CreateTrainingComponent
+    CreateTrainingComponent,
+    CreateTextQuestionComponent,
+    TrainingDetailsComponent,
+    AudioQuestionComponent,
+    AudioQuestionReplayComponent
   ],
   imports: [
     BrowserModule,

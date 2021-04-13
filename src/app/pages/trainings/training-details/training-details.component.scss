@@ -1,0 +1,31 @@
+.trainingDetailsDiv {
+  display: grid;
+  grid-template-columns: 80% 20%;
+
+  .row1 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    :first-child {
+      font-size: 50px;
+    }
+
+    :nth-child(2) {
+      font-size: 25px;
+    }
+  }
+
+  .row2 {
+    margin: 20px 0;
+  }
+
+  .row3 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .row4 {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+}
