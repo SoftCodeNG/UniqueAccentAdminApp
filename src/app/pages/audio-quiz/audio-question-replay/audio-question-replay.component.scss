@@ -1,0 +1,67 @@
+.audioReplayDiv {
+  //padding: 20px;
+
+  .saveButton {
+    float: right;
+    margin-right: 70px;
+
+    button {
+      background: #FF6600;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: #000000;
+      color: #000000;
+      font-size: 25px;
+    }
+  }
+
+  .replayText {
+    color: #000000;
+    font-size: 50px;
+  }
+
+  :last-child {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+
+    :first-child {
+      img {
+        height: 200px;
+        margin: 20px;
+      }
+    }
+
+    :nth-child(2) {
+      button {
+        font-size: 32px;
+        padding: 10px 20px;
+        color: #000000;
+        box-shadow: #000000;
+        border: none;
+        background: #FF6600;
+        border-radius: 10px;
+        margin: 15px 0;
+      }
+    }
+
+    :nth-child(3) {
+      font-size: 35px;
+      color: #2C2C2C;
+    }
+
+    .uploadButton {
+      button {
+        font-size: 32px;
+        color: #000000;
+        box-shadow: #000000;
+        border: none;
+        background: #FF6600;
+        border-radius: 10px;
+        padding: 10px 20px;
+        margin: 10px 0;
+      }
+    }
+  }
+}
