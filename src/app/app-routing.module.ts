@@ -13,6 +13,9 @@ import {CreateTextQuestionComponent} from './pages/audio-quiz/create-text-questi
 import {TrainingDetailsComponent} from './pages/trainings/training-details/training-details.component';
 import {AudioQuestionComponent} from './pages/audio-quiz/audio-question/audio-question.component';
 import {AudioQuestionReplayComponent} from './pages/audio-quiz/audio-question-replay/audio-question-replay.component';
+import {CreateCourseComponent} from './pages/courses/create-course/create-course.component';
+import {CreateLessonComponent} from './pages/courses/create-lesson/create-lesson.component';
+import {CourseDetailsComponent} from './pages/courses/course-details/course-details.component';
 
 const routes: Routes = [
     {
@@ -22,6 +25,18 @@ const routes: Routes = [
   {
     path: 'courses',
     component: CoursesComponent
+  },
+  {
+    path: 'courses/create-course',
+    component: CreateCourseComponent
+  },
+  {
+    path: 'courses/create-course/create-lesson',
+    component: CreateLessonComponent
+  },
+  {
+    path: 'courses/create-course/create-lesson/course-details',
+    component: CourseDetailsComponent
   },
   {
     path: 'audio-quiz',

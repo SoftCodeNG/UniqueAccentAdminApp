@@ -1,0 +1,125 @@
+.courseDetailsDiv {
+  display: grid;
+  grid-template-columns: 80% 20%;
+
+  .LeftDiv {
+    width: calc(100% - 220px);
+
+    .row1 {
+      //display: grid;
+      //grid-template-columns: 50% 50%;
+      margin-bottom: 20px;
+
+      :first-child {
+        font-size: 50px;
+      }
+
+      :nth-child(2) {
+        font-size: 25px;
+      }
+    }
+
+    .row2 {
+      font-size: 24px;
+      margin-top: 30px;
+    }
+
+    .lessonTable {
+      background: #FFFFFF;
+      margin-top: 20px;
+      border-radius: 15px;
+      padding: 25px;
+
+      .lessonText {
+        font-weight: bold;
+      }
+    }
+
+    .tableDiv {
+      margin-top: 20px;
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+
+          th {
+            background: #E4E4E4;
+            color: black;
+            width: 150px;
+            text-align: center;
+            border: none;
+            padding: 10px;
+          }
+
+          td {
+            width: 150px;
+            text-align: center;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+
+            a {
+              cursor: pointer;
+              background: #E4E4E4;
+              color: black;
+              border-radius: 5px;
+              border: none;
+              padding: 5px 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .RightDiv {
+    background: #C9C9C9;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 80px;
+    height: calc(100vh - 80px);
+    width: 220px;
+
+    .courseImg {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    img {
+      height: 200px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .buttonDiv {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      margin-top: 40px;
+
+      :first-child {
+        button {
+          background: #707070;
+          color: #000000;
+          padding: 10px 30px;
+          border-radius: 10px;
+          border: none;
+        }
+      }
+
+      :nth-child(2) {
+        button {
+          background: #9D0000;
+          color: #FFD9D9;
+          padding: 10px 20px;
+          border-radius: 10px;
+          border: none;
+        }
+      }
+
+    }
+  }
+}
