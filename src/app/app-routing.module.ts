@@ -19,9 +19,13 @@ import {CourseDetailsComponent} from './pages/courses/course-details/course-deta
 import {LessonDetailsComponent} from './pages/courses/lesson-details/lesson-details.component';
 
 const routes: Routes = [
-    {
+  {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./pages/auth/auth.module').then(r => r.AuthModule)
   },
   {
     path: 'courses',

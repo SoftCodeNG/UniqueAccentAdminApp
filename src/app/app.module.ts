@@ -24,6 +24,11 @@ import { CourseDetailsComponent } from './pages/courses/course-details/course-de
 import { LessonDetailsComponent } from './pages/courses/lesson-details/lesson-details.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import {NgxsModule} from '@ngxs/store';
+import {environment} from '../environments/environment';
+import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
+import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
+import {AppState} from "./store/app-store/app.state";
 
 @NgModule({
   declarations: [
@@ -52,7 +57,12 @@ import {ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxsModule.forRoot([AppState], {
+      developmentMode: !environment.production
+    }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsStoragePluginModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
