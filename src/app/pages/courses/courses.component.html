@@ -11,81 +11,22 @@
         <thead>
         <tr>
           <th>TITLE</th>
-          <th>PARTICIPANT</th>
+          <th>PRICE</th>
           <th>PASS CODE</th>
           <th>LESSONS</th>
           <th>ACTION</th>
         </tr>
 
-        <tr>
-          <td>Direct</td>
-          <td>67,892</td>
-          <td>10</td>
-          <td>8</td>
+        <tr *ngFor="let course of allCourses">
+          <td>{{course.title}}</td>
+          <td>{{course.price}}</td>
+          <td>{{course.purchases}}</td>
+          <td>{{course.lessons}}</td>
           <td>
              <a href>View</a>
           </td>
         </tr>
 
-        <tr>
-          <td>Call In</td>
-          <td>89,298</td>
-          <td>50</td>
-          <td>15</td>
-          <td>
-            <a href>View</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Paid Search</td>
-          <td>62,767</td>
-          <td>25</td>
-          <td>14</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Organic Search</td>
-          <td>123,879</td>
-          <td>30</td>
-          <td>32</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Email</td>
-          <td>92,179</td>
-          <td>32</td>
-          <td>32</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Referral</td>
-          <td>15,875</td>
-          <td>43</td>
-          <td>12</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Proposal</td>
-          <td>92,179</td>
-          <td>65</td>
-          <td>21</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
         </thead>
       </table>
     </div>

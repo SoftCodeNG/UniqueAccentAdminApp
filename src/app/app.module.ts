@@ -22,6 +22,8 @@ import { CreateCourseComponent } from './pages/courses/create-course/create-cour
 import { CreateLessonComponent } from './pages/courses/create-lesson/create-lesson.component';
 import { CourseDetailsComponent } from './pages/courses/course-details/course-details.component';
 import { LessonDetailsComponent } from './pages/courses/lesson-details/lesson-details.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { LessonDetailsComponent } from './pages/courses/lesson-details/lesson-de
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
