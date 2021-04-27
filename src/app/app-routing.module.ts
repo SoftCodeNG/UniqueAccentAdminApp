@@ -16,6 +16,7 @@ import {AudioQuestionReplayComponent} from './pages/audio-quiz/audio-question-re
 import {CreateCourseComponent} from './pages/courses/create-course/create-course.component';
 import {CreateLessonComponent} from './pages/courses/create-lesson/create-lesson.component';
 import {CourseDetailsComponent} from './pages/courses/course-details/course-details.component';
+import {LessonDetailsComponent} from './pages/courses/lesson-details/lesson-details.component';
 
 const routes: Routes = [
     {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'courses/create-course/create-lesson/course-details',
     component: CourseDetailsComponent
+  },
+   {
+    path: 'courses/create-course/create-lesson/course-details/lesson-details',
+    component: LessonDetailsComponent
   },
   {
     path: 'audio-quiz',
