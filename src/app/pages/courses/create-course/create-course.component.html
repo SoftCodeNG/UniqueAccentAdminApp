@@ -1,0 +1,41 @@
+<div class="createCourseDiv">
+  <div class="nextButton">
+    <button (click)="createCourse()">Next</button>
+  </div>
+
+  <ng-container [formGroup]="createCourseForm">
+    <div class="createCourseRow1">
+      <label>
+        <span>Title</span>
+        <input formControlName="title" type="text"  placeholder="Enter a title">
+      </label>
+      <label>
+        <span>Price</span>
+        <input formControlName="price" type="text" placeholder="Enter price">
+      </label>
+    </div>
+
+    <div class="createCourseRow2">
+      <div>
+        <label>
+          <span>Thumbnail</span>
+          <input formControlName="thumbnail" type="text" placeholder="Select an image">
+        </label>
+      </div>
+      <div>
+        <label>
+          <span>Preview</span>
+          <input formControlName="video" type="text" placeholder="Select a video">
+        </label>
+      </div>
+    </div>
+
+    <div class="row3">
+      <label>
+        <span>Description</span>
+        <textarea formControlName="description"></textarea>
+      </label>
+    </div>
+  </ng-container>
+
+</div>

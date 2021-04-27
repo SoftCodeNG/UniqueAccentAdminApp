@@ -1,4 +1,4 @@
-.createQuizDiv {
+.createTrainingDiv {
   padding: 50px 15%;
 
 
@@ -15,11 +15,11 @@
       border: none;
       border-radius: 10px;
       margin-bottom: 30px;
-      //float: right;
+      float: right;
     }
   }
 
-  .createQuizRow1 {
+  .createTrainingRow1 {
     width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -53,7 +53,7 @@
     }
   }
 
-  .createQuizRow2 {
+  .createTrainingRow2 {
     width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
