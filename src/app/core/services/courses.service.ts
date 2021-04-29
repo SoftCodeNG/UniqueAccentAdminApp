@@ -20,4 +20,13 @@ export class CoursesService {
         })
       );
   }
+
+  getCourseDetails(slug: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}courses/getCoursesDetail/${slug}`)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
 }
