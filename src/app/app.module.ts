@@ -28,7 +28,8 @@ import {NgxsModule} from '@ngxs/store';
 import {environment} from '../environments/environment';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
-import {AppState} from "./store/app-store/app.state";
+import {AppState} from './store/app-store/app.state';
+import { FileManagerComponent } from './pages/file-manager/file-manager.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {AppState} from "./store/app-store/app.state";
     CreateCourseComponent,
     CreateLessonComponent,
     CourseDetailsComponent,
-    LessonDetailsComponent
+    LessonDetailsComponent,
+    FileManagerComponent
   ],
   imports: [
     BrowserModule,
