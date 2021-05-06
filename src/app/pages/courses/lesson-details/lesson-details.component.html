@@ -1,13 +1,8 @@
 <div class="lessonDetailsDiv">
   <div class="leftDiv">
-    <div class="row1">Lesson 1</div>
+    <div class="row1">{{lessonDetails.title}}</div>
     <div class="row2">
-      SPEAKING IS DIFFERENT FROM COMMUNICATION, You can Speak without communicating and
-      this is what many people do not understand. A lot of People think that speaking with good
-      diction is about faking an accent or rolling your tongue, NO! It is never about rolling your tongue
-      or faking an accent, It is about accurate and effective communication such that anyone from
-      any part of the world can understand you clearly. This is what a lot of people do not know. As
-      a Public speaker, A radio/TV presenter, A voice over artiste, Customer service representative
+      {{lessonDetails.description}}
     </div>
     <div class="lessonTable">
       <div class="lessonText">Comments</div>
@@ -24,7 +19,7 @@
           </tr>
 
           <tr>
-            <td>Direct</td>
+            <td>{{lessonDetails.title}}</td>
             <td>67,892</td>
             <td>10</td>
             <td>8</td>
@@ -100,10 +95,10 @@
 
   <div class="RightDiv">
     <div class="courseImg">Thumbnail</div>
-    <div><img src="../../../../assets/course4.png" alt=""></div>
+    <div><img [src]="lessonDetails.thumbnail" alt=""></div>
 
     <div class="courseImg">Preview</div>
-    <div><img src="../../../../assets/course4.png" alt=""></div>
+    <div><img [src]="lessonDetails.video" alt=""></div>
 
     <div class="buttonDiv">
       <div>
