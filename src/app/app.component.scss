@@ -1,13 +1,17 @@
 .mainDiv {
-  display: grid;
-  grid-template-columns: 20% 80%;
-
   .leftDiv {
-
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20%;
   }
 
   .rightDiv {
     background: #F5F5F5;
+    width: 80%;
+    position: fixed;
+    right: 0;
+    top: 0;
 
     :first-child {
       //height: 70px;
@@ -17,8 +21,9 @@
       box-sizing: border-box;
       padding: 20px;
       overflow-y: auto;
-      margin: 30px 20px 0 0;
+      margin: 0 20px 0 0;
       width: 100%;
+      height: calc(100vh - 80px);
     }
   }
 }

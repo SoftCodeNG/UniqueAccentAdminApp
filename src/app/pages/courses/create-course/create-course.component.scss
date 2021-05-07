@@ -48,7 +48,10 @@
         padding: 15px 10px;
         border-radius: 10px;
         border: solid 1px #707070;
-
+        height: 20px;
+        font-size: 1.2em;
+        color: #484848;
+        border: solid 1px #707070;
       }
 
     }
@@ -62,6 +65,15 @@
     box-sizing: border-box;
     gap: 0 10px;
 
+    button {
+      padding: 15px 20px;
+      border: none;
+      width: 200px;
+      background: #949494;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
     label {
       display: block;
       width: 100%;
@@ -78,11 +90,14 @@
 
       input {
         width: 50%;
-        //max-width: -webkit-fill-available;
+        max-width: -webkit-fill-available;
         padding: 15px 10px;
         border-radius: 10px;
         border: solid 1px #707070;
-
+        height: 20px;
+        font-size: 1.2em;
+        color: #484848;
+        border: solid 1px #707070;
       }
 
     }

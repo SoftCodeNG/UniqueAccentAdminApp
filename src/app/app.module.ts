@@ -29,7 +29,7 @@ import {environment} from '../environments/environment';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {AppState} from './store/app-store/app.state';
-import { FileManagerComponent } from './pages/file-manager/file-manager.component';
+import {FileManagerComponent} from './shared/components/file-manager/file-manager.component';
 
 @NgModule({
   declarations: [
