@@ -1,18 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {FileManagerService} from '../../core/services/file-manager.service';
+import {SetFileManagerState} from '../../../store/app-store/app.action';
+import {Store} from '@ngxs/store';
+import {FileManagerService} from '../../../core/services/file-manager.service';
 
 @Component({
-  selector: 'app-filemanager',
+  selector: 'app-file-manager',
   templateUrl: './file-manager.component.html',
   styleUrls: ['./file-manager.component.scss']
 })
 export class FileManagerComponent implements OnInit {
+  currentView = 'image';
   allMedia: any[];
   allImages: any[];
   allVideo: any[];
   allAudio: any[];
 
-  constructor(private fileManagerService: FileManagerService) { }
+  constructor(
+    private store: Store,
+    private fileManagerService: FileManagerService
+  ) { }
 
   ngOnInit(): void {
     this.getAllMedia();
@@ -47,5 +53,13 @@ export class FileManagerComponent implements OnInit {
       console.log(res);
       this.allAudio = res;
     });
+  }
+
+  hideFileManager(): void {
+    this.store.dispatch(new SetFileManagerState(false));
+  }
+
+  setCurrentView(view: string): void {
+    this.currentView = view;
   }
 }
