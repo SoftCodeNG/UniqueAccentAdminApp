@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CoursesService} from '../../../core/services/courses.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {SetFileManagerState, SetHeaderVisibility} from "../../../store/app-store/app.action";
-import {Store} from "@ngxs/store";
+import {SetFileManagerState, SetHeaderVisibility} from '../../../store/app-store/app.action';
+import {Store} from '@ngxs/store';
 
 @Component({
   selector: 'app-create-course',

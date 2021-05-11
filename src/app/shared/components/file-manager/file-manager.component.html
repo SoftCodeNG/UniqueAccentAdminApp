@@ -13,15 +13,40 @@
   </div>
 
   <div class="middle">
-    <h1>Images</h1>
-    <div>
-      <img src="../../../../assets/pexels-photo-2906458.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-3049263.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-2765107.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-5043917.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-2371535.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-7571030.jpg" alt="" />
-    </div>
+    <ng-container *ngIf="currentView === 'image'">
+      <h1>Images</h1>
+      <div>
+        <img
+          *ngFor="let image of allImages"
+          [src]="'https://unique-accent-api.herokuapp.com' + image.file"
+          (click)="selectedFile = 'https://unique-accent-api.herokuapp.com' + image.file"
+          [alt]="image.name"/>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="currentView === 'video'">
+      <h1>Videos</h1>
+      <div>
+        <img src="../../../../assets/pexels-photo-2906458.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-3049263.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-2765107.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-5043917.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-2371535.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-7571030.jpg" alt=""/>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="currentView === 'audio'">
+      <h1>Audio</h1>
+      <div>
+        <img src="../../../../assets/pexels-photo-2906458.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-3049263.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-2765107.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-5043917.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-2371535.jpg" alt=""/>
+        <img src="../../../../assets/pexels-photo-7571030.jpg" alt=""/>
+      </div>
+    </ng-container>
   </div>
 
   <div class="right ">

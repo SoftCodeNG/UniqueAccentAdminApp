@@ -9,6 +9,7 @@ import {FileManagerService} from '../../../core/services/file-manager.service';
   styleUrls: ['./file-manager.component.scss']
 })
 export class FileManagerComponent implements OnInit {
+  selectedFile: string;
   currentView = 'image';
   allMedia: any[];
   allImages: any[];
