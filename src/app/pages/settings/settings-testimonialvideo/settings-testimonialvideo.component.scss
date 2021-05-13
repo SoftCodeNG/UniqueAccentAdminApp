@@ -1,6 +1,6 @@
 .main {
    background-color: white;
-   height: 650px;
+   height: 680px;
 
 
 .boxed{
@@ -26,12 +26,11 @@
   }
 
   .serv {
-    background-color: #ff6600;
+    background-color: lightgray;
     font-size: 1.3em;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-     font-weight: bold;
 
 
     a:link, a:visited {
@@ -40,12 +39,14 @@
     }
   }
 
+
   .testimonials {
-    background-color: lightgray;
+    background-color: #ff6600;
     font-size: 1.3em;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
+    font-weight: bold;
 
 
     a:link, a:visited {
@@ -65,6 +66,18 @@
     a:link, a:visited {
       text-decoration: none;
       color: black;
+    }
+  }
+   .text-video{
+    display: flex;
+    padding: 30px 10%;
+    font-weight: bold;
+    font-size: 1.3em;
+    cursor: pointer;
+
+
+    .video{
+      margin-left: 40px;
     }
   }
 
@@ -147,7 +160,7 @@
       width: 100%;
       padding: 10px;
       box-sizing: border-box;
-        font-weight: bold;
+       font-weight: bold;
 
       span {
         display: block;
@@ -165,7 +178,6 @@
 
       }
       }
-
 
     }
 
@@ -189,6 +201,5 @@
         cursor: pointer;
       }
     }
-
 
 }

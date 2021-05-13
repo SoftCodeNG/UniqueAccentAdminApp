@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -30,6 +29,11 @@ import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {AppState} from './store/app-store/app.state';
 import { FileManagerComponent } from './pages/file-manager/file-manager.component';
+import { SettingsTestimonialComponent } from './pages/settings/settings-testimonial/settings-testimonial.component';
+import { SettingsHomepageSliderComponent } from './pages/settings/settings-homepage-slider/settings-homepage-slider.component';
+import { SettingsTestimonialvideoComponent } from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
+import { SettingsServicesComponent } from './pages/settings/settings-services/settings-services.component';
+import { SettingsTestimonialsComponent } from './pages/settings/settings-testimonials/settings-testimonials.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,12 @@ import { FileManagerComponent } from './pages/file-manager/file-manager.componen
     CreateLessonComponent,
     CourseDetailsComponent,
     LessonDetailsComponent,
-    FileManagerComponent
+    FileManagerComponent,
+    SettingsTestimonialComponent,
+    SettingsHomepageSliderComponent,
+    SettingsTestimonialvideoComponent,
+    SettingsServicesComponent,
+    SettingsTestimonialsComponent
   ],
   imports: [
     BrowserModule,

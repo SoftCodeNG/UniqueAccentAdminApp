@@ -1,0 +1,140 @@
+.main{
+  background-color: white;
+  height: 700px;
+
+  .boxed{
+    border: white solid 2px;
+     height: 100px;
+
+  }
+
+  .box {
+    height: 40px;
+    width: 900px;
+    display: flex;
+    background-color:#E4E4E4;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 115px;
+  }
+
+  .bar {
+    margin-left: 40px;
+    flex-grow: 0.1;
+  }
+
+  .serv {
+    background-color:darkgray;
+    font-size: 1.3em;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+
+
+    a:link, a:visited {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .testimonials {
+    background-color: #ff6600;
+    font-size: 1.3em;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+
+
+    a:link, a:visited {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .homepage {
+    background-color: darkgray;
+    font-size: 1.3em;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+
+
+    a:link, a:visited {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  .body{
+    display: flex;
+
+    .rightbar{
+      width: 700px;
+      height: 550px;
+      margin-right: 20px;
+      background-color: #888888;
+      padding: 20px;
+      .edit{
+        width: 100px;
+        margin-left: 500px;
+        color: white;
+        font-weight: bold;
+        background-color: black;
+        font-size: 1.3em;
+        text-align: center;
+        padding: 3px;
+        border-radius: 10%;
+      }
+      .intro{
+        display: flex;
+        padding-top: 20px;
+        height: 270px;
+        margin-right: 70px;
+        .name{
+          width: 400px;
+        }
+        .picture{
+           margin-left: 150px;
+        }
+      }
+
+    }
+    .leftbar{
+      width: 600px;
+      height: 560px;
+      margin-left: 80px;
+
+      .new{
+        color: white;
+        background-color: black;
+        text-align: center;
+        width: 300px;
+        font-weight: bold;
+        padding: 3px;
+        border-radius: 10%;
+        font-size: 1.3em;
+
+      }
+      .list{
+        margin-top: 20px;
+        margin-left: 10px;
+      div{
+        padding: 15px;
+        margin: 2px 0px 2px 2px;
+        background-color: lightgray;
+        text-align: center;
+        font-weight: bold;
+        width: 300px;
+        font-size: 1.5em;
+
+      }
+        .highlighted{
+          background-color: #888888;
+
+        }
+      }
+
+    }
+
+  }
+}
