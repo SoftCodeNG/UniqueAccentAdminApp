@@ -1,7 +1,12 @@
 <div class="mainDiv">
-  <div class="leftDiv" *ngIf="showHeader"><app-side-bar></app-side-bar></div>
+  <div class="leftDiv" *ngIf="showHeader">
+    <app-side-bar></app-side-bar>
+  </div>
   <div class="rightDiv">
     <div *ngIf="showHeader"><app-header></app-header></div>
-    <div class="mainArea"><router-outlet></router-outlet></div>
+    <div class="mainArea">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
+<app-file-manager *ngIf="showFileManager === true"></app-file-manager>

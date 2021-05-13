@@ -17,7 +17,6 @@ import {CreateCourseComponent} from './pages/courses/create-course/create-course
 import {CreateLessonComponent} from './pages/courses/create-lesson/create-lesson.component';
 import {CourseDetailsComponent} from './pages/courses/course-details/course-details.component';
 import {LessonDetailsComponent} from './pages/courses/lesson-details/lesson-details.component';
-import {FileManagerComponent} from './pages/file-manager/file-manager.component';
 
 const routes: Routes = [
   {
@@ -91,10 +90,6 @@ const routes: Routes = [
   {
     path: 'trainings/create-training/training-details',
     component: TrainingDetailsComponent
-  },
-  {
-    path: 'file-manager',
-    component: FileManagerComponent
   }
 ];
 

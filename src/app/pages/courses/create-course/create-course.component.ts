@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CoursesService} from '../../../core/services/courses.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {SetFileManagerState, SetHeaderVisibility} from "../../../store/app-store/app.action";
+import {Store} from "@ngxs/store";
 
 @Component({
   selector: 'app-create-course',
@@ -12,7 +14,8 @@ export class CreateCourseComponent implements OnInit {
 
   constructor(
     private coursesService: CoursesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private store: Store
   ) { }
 
   ngOnInit(): void {
@@ -32,5 +35,9 @@ export class CreateCourseComponent implements OnInit {
     if (this.createCourseForm.valid === true) {
 
     }
+  }
+
+  showFileManager(): void {
+    this.store.dispatch(new SetFileManagerState(true));
   }
 }

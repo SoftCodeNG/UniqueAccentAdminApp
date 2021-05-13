@@ -1,10 +1,10 @@
 import { State, Selector, Action, StateContext } from '@ngxs/store';
-import {SetHeaderVisibility} from './app.action';
+import {SetFileManagerState, SetHeaderVisibility} from './app.action';
 import {Injectable} from '@angular/core';
 
 export class AppStateModel {
   headerVisibility: string;
-
+  showFileManager: boolean;
 }
 
 @Injectable()
@@ -12,6 +12,7 @@ export class AppStateModel {
   name: 'App',
   defaults: {
     headerVisibility: 'visible',
+    showFileManager: false
   },
 })
 
@@ -19,6 +20,11 @@ export class AppState {
   @Selector()
   static getHeaderState(state: AppStateModel): string {
     return state.headerVisibility;
+  }
+  @Selector()
+  static getFileManagerState(state: AppStateModel): boolean {
+    console.log('QQQQQQQ: ', state.showFileManager);
+    return state.showFileManager;
   }
 
   //   actions
@@ -28,6 +34,15 @@ export class AppState {
     setState({
       ...state,
       headerVisibility,
+    });
+  }
+
+  @Action(SetFileManagerState)
+  setFileManagerState({ getState, setState }: StateContext<AppStateModel>, { fileManagerState }: SetFileManagerState): void {
+    const state = getState();
+    setState({
+      ...state,
+      showFileManager: fileManagerState,
     });
   }
 

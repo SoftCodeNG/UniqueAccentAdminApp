@@ -20,4 +20,31 @@ export class CoursesService {
         })
       );
   }
+
+  getCourseDetails(slug: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}courses/getCourseDetails/${slug}`)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
+
+  getCourseLessons(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}courses/getCourseLessons/${id}`)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
+
+  getLessonDetails(slug: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}courses/getLessonDetail/${slug}`)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
 }
