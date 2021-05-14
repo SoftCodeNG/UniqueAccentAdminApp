@@ -29,10 +29,6 @@
       <div>
         <img src="../../../../assets/pexels-photo-2906458.jpg" alt=""/>
         <img src="../../../../assets/pexels-photo-3049263.jpg" alt=""/>
-        <img src="../../../../assets/pexels-photo-2765107.jpg" alt=""/>
-        <img src="../../../../assets/pexels-photo-5043917.jpg" alt=""/>
-        <img src="../../../../assets/pexels-photo-2371535.jpg" alt=""/>
-        <img src="../../../../assets/pexels-photo-7571030.jpg" alt=""/>
       </div>
     </ng-container>
 
@@ -50,7 +46,7 @@
   </div>
 
   <div class="right ">
-    <img src="../../../../assets/pexels-photo-5043917.jpg" alt=""/>
+    <img [src]="'https://unique-accent-api.herokuapp.com'" [alt]=""/>
     <div class="buttonDiv">
       <button class="select">Select</button>
       <button class="cancel" (click)="hideFileManager()">Cancel</button>
