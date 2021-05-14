@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CoursesService} from '../../../core/services/courses.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SetFileManagerState, SetHeaderVisibility} from '../../../store/app-store/app.action';
@@ -16,24 +16,26 @@ export class CreateCourseComponent implements OnInit {
     private coursesService: CoursesService,
     private fb: FormBuilder,
     private store: Store
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.createCourseForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
       duration: ['2000', Validators.required],
-      thumbnail: ['', Validators.required],
-      video: ['', Validators.required],
+      thumbnail: ['https://uniqueaccent.com.ng/assets/courses/course2.jpg', Validators.required],
+      video: ['https://res.cloudinary.com/eden-life-inc/video/upload/v1612616596/eden-website-v2/EDEN_LIFE__q1rgcz.mp4', Validators.required],
       price: ['', Validators.required],
-      lessons: ['0', Validators.required],
-      isPublished: ['true', Validators.required],
     });
   }
 
   createCourse(): void {
     if (this.createCourseForm.valid === true) {
-
+      console.log(this.createCourseForm.value);
+      this.coursesService.createCourse(this.createCourseForm.value).subscribe(res => {
+        console.log(res);
+      });
     }
   }
 
