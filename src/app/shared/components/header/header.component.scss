@@ -6,5 +6,29 @@
   //font-family: 'Averia Serif Libre', cursive;
   color: black;
   padding: 0 20px;
-  background: #FFFFFF;
+  background: #E4E4E4;
+
+  .logout {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    .user {
+      background: #B4B4B4;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+      padding: 10px 20px;
+      font-size: 1.5em;
+      font-weight: 900;
+      border-radius: 10px;
+    }
+
+    .powerButton {
+      font-size: 1.8em;
+      background: #B4B4B4;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+      padding: 5px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
 }

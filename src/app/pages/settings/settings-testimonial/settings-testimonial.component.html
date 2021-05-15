@@ -1,57 +1,62 @@
 <div class="main">
- <div class="boxed">
-     <div class="box">
-          <div class="bar serv"> <a href="">Services</a></div>
-          <div class="bar testimonials">
-             <a href="">Testimonials</a>
-          </div>
-           <div class="bar homepage">
-             <a href="">Homepage Slider</a>
-          </div>
+  <div class="boxed">
+    <div class="box">
+      <div class="bar serv"><a href="">Services</a></div>
+      <div class="bar testimonials">
+        <a href="">Testimonials</a>
+      </div>
+      <div class="bar homepage">
+        <a href="">Homepage Slider</a>
+      </div>
+    </div>
+    <div class="text-video">
+      <div class="text">
+        <label>
+          <input type="radio" checked>
+          <span>Text Testimonial</span>
+        </label>
+      </div>
+
+      <div class="video">
+        <label>
+          <input type="radio">
+          <span>Video Testimonial</span>
+        </label>
+      </div>
+
+    </div>
+    <ng-container>
+      <div class="settingsRow1">
+        <label>
+          <span>Name</span>
+          <input formControlName="title" type="text">
+        </label>
+      </div>
+
+
+      <div class="settingsRow2">
+        <div>
+          <label>
+            <span>Avater</span>
+            <input formControlName="thumbnail" type="text" placeholder="select an image">
+          </label>
         </div>
-  <div class="text-video">
-    <div class="text">
-       <input type="radio" checked>
-      <label for="">Text Testimonial</label><br>
-    </div>
-
-    <div class="video">
-       <input type="radio">
-    <label for="">Video Testimonial</label><br>
-    </div>
-
-  </div>
-  <ng-container [formGroup]>
-    <div class="settingsRow1">
-      <label>
-        <span>Name</span>
-        <input formControlName="title" type="text">
-      </label>
-    </div>
-
-
-        <div class="settingsRow2">
-          <div>
-            <label>
-              <span>Avater</span>
-              <input formControlName="thumbnail" type="text" placeholder= "select an image">
-            </label>
-          </div>
-          <div class="subtext">
-            <label>
-              <span>SubText</span>
-              <input formControlName="thumbnail" type="text">
-            </label>
-          </div>
+        <div class="subtext">
+          <label>
+            <span>SubText</span>
+            <input formControlName="thumbnail" type="text">
+          </label>
         </div>
+      </div>
       <div class="row3">
         <label>
           <span>Description</span>
           <textarea formControlName="description"></textarea>
         </label>
       </div>
-    <div class="saveButton">
+      <div class="saveButton">
         <button routerLink="quiz-details">Save</button>
-    </div>
-
-
+      </div>
+    </ng-container>
+  </div>
+</div>

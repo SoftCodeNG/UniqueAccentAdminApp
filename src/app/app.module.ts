@@ -28,7 +28,6 @@ import {environment} from '../environments/environment';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {AppState} from './store/app-store/app.state';
-import { FileManagerComponent } from './pages/file-manager/file-manager.component';
 import { SettingsTestimonialComponent } from './pages/settings/settings-testimonial/settings-testimonial.component';
 import { SettingsHomepageSliderComponent } from './pages/settings/settings-homepage-slider/settings-homepage-slider.component';
 import { SettingsTestimonialvideoComponent } from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
@@ -57,7 +56,6 @@ import { SettingsTestimonialsComponent } from './pages/settings/settings-testimo
     CreateLessonComponent,
     CourseDetailsComponent,
     LessonDetailsComponent,
-    FileManagerComponent,
     SettingsTestimonialComponent,
     SettingsHomepageSliderComponent,
     SettingsTestimonialvideoComponent,

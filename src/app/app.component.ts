@@ -11,10 +11,11 @@ import {SetHeaderVisibility} from "./store/app-store/app.action";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-
   showHeader: boolean;
+  showFileManager: boolean;
 
   @Select(AppState.getHeaderState) headerState$: Observable<string>;
+  @Select(AppState.getFileManagerState) fileManagerState$: Observable<boolean>;
 
   constructor(
     private router: Router,
@@ -30,5 +31,10 @@ export class AppComponent implements OnInit{
     this.headerState$.subscribe(headerVisibility => {
       this.showHeader = headerVisibility === 'visible';
     });
+    this.fileManagerState$.subscribe(res => {
+      this.showFileManager = res;
+      console.log('res: ', res)
+    });
+
   }
 }
