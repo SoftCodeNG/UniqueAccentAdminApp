@@ -3,6 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {CoursesComponent} from './pages/courses/courses.component';
 import {SettingsComponent} from './pages/settings/settings.component';
+import {SettingsTestimonialComponent} from './pages/settings/settings-testimonial/settings-testimonial.component';
+import {SettingsHomepageSliderComponent} from './pages/settings/settings-homepage-slider/settings-homepage-slider.component';
+import {SettingsTestimonialvideoComponent} from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
+import {SettingsServicesComponent} from './pages/settings/settings-services/settings-services.component';
+import {SettingsTestimonialsComponent} from './pages/settings/settings-testimonials/settings-testimonials.component';
 import {AudioQuizComponent} from './pages/audio-quiz/audio-quiz.component';
 import {TrainingsComponent} from './pages/trainings/trainings.component';
 import {UsersComponent} from './pages/users/users.component';
@@ -17,6 +22,9 @@ import {CreateCourseComponent} from './pages/courses/create-course/create-course
 import {CreateLessonComponent} from './pages/courses/create-lesson/create-lesson.component';
 import {CourseDetailsComponent} from './pages/courses/course-details/course-details.component';
 import {LessonDetailsComponent} from './pages/courses/lesson-details/lesson-details.component';
+
+
+
 
 const routes: Routes = [
   {
@@ -62,6 +70,26 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent
+  },
+  {
+    path: 'settings-testimonial',
+    component: SettingsTestimonialComponent
+  },
+   {
+    path: 'settings-homepage-slider',
+    component: SettingsHomepageSliderComponent
+  },
+  {
+    path: 'settings-testimonial-video',
+    component: SettingsTestimonialvideoComponent
+  },
+  {
+    path: 'settings-services',
+    component: SettingsServicesComponent
+  },
+  {
+    path: 'settings-testimonials',
+    component: SettingsTestimonialsComponent
   },
   {
     path: 'audio-quiz/create-quiz',
