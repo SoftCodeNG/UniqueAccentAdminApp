@@ -21,7 +21,12 @@ import {environment} from '../environments/environment';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {AppState} from './store/app-store/app.state';
-import {SharedModule} from "./shared/shared.module";
+import {SharedModule} from './shared/shared.module';
+import { SettingsTestimonialComponent } from './pages/settings/settings-testimonial/settings-testimonial.component';
+import { SettingsHomepageSliderComponent } from './pages/settings/settings-homepage-slider/settings-homepage-slider.component';
+import { SettingsTestimonialvideoComponent } from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
+import { SettingsServicesComponent } from './pages/settings/settings-services/settings-services.component';
+import { SettingsTestimonialsComponent } from './pages/settings/settings-testimonials/settings-testimonials.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,13 @@ import {SharedModule} from "./shared/shared.module";
     CreateTextQuestionComponent,
     TrainingDetailsComponent,
     AudioQuestionComponent,
-    AudioQuestionReplayComponent
+    AudioQuestionReplayComponent,
+    AudioQuestionReplayComponent,
+    SettingsTestimonialComponent,
+    SettingsHomepageSliderComponent,
+    SettingsTestimonialvideoComponent,
+    SettingsServicesComponent,
+    SettingsTestimonialsComponent
   ],
   imports: [
     BrowserModule,

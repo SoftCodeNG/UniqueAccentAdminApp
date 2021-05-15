@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {SettingsComponent} from './pages/settings/settings.component';
+import {SettingsTestimonialComponent} from './pages/settings/settings-testimonial/settings-testimonial.component';
+import {SettingsHomepageSliderComponent} from './pages/settings/settings-homepage-slider/settings-homepage-slider.component';
+import {SettingsTestimonialvideoComponent} from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
+import {SettingsServicesComponent} from './pages/settings/settings-services/settings-services.component';
+import {SettingsTestimonialsComponent} from './pages/settings/settings-testimonials/settings-testimonials.component';
 import {AudioQuizComponent} from './pages/audio-quiz/audio-quiz.component';
 import {TrainingsComponent} from './pages/trainings/trainings.component';
 import {UsersComponent} from './pages/users/users.component';
@@ -12,6 +17,9 @@ import {CreateTextQuestionComponent} from './pages/audio-quiz/create-text-questi
 import {TrainingDetailsComponent} from './pages/trainings/training-details/training-details.component';
 import {AudioQuestionComponent} from './pages/audio-quiz/audio-question/audio-question.component';
 import {AudioQuestionReplayComponent} from './pages/audio-quiz/audio-question-replay/audio-question-replay.component';
+
+
+
 
 const routes: Routes = [
   {
@@ -41,6 +49,26 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent
+  },
+  {
+    path: 'settings-testimonial',
+    component: SettingsTestimonialComponent
+  },
+   {
+    path: 'settings-homepage-slider',
+    component: SettingsHomepageSliderComponent
+  },
+  {
+    path: 'settings-testimonial-video',
+    component: SettingsTestimonialvideoComponent
+  },
+  {
+    path: 'settings-services',
+    component: SettingsServicesComponent
+  },
+  {
+    path: 'settings-testimonials',
+    component: SettingsTestimonialsComponent
   },
   {
     path: 'audio-quiz/create-quiz',
