@@ -1,14 +1,16 @@
 <div class="main">
-  <div class="boxed">
-     <div class="box">
-          <div class="bar serv"> <a href="">Services</a></div>
-          <div class="bar testimonials">
-             <a href="">Testimonials</a>
-          </div>
-           <div class="bar homepage">
-             <a href="">Homepage Slider</a>
-          </div>
+   <div class="box">
+        <div class="bar services">
+          <a routerLink="quiz-details">Services</a>
         </div>
+        <div class="bar testimonials">
+          <a routerLink="quiz-details">Testimonials</a>
+        </div>
+        <div class="bar homepage">
+          <a routerLink="quiz-details">Homepage Slider</a>
+        </div>
+  </div>
+
   <div class="text-video">
     <div class="text">
 
@@ -35,23 +37,24 @@
     </div>
 
 
-        <div class="settingsRow2">
-          <div>
-            <label>
-              <span>Avater</span>
-              <input formControlName="thumbnail" type="text" placeholder= "select an image">
-            </label>
-          </div>
-          <div class="subtext">
-            <label>
-              <span>SubText</span>
-              <input formControlName="thumbnail" type="text">
-            </label>
+    <div class="settingsRow2">
+        <div>
+          <div class="avater">
+            <span>Avater</span>
+            <button>Select an image</button>
           </div>
         </div>
+        <div class="subtext">
+          <label>
+            <span>SubText</span>
+            <input formControlName="thumbnail" type="text">
+          </label>
+        </div>
+    </div>
+
       <div class="row3">
         <label>
-          <span>Description</span>
+          <span>Testimonials</span>
           <textarea formControlName="description"></textarea>
         </label>
       </div>
@@ -61,5 +64,4 @@
 
 
 </ng-container>
-  </div>
-</div>
+
