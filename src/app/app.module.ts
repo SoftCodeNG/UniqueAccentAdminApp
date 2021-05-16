@@ -27,7 +27,6 @@ import { SettingsHomepageSliderComponent } from './pages/settings/settings-homep
 import { SettingsTestimonialvideoComponent } from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
 import { SettingsServicesComponent } from './pages/settings/settings-services/settings-services.component';
 import { SettingsTestimonialsComponent } from './pages/settings/settings-testimonials/settings-testimonials.component';
-
 @NgModule({
   declarations: [
     AppComponent,
