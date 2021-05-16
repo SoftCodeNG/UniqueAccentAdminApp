@@ -63,4 +63,20 @@ export class CoursesService {
         })
       );
   }
+
+ createLesson(data: any): Observable<any> {
+    const payload = new FormData();
+    payload.append('title', data.title);
+    payload.append('duration', data.duration);
+    payload.append('courseId', data.courseId);
+    payload.append('thumbnail', data.thumbnail);
+    payload.append('description', data.description);
+    payload.append('video', data.video);
+    return this.http.post<any>(`${this.baseURL}courses/createLesson`, payload)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
 }
