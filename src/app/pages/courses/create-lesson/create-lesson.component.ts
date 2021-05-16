@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CoursesService} from '../../../core/services/courses.service';
 import {Store} from '@ngxs/store';
-import {SetFileManagerState} from "../../../store/app-store/app.action";
+import {SetFileManagerState} from '../../../store/app-store/app.action';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-create-lesson',
@@ -11,16 +12,22 @@ import {SetFileManagerState} from "../../../store/app-store/app.action";
 })
 export class CreateLessonComponent implements OnInit {
   createLessonForm: FormGroup;
+  courseId: number;
 
   constructor(
     private coursesService: CoursesService,
     private fb: FormBuilder,
-    private store: Store) {
+    private store: Store,
+    private activatedRoute: ActivatedRoute
+  ) {
   }
 
   ngOnInit(): void {
+    this.courseId = this.activatedRoute.snapshot.params.id;
+
+
     this.createLessonForm = this.fb.group({
-      courseId: ['', Validators.required],
+      courseId: [this.courseId, Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
       duration: ['2000', Validators.required],
@@ -30,8 +37,8 @@ export class CreateLessonComponent implements OnInit {
   }
 
   createLesson(): void {
+    console.log(this.createLessonForm.value);
     if (this.createLessonForm.valid === true) {
-      console.log(this.createLessonForm.value);
       this.coursesService.createLesson(this.createLessonForm.value).subscribe(res => {
         console.log(res);
       });

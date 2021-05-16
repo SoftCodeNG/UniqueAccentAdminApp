@@ -23,7 +23,7 @@
           <td>{{course.purchases}}</td>
           <td>{{course.lessons}}</td>
           <td>
-             <a href>View</a>
+             <button [routerLink]="'/courses/course-details/' + course.slug">View</button>
           </td>
         </tr>
 
