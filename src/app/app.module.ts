@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { CoursesComponent } from './pages/courses/courses.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { AudioQuizComponent } from './pages/audio-quiz/audio-quiz.component';
 import { TrainingsComponent } from './pages/trainings/trainings.component';
@@ -18,10 +14,6 @@ import { CreateTextQuestionComponent } from './pages/audio-quiz/create-text-ques
 import { TrainingDetailsComponent } from './pages/trainings/training-details/training-details.component';
 import { AudioQuestionComponent } from './pages/audio-quiz/audio-question/audio-question.component';
 import { AudioQuestionReplayComponent } from './pages/audio-quiz/audio-question-replay/audio-question-replay.component';
-import { CreateCourseComponent } from './pages/courses/create-course/create-course.component';
-import { CreateLessonComponent } from './pages/courses/create-lesson/create-lesson.component';
-import { CourseDetailsComponent } from './pages/courses/course-details/course-details.component';
-import { LessonDetailsComponent } from './pages/courses/lesson-details/lesson-details.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxsModule} from '@ngxs/store';
@@ -29,15 +21,17 @@ import {environment} from '../environments/environment';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {AppState} from './store/app-store/app.state';
-import {FileManagerComponent} from './shared/components/file-manager/file-manager.component';
+import {SharedModule} from './shared/shared.module';
+import { SettingsTestimonialComponent } from './pages/settings/settings-testimonial/settings-testimonial.component';
+import { SettingsHomepageSliderComponent } from './pages/settings/settings-homepage-slider/settings-homepage-slider.component';
+import { SettingsTestimonialvideoComponent } from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
+import { SettingsServicesComponent } from './pages/settings/settings-services/settings-services.component';
+import { SettingsTestimonialsComponent } from './pages/settings/settings-testimonials/settings-testimonials.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SideBarComponent,
     DashboardComponent,
-    CoursesComponent,
     SettingsComponent,
     AudioQuizComponent,
     TrainingsComponent,
@@ -49,17 +43,19 @@ import {FileManagerComponent} from './shared/components/file-manager/file-manage
     TrainingDetailsComponent,
     AudioQuestionComponent,
     AudioQuestionReplayComponent,
-    CreateCourseComponent,
-    CreateLessonComponent,
-    CourseDetailsComponent,
-    LessonDetailsComponent,
-    FileManagerComponent
+    AudioQuestionReplayComponent,
+    SettingsTestimonialComponent,
+    SettingsHomepageSliderComponent,
+    SettingsTestimonialvideoComponent,
+    SettingsServicesComponent,
+    SettingsTestimonialsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    SharedModule,
     NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production
     }),

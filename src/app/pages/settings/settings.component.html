@@ -1,1 +1,44 @@
-<h1>settings works!</h1>
+<div class="main">
+  <div class="box">
+    <div class="bar serv">
+      <a href="">Services</a>
+    </div>
+    <div class="bar testimonials">
+      <a href="">Testimonials</a>
+    </div>
+    <div class="bar homepage">
+      <a href="">Homepage Slider</a>
+    </div>
+  </div>
+
+  <ng-container>
+    <div class="settingsRow1">
+      <label>
+        <span>Title</span>
+        <input formControlName="title" type="text">
+      </label>
+    </div>
+
+
+    <div class="settingsRow2">
+      <div>
+        <span>Thumbnail</span>
+        <button>Select an image</button>
+      </div>
+        <label>
+        <span>Featured</span>
+        <input type="text" placeholder="">
+      </label>
+    </div>
+    <div class="row3">
+      <label>
+        <span>Description</span>
+        <textarea formControlName="description" ></textarea>
+      </label>
+    </div>
+      <div class="saveButton">
+        <button routerLink="quiz-details">Save</button>
+      </div>
+  </ng-container>
+
+</div>

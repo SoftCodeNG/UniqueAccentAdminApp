@@ -1,27 +1,37 @@
 .main {
-   height: 650px;
+   background-color: white;
+   height: 680px;
+
+
+.boxed{
+    border: white solid 2px;
+     height: 100px;
+
+  }
 
   .box {
     height: 40px;
-    width: 80%;
-    margin: 20px 10%;
+    width: 900px;
     display: flex;
     background-color:#E4E4E4;
     padding: 5px;
+    margin-top: 20px;
+    margin-left: 115px;
   }
 
   .bar {
     margin-left: 40px;
     flex-grow: 0.1;
+
   }
 
   .serv {
-    background-color: #ff6600;
+    background-color: lightgray;
     font-size: 1.3em;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-    font-weight: bold;
+
 
     a:link, a:visited {
       text-decoration: none;
@@ -30,11 +40,13 @@
   }
 
   .testimonials {
-    background-color: lightgray;
+    background-color: #ff6600;
     font-size: 1.3em;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
+    font-weight: bold;
+
 
     a:link, a:visited {
       text-decoration: none;
@@ -55,19 +67,35 @@
       color: black;
     }
   }
+  .text-video{
+    display: flex;
+    padding: 30px 10%;
+    font-weight: bold;
+    font-size: 1.3em;
+    cursor: pointer;
+
+
+    .video{
+      margin-left: 40px;
+    }
+  }
 
   .settingsRow1 {
     width: 100%;
     display: grid;
+    grid-template-columns: 50% 50%;
+    //justify-content: space-between;
     box-sizing: border-box;
+    gap: 0 10px;
     padding: 10px 10%;
-    font-weight: bold;
+     font-weight: bold;
 
     label {
       display: block;
       width: 100%;
       padding: 10px;
       box-sizing: border-box;
+
 
       span {
         display: block;
@@ -82,8 +110,11 @@
         padding: 15px 10px;
         border-radius: 5px;
         border: solid 1px #707070;
+
       }
+
     }
+
   }
 
    .settingsRow2 {
@@ -122,39 +153,34 @@
 
      }
    }
-  .row3 {
-    width: 100%;
-    display: grid;
-    box-sizing: border-box;
-    padding: 10px 10%;
-    font-weight: bold;
-
-    label {
-      display: block;
+    .row3 {
+      padding: 10px 10%;
+     label {
       width: 100%;
       padding: 10px;
       box-sizing: border-box;
+       font-weight: bold;
 
       span {
         display: block;
         margin-bottom: 5px;
         font-size: 26px;
-
       }
 
       textarea {
         width: 100%;
-        height: 130px;
-        max-width: -webkit-fill-available;
-        padding: 15px 10px;
+        padding: 10px 20px;
         border-radius: 5px;
         border: solid 1px #707070;
+        max-width: 800px;
+        height: 130px;
+
       }
+      }
+
     }
-  }
 
-
-  .saveButton {
+    .saveButton {
       margin-bottom: 10px;
       text-align: end;
       padding: 10px 10%;
@@ -174,4 +200,5 @@
         cursor: pointer;
       }
     }
+
 }
