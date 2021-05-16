@@ -47,4 +47,15 @@ export class FileManagerService {
         })
       );
   }
+
+  uploadMedia(file: any): Observable<any> {
+    const payload = new FormData();
+    payload.append('file', file);
+    return this.http.post<any>(`${this.baseURL}media/uploadMedia`, payload)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
 }
