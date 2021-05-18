@@ -16,7 +16,7 @@ const routes: Routes = [
     component: CreateCourseComponent
   },
   {
-    path: 'create-lesson/:id',
+    path: 'create-lesson/:slug',
     component: CreateLessonComponent
   },
   {
