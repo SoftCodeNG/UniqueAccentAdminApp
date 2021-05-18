@@ -42,12 +42,14 @@
 <!--video: "https://res.cloudinary.com/eden-life-inc/video/upload/v1612616596/eden-website-v2/EDEN_LIFE__q1rgcz.mp4"-->
 
         <tr *ngFor="let lesson of lessons">
-          <td>{{lesson.thumbnail}}</td>
+          <td>
+            <img [src]="lesson.thumbnail" alt="lesson thumbnail" style="width: 80px; height:80px">
+          </td>
           <td>{{lesson.title}}</td>
           <td>{{lesson.description}}</td>
           <td>{{lesson.duration}}</td>
           <td>
-             <a href>View</a>
+             <button>View</button>
           </td>
         </tr>
 
