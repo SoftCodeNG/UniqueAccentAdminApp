@@ -2,7 +2,7 @@
   <div class="left">
     <label class="uploadAFile">
       <span>Upload a file</span>
-      <input type="file">
+      <input type="file" accept="image/*, video/mp4, audio/*" (change)="selectFile($event)">
     </label>
 
     <div class="nav">
@@ -13,19 +13,45 @@
   </div>
 
   <div class="middle">
-    <h1>Images</h1>
-    <div>
-      <img src="../../../../assets/pexels-photo-2906458.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-3049263.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-2765107.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-5043917.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-2371535.jpg" alt="" />
-      <img src="../../../../assets/pexels-photo-7571030.jpg" alt="" />
-    </div>
+    <ng-container *ngIf="currentView === 'image'">
+      <h1>Images</h1>
+      <div>
+        <img
+          *ngFor="let image of allImages"
+          [src]="baseURL.slice(0, -1) + image.file"
+          (click)="selectedFile = baseURL.slice(0, -1) + image.file"
+          [alt]="image.name"/>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="currentView === 'video'">
+      <h1>Videos</h1>
+      <div>
+        <video
+          class="video"
+          controls
+          *ngFor="let video of allVideo"
+          [src]="baseURL.slice(0, -1) + video.file"
+          (click)="selectedFile = baseURL.slice(0, -1) + video.file"
+        ></video>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="currentView === 'audio'">
+      <h1>Audio</h1>
+      <div>
+        <audio
+          controls
+          *ngFor="let audio of allAudio"
+          [src]="baseURL.slice(0, -1) + audio.file"
+          (click)="selectedFile = baseURL.slice(0, -1) + audio.file"
+        ></audio>
+      </div>
+    </ng-container>
   </div>
 
   <div class="right ">
-    <img src="../../../../assets/pexels-photo-5043917.jpg" alt=""/>
+    <img [src]="'https://unique-accent-api.herokuapp.com'" [alt]=""/>
     <div class="buttonDiv">
       <button class="select">Select</button>
       <button class="cancel" (click)="hideFileManager()">Cancel</button>

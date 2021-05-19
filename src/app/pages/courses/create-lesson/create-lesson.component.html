@@ -1,12 +1,13 @@
 <div class="createLessonDiv">
   <div class="nextButton">
-    <button routerLink="course-details">Next</button>
+    <button (click)="createLesson()">Next</button>
   </div>
 
+ <ng-container [formGroup]="createLessonForm">
   <div class="createLessonRow1">
       <label>
         <span>Title</span>
-        <input type="text"  placeholder="Enter a title">
+        <input formControlName="title" type="text"  placeholder="Enter a title">
       </label>
     </div>
 
@@ -14,13 +15,13 @@
     <div>
       <label>
         <span>Thumbnail</span>
-        <input type="text" placeholder="Select an image">
+        <input (click)="showFileManager()" placeholder="Select an image">
       </label>
     </div>
     <div>
       <label>
         <span>Preview</span>
-        <input type="text" placeholder="Select a video">
+        <input (click)="showFileManager()" placeholder="Select a video">
       </label>
     </div>
   </div>
@@ -28,7 +29,8 @@
   <div class="row3">
     <label>
       <span>Description</span>
-      <input type="text">
+      <textarea formControlName="description"></textarea>
     </label>
   </div>
+   </ng-container>
 </div>

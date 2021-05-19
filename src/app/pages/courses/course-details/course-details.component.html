@@ -24,18 +24,28 @@
       <table>
         <thead>
         <tr>
+          <th>THUMBNAIL</th>
           <th>TITLE</th>
-          <th>PRICE</th>
-          <th>PURCHASES</th>
-          <th>LESSONS</th>
+          <th>DESCRIPTION</th>
+          <th>DURATION</th>
           <th>ACTION</th>
         </tr>
+<!--courseId: 48-->
+<!--createdAt: "2021-05-16T17:46:14.564568Z"-->
+<!--description: "t gfjf jf jhgijkhkj gfk"-->
+<!--duration: 2000-->
+<!--id: 15-->
+<!--slug: "lesson-102"-->
+<!--thumbnail: "https://uniqueaccent.com.ng/assets/courses/course2.jpg"-->
+<!--title: "Lesson 102"-->
+<!--updatedAt: "2021-05-16T17:46:14.564596Z"-->
+<!--video: "https://res.cloudinary.com/eden-life-inc/video/upload/v1612616596/eden-website-v2/EDEN_LIFE__q1rgcz.mp4"-->
 
-        <tr>
-          <td>{{courseDetails.title}}</td>
-          <td>{{courseDetails.price}}</td>
-          <td>{{courseDetails.purchases}}</td>
-          <td>{{courseDetails.lessons}}</td>
+        <tr *ngFor="let lesson of lessons">
+          <td>{{lesson.thumbnail}}</td>
+          <td>{{lesson.title}}</td>
+          <td>{{lesson.description}}</td>
+          <td>{{lesson.duration}}</td>
           <td>
              <a href>View</a>
           </td>

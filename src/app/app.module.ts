@@ -51,10 +51,7 @@ import { UserNewStaffComponent } from './pages/users/user-new-staff/user-new-sta
     SettingsHomepageSliderComponent,
     SettingsTestimonialvideoComponent,
     SettingsServicesComponent,
-    SettingsTestimonialsComponent,
-    UserDisableUserComponent,
-    UserStaffComponent,
-    UserNewStaffComponent
+    SettingsTestimonialsComponent
   ],
   imports: [
     BrowserModule,

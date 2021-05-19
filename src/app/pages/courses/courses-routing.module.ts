@@ -16,11 +16,11 @@ const routes: Routes = [
     component: CreateCourseComponent
   },
   {
-    path: 'create-lesson',
+    path: 'create-lesson/:id',
     component: CreateLessonComponent
   },
   {
-    path: 'course-details',
+    path: 'course-details/:slug',
     component: CourseDetailsComponent
   },
   {
