@@ -27,7 +27,7 @@ import { SettingsHomepageSliderComponent } from './pages/settings/settings-homep
 import { SettingsTestimonialvideoComponent } from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
 import { SettingsServicesComponent } from './pages/settings/settings-services/settings-services.component';
 import { SettingsTestimonialsComponent } from './pages/settings/settings-testimonials/settings-testimonials.component';
-import { QuizDetails1Component } from './quiz-details1/quiz-details1.component';
+import { QuizDetails1Component } from './pages/audio-quiz/quiz-details1/quiz-details1.component';
 import { QuizDetails2Component } from './pages/audio-quiz/quiz-details2/quiz-details2.component';
 import { QuizDetails3Component } from './pages/audio-quiz/quiz-details3/quiz-details3.component';
 import { QuizDetails4Component } from './pages/audio-quiz/quiz-details4/quiz-details4.component';
