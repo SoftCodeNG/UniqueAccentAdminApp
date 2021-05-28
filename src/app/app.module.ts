@@ -27,6 +27,10 @@ import { SettingsHomepageSliderComponent } from './pages/settings/settings-homep
 import { SettingsTestimonialvideoComponent } from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
 import { SettingsServicesComponent } from './pages/settings/settings-services/settings-services.component';
 import { SettingsTestimonialsComponent } from './pages/settings/settings-testimonials/settings-testimonials.component';
+import { UserDisableUserComponent } from './pages/users/user-disable-user/user-disable-user.component';
+import { UserStaffComponent } from './pages/users/user-staff/user-staff.component';
+import { UserNewStaffComponent } from './pages/users/user-new-staff/user-new-staff.component';
+
 @NgModule({
   declarations: [
     AppComponent,

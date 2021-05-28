@@ -1,13 +1,13 @@
 <div class="main">
   <div class="box">
-    <div class="bar serv">
-      <a href="">Services</a>
+    <div class="bar services">
+      <a routerLink="quiz-details">Services</a>
     </div>
     <div class="bar testimonials">
-      <a href="">Testimonials</a>
+      <a routerLink="quiz-details">Testimonials</a>
     </div>
     <div class="bar homepage">
-      <a href="">Homepage Slider</a>
+      <a routerLink="quiz-details">Homepage Slider</a>
     </div>
   </div>
 
@@ -20,13 +20,18 @@
     </div>
 
     <div class="settingsRow2">
-      <div>
+      <div class="thumbnail">
         <span>Thumbnail</span>
         <button>Select an image</button>
       </div>
         <label>
         <span>Featured</span>
-        <input type="text" placeholder="">
+          <select id="cars" name="cars">
+              <option value=""></option>
+              <option value=""></option>
+              <option value="" selected></option>
+              <option value=""></option>
+          </select>
       </label>
     </div>
     <div class="row3">
