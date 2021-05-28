@@ -1,22 +1,14 @@
 .main {
-   background-color: white;
    height: 680px;
 
-
-.boxed{
-    border: white solid 2px;
-     height: 100px;
-
-  }
-
-  .box {
+ .box {
     height: 40px;
-    width: 900px;
+    width: 80%;
+    margin: 20px 10%;
     display: flex;
     background-color:#E4E4E4;
     padding: 5px;
-    margin-top: 20px;
-    margin-left: 115px;
+    cursor: pointer;
   }
 
   .bar {
@@ -25,7 +17,7 @@
 
   }
 
-  .serv {
+  .services {
     background-color: lightgray;
     font-size: 1.3em;
     padding: 10px;
@@ -84,8 +76,6 @@
   .settingsRow1 {
     width: 100%;
     display: grid;
-    grid-template-columns: 50% 50%;
-    //justify-content: space-between;
     box-sizing: border-box;
     gap: 0 10px;
     padding: 10px 10%;
@@ -111,6 +101,7 @@
         padding: 15px 10px;
         border-radius: 5px;
         border: solid 1px #707070;
+          font-size: 1.5em;
 
       }
 
@@ -118,41 +109,46 @@
 
   }
 
-   .settingsRow2 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    //justify-content: space-between;
-    box-sizing: border-box;
-    gap: 0 10px;
-    padding: 10px 10%;
-      font-weight: bold;
-
-    label {
-      display: block;
+  .settingsRow2 {
       width: 100%;
-      padding: 10px;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      //justify-content: space-between;
       box-sizing: border-box;
-
+      gap: 0 10px;
+      padding: 10px 10%;
+      font-weight: bold;
 
       span {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         font-size: 26px;
-
       }
+       button{
+         background-color: white;
+          width: 30%;
+          padding: 10px 7px;
+          border-radius: 5px;
+          border: solid 1px #707070;
+          cursor: pointer;
 
+        }
+    .avater{
+      width: 400px;
+
+    }
+    .subtext{
+      width: 550px;
+      margin-right: 200px;
+    }
       input {
-        width: 50%;
-        //max-width: -webkit-fill-available;
+        width: 420px;
         padding: 15px 10px;
         border-radius: 5px;
         border: solid 1px #707070;
         cursor: pointer;
 
       }
-
-     }
    }
     .row3 {
       padding: 10px 10%;
@@ -175,6 +171,7 @@
         border: solid 1px #707070;
         max-width: 800px;
         height: 130px;
+          font-size: 2em;
 
       }
       }

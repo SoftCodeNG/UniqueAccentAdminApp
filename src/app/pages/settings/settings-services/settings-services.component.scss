@@ -1,21 +1,15 @@
 .main{
-  background-color: white;
   height: 700px;
 
-  .boxed{
-    border: white solid 2px;
-     height: 100px;
 
-  }
-
-  .box {
+ .box {
     height: 40px;
-    width: 900px;
+    width: 80%;
+    margin: 20px 10%;
     display: flex;
     background-color:#E4E4E4;
     padding: 5px;
-    margin-top: 20px;
-    margin-left: 115px;
+    cursor: pointer;
   }
 
   .bar {
@@ -23,7 +17,7 @@
     flex-grow: 0.1;
   }
 
-  .serv {
+  .services{
     background-color:darkgray;
     font-size: 1.3em;
     padding: 10px;
@@ -126,6 +120,7 @@
         font-weight: bold;
         width: 300px;
         font-size: 1.5em;
+        cursor: pointer;
 
       }
         .highlighted{
