@@ -8,6 +8,7 @@
     display: flex;
     background-color:#E4E4E4;
     padding: 5px;
+    cursor: pointer;
   }
 
   .bar {
@@ -15,7 +16,7 @@
     flex-grow: 0.1;
   }
 
-  .serv {
+  .services {
     background-color: #ff6600;
     font-size: 1.3em;
     padding: 10px;
@@ -82,35 +83,36 @@
         padding: 15px 10px;
         border-radius: 5px;
         border: solid 1px #707070;
+         font-size: 1.3em;
       }
     }
   }
 
    .settingsRow2 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    //justify-content: space-between;
-    box-sizing: border-box;
-    gap: 0 10px;
-    padding: 10px 10%;
-      font-weight: bold;
-
-    label {
-      display: block;
       width: 100%;
-      padding: 10px;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      //justify-content: space-between;
       box-sizing: border-box;
-
+      gap: 0 10px;
+      padding: 10px 10%;
+      font-weight: bold;
 
       span {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         font-size: 26px;
-
       }
+       button{
+         background-color: white;
+          width: 30%;
+          padding: 10px 7px;
+          border-radius: 5px;
+          border: solid 1px #707070;
+          cursor: pointer;
 
-      input {
+        }
+      select {
         width: 50%;
         //max-width: -webkit-fill-available;
         padding: 15px 10px;
@@ -120,7 +122,6 @@
 
       }
 
-     }
    }
   .row3 {
     width: 100%;
@@ -149,6 +150,7 @@
         padding: 15px 10px;
         border-radius: 5px;
         border: solid 1px #707070;
+         font-size: 2em;
       }
     }
   }

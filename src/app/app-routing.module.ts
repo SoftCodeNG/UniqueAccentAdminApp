@@ -21,6 +21,9 @@ import {CreateTextQuestionComponent} from './pages/audio-quiz/create-text-questi
 import {TrainingDetailsComponent} from './pages/trainings/training-details/training-details.component';
 import {AudioQuestionComponent} from './pages/audio-quiz/audio-question/audio-question.component';
 import {AudioQuestionReplayComponent} from './pages/audio-quiz/audio-question-replay/audio-question-replay.component';
+import {UserDisableUserComponent} from './pages/users/user-disable-user/user-disable-user.component';
+import {UserStaffComponent} from './pages/users/user-staff/user-staff.component';
+import {UserNewStaffComponent} from './pages/users/user-new-staff/user-new-staff.component';
 
 
 
@@ -117,8 +120,21 @@ const routes: Routes = [
   {
     path: 'trainings/create-training/training-details',
     component: TrainingDetailsComponent
-  }
+  },
+  {
+    path: 'user-disable-user',
+    component: UserDisableUserComponent
+  },
+   {
+    path: 'user-staff',
+    component: UserStaffComponent
+  },
+   {
+    path: 'user-new-staff',
+    component: UserNewStaffComponent
+  },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

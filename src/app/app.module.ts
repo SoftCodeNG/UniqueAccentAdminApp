@@ -31,6 +31,10 @@ import { QuizDetails1Component } from './pages/audio-quiz/quiz-details1/quiz-det
 import { QuizDetails2Component } from './pages/audio-quiz/quiz-details2/quiz-details2.component';
 import { QuizDetails3Component } from './pages/audio-quiz/quiz-details3/quiz-details3.component';
 import { QuizDetails4Component } from './pages/audio-quiz/quiz-details4/quiz-details4.component';
+import { UserDisableUserComponent } from './pages/users/user-disable-user/user-disable-user.component';
+import { UserStaffComponent } from './pages/users/user-staff/user-staff.component';
+import { UserNewStaffComponent } from './pages/users/user-new-staff/user-new-staff.component';
+
 @NgModule({
   declarations: [
     AppComponent,
