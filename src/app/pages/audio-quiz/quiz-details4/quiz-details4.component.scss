@@ -1,0 +1,83 @@
+main {
+  display: flex;
+
+  #leftDiv {
+    height: 100vh;
+    width: 800px;
+
+    h1 {
+      font-family: "Philosopher", sans-serif;
+      font-size: 35px;
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .desc {
+        font-size: 25px;
+        font-weight: bold;
+        width: 600px;
+      }
+
+      .score {
+        color: gray;
+        width: 160px;
+        height: 60px;
+        border: 1px solid gray;
+        border-radius: 9px;
+        font-size: 18px;
+        margin: 30px 0;
+      }
+
+      .save {
+        width: 220px;
+        height: 60px;
+        border-radius: 10px;
+        border: none;
+        font-size: 30px;
+        font-weight: bold;
+        background: #ff6600;
+        margin: 40px 0;
+      }
+    }
+  }
+
+  #rightDiv {
+    background: #c9c9c9;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 80px;
+    height: calc(100vh - 80px);
+    width: 220px;
+
+    .SchLogo {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    img {
+      height: 200px;
+      width: 100%;
+    }
+
+    .dateAndTime {
+      margin: 20px 0;
+
+      :first-child {
+        font-size: 25px;
+        font-weight: bold;
+      }
+    }
+
+    .buttonDiv {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      margin-top: 40px;
+    }
+  }
+}
