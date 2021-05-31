@@ -12,6 +12,10 @@ import {TrainingsComponent} from './pages/trainings/trainings.component';
 import {UsersComponent} from './pages/users/users.component';
 import {CreateQuizComponent} from './pages/audio-quiz/create-quiz/create-quiz.component';
 import {QuizDetailsComponent} from './pages/audio-quiz/quiz-details/quiz-details.component';
+import {QuizDetails1Component} from './pages/audio-quiz/quiz-details1/quiz-details1.component';
+import {QuizDetails2Component} from './pages/audio-quiz/quiz-details2/quiz-details2.component';
+import {QuizDetails3Component} from './pages/audio-quiz/quiz-details3/quiz-details3.component';
+import {QuizDetails4Component} from './pages/audio-quiz/quiz-details4/quiz-details4.component';
 import {CreateTrainingComponent} from './pages/trainings/create-training/create-training.component';
 import {CreateTextQuestionComponent} from './pages/audio-quiz/create-text-question/create-text-question.component';
 import {TrainingDetailsComponent} from './pages/trainings/training-details/training-details.component';
@@ -80,6 +84,22 @@ const routes: Routes = [
   {
     path: 'audio-quiz/create-quiz/quiz-details',
     component: QuizDetailsComponent
+  },
+  {
+    path: 'audio-quiz/evaluate',
+    component: QuizDetails1Component
+  },
+  {
+    path: 'audio-quiz/questions',
+    component: QuizDetails2Component
+  },
+  {
+    path: 'audio-quiz/text-total',
+    component: QuizDetails3Component
+  },
+  {
+    path: 'audio-quiz/audio-total',
+    component: QuizDetails4Component
   },
   {
     path: 'audio-quiz/create-quiz/quiz-details/create-text-question',
