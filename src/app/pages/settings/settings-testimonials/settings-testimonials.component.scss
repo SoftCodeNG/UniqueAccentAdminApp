@@ -3,8 +3,8 @@
 
   .box {
     height: 40px;
-    width: 80%;
-    margin: 20px 10%;
+    width: 100%;
+    margin: 10px 0px 5px 0px;
     display: flex;
     background-color:#E4E4E4;
     padding: 5px;
@@ -63,20 +63,20 @@
 
     .rightbar{
       width: 700px;
-      height: 550px;
+      height: 600px;
       margin-right: 20px;
       background-color: #888888;
-      padding: 20px;
+      padding: 10px;
       .edit{
         width: 100px;
-        margin-left: 500px;
+        margin-left: 520px;
         color: white;
         font-weight: bold;
         background-color: black;
         font-size: 1.3em;
         text-align: center;
-        padding: 3px;
-        border-radius: 10%;
+        padding: 2px;
+        border-radius: 20px;
       }
       .intro{
         display: flex;
@@ -94,23 +94,25 @@
     }
     .leftbar{
       width: 600px;
-      height: 560px;
+      height: 600px;
       margin-left: 80px;
 
       .new{
+        margin-top: 30px;
         color: white;
         background-color: black;
         text-align: center;
         width: 300px;
         font-weight: bold;
-        padding: 3px;
-        border-radius: 10%;
+        padding: 8px;
+        border-radius: 10px;
         font-size: 1.3em;
+         margin-left: 30px;
 
       }
       .list{
         margin-top: 20px;
-        margin-left: 10px;
+        margin-left: 20px;
       div{
         padding: 15px;
         margin: 2px 0px 2px 2px;
