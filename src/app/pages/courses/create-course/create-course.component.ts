@@ -3,6 +3,7 @@ import {CoursesService} from '../../../core/services/courses.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SetFileManagerState, SetHeaderVisibility} from '../../../store/app-store/app.action';
 import {Store} from '@ngxs/store';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-course',
@@ -15,7 +16,8 @@ export class CreateCourseComponent implements OnInit {
   constructor(
     private coursesService: CoursesService,
     private fb: FormBuilder,
-    private store: Store
+    private store: Store,
+    private router: Router
   ) {
   }
 
@@ -35,6 +37,7 @@ export class CreateCourseComponent implements OnInit {
       console.log(this.createCourseForm.value);
       this.coursesService.createCourse(this.createCourseForm.value).subscribe(res => {
         console.log(res);
+        this.router.navigate([`courses/create-lesson/${res.slug}`]).then();
       });
     }
   }
