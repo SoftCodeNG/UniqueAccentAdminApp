@@ -29,9 +29,28 @@
       margin-top: 20px;
       border-radius: 15px;
       padding: 25px;
+      width: 100% !important;
 
       .lessonText {
-        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          font-weight: bold;
+          font-size: 30px;
+        }
+
+        button {
+          background: #ff6600;
+          padding: 8px 20px;
+          color: black;
+          font-weight: bold;
+          font-size: 20px;
+          border: none;
+          border-radius: 10px;
+          margin-bottom: 30px;
+          cursor: pointer;
+        }
       }
     }
 
@@ -86,19 +105,26 @@
 
     .courseImg {
       font-size: 28px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     img {
       height: 200px;
       width: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+    }
+
+    video {
+      height: 200px;
+      width: 100%;
     }
 
     .buttonDiv {
       display: grid;
-      grid-template-columns: 50% 50%;
-      margin-top: 40px;
+      //grid-template-columns: 50% 50%;
+      justify-content: space-between;
+      grid-auto-flow: column;
+      margin-top: 10px;
 
       :first-child {
         button {
@@ -122,4 +148,12 @@
 
     }
   }
+
+  //.pagination {
+  //  color: black;
+  //  float: left;
+  //  padding: 8px 16px;
+  //  text-decoration: none;
+  //  transition: background-color .3s;
+  //}
 }

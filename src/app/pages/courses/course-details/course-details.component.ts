@@ -23,12 +23,12 @@ export class CourseDetailsComponent implements OnInit {
   getCourseDetails(slug: string): void {
     this.coursesService.getCourseDetails(slug).subscribe(res => {
       this.courseDetails = res;
-      this.getCourseLessons(this.courseDetails.id);
+      this.getCourseLessons(this.courseDetails.slug);
     });
   }
 
-  getCourseLessons(id: number): void {
-    this.coursesService.getCourseLessons(id).subscribe(res => {
+  getCourseLessons(slug: string): void {
+    this.coursesService.getCourseLessons(slug).subscribe(res => {
       this.lessons = res;
     });
   }

@@ -16,7 +16,7 @@ export class CoursesService {
     return this.http.get<any>(`${this.baseURL}courses/getCourses`)
       .pipe(
         map(res => {
-          return res.payload;
+          return res.results;
         })
       );
   }
@@ -30,8 +30,8 @@ export class CoursesService {
       );
   }
 
-  getCourseLessons(id: number): Observable<any> {
-    return this.http.get<any>(`${this.baseURL}courses/getCourseLessons/${id}`)
+  getCourseLessons(slug: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}courses/getCourseLessons/${slug}`)
      .pipe(
         map(res => {
           return res.payload;
@@ -68,7 +68,7 @@ export class CoursesService {
     const payload = new FormData();
     payload.append('title', data.title);
     payload.append('duration', data.duration);
-    payload.append('courseId', data.courseId);
+    payload.append('courseSlug', data.courseSlug);
     payload.append('thumbnail', data.thumbnail);
     payload.append('description', data.description);
     payload.append('video', data.video);
