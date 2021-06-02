@@ -21,6 +21,16 @@ main {
         width: 600px;
       }
 
+      figure {
+        margin: 50px 0;
+
+        audio {
+          width: 600px;
+          height: 36px;
+          border-radius: 13px;
+        } 
+      }
+
       .score {
         color: gray;
         width: 160px;
@@ -29,6 +39,7 @@ main {
         border-radius: 9px;
         font-size: 18px;
         margin: 30px 0;
+        padding: 2px;
       }
 
       .save {
