@@ -19,7 +19,7 @@
 
         <tr *ngFor="let course of allCourses">
           <td>{{course.title}}</td>
-          <td>{{course.price}}</td>
+          <td>{{course.price  | currency:'₦'}}</td>
           <td>{{course.purchases}}</td>
           <td>{{course.lessons}}</td>
           <td>
