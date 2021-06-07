@@ -17,6 +17,11 @@
       margin-bottom: 30px;
       cursor: pointer;
       //float: right;
+
+      &:disabled {
+        background: grey;
+        cursor: default;
+      }
     }
   }
 
@@ -85,7 +90,6 @@
         display: block;
         margin-bottom: 5px;
         font-size: 26px;
-
       }
 
       input {
@@ -98,6 +102,16 @@
         font-size: 1.2em;
         color: #484848;
         border: solid 1px #707070;
+      }
+
+      img {
+        width: 200px;
+        height: auto;
+      }
+
+      video {
+        width: 200px;
+        height: auto;
       }
 
     }

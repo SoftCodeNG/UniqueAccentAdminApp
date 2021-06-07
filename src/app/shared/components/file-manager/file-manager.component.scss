@@ -58,7 +58,7 @@
       padding: 0 20px;
       box-sizing: border-box;
     }
-    div {
+    >div {
       padding: 20px;
       display: flex;
       flex-wrap: wrap;
@@ -107,6 +107,9 @@
         &.select {
           background: #FF6600;
           color: black;
+          &:disabled {
+            background: gray;
+          }
         }
 
         &.cancel {

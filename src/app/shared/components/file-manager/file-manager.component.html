@@ -2,13 +2,19 @@
   <div class="left">
     <label class="uploadAFile">
       <span>Upload a file</span>
-      <input type="file" accept="image/*, video/mp4, audio/*" (change)="selectFile($event)">
+      <input
+        type="file"
+        [accept]="
+          data.mediaType === 'image' ? 'image/*' :
+          data.mediaType === 'video' ? 'video/mp4' :
+          data.mediaType === 'audio' ? 'audio/*' : ''"
+        (change)="selectFile($event)">
     </label>
 
     <div class="nav">
-      <div (click)="setCurrentView('image')" [ngClass]="{'active': currentView === 'image'}">Images</div>
-      <div (click)="setCurrentView('video')" [ngClass]="{'active': currentView === 'video'}">Videos</div>
-      <div (click)="setCurrentView('audio')" [ngClass]="{'active': currentView === 'audio'}">Audios</div>
+      <div (click)="setCurrentView('image')" [ngClass]="{'active': currentView === 'image'}" *ngIf="data.mediaType === 'image'">Images</div>
+      <div (click)="setCurrentView('video')" [ngClass]="{'active': currentView === 'video'}" *ngIf="data.mediaType === 'video'">Videos</div>
+      <div (click)="setCurrentView('audio')" [ngClass]="{'active': currentView === 'audio'}" *ngIf="data.mediaType === 'audio'">Audios</div>
     </div>
   </div>
 
@@ -19,7 +25,7 @@
         <img
           *ngFor="let image of allImages"
           [src]="baseURL.slice(0, -1) + image.file"
-          (click)="selectedFile = baseURL.slice(0, -1) + image.file"
+          (click)="selectedMedia = baseURL.slice(0, -1) + image.file; selectedMediaType = 'image'; selectedMediaName = image.name"
           [alt]="image.name"/>
       </div>
     </ng-container>
@@ -32,7 +38,7 @@
           controls
           *ngFor="let video of allVideo"
           [src]="baseURL.slice(0, -1) + video.file"
-          (click)="selectedFile = baseURL.slice(0, -1) + video.file"
+          (click)="selectedMedia = baseURL.slice(0, -1) + video.file; selectedMediaType = 'video'; selectedMediaName = video.name"
         ></video>
       </div>
     </ng-container>
@@ -40,20 +46,68 @@
     <ng-container *ngIf="currentView === 'audio'">
       <h1>Audio</h1>
       <div>
-        <audio
-          controls
+        <mat-card
           *ngFor="let audio of allAudio"
-          [src]="baseURL.slice(0, -1) + audio.file"
-          (click)="selectedFile = baseURL.slice(0, -1) + audio.file"
-        ></audio>
+          (click)="selectedMedia = baseURL.slice(0, -1) + audio.file; selectedMediaType = 'audio'; selectedMediaName = audio.name"
+        >
+          <audio
+            controls
+            [src]="baseURL.slice(0, -1) + audio.file"
+            (play)="selectedMedia = baseURL.slice(0, -1) + audio.file; selectedMediaType = 'audio'; selectedMediaName = audio.name"
+          ></audio>
+          <mat-card-content style="text-align: center">
+            {{audio.name}}
+          </mat-card-content>
+        </mat-card>
+
       </div>
     </ng-container>
   </div>
 
   <div class="right ">
-    <img [src]="'https://unique-accent-api.herokuapp.com'" [alt]=""/>
+    <div>
+      <div
+        style="width: 100%"
+        *ngIf="selectedMediaType === 'image'">
+        <img
+          style="width: 100%"
+          [src]="selectedMedia"
+          [alt]=""
+        />
+        <div>
+          <span>File name: {{selectedMediaName}}</span>
+        </div>
+      </div>
+      <div
+        style="width: 100%"
+        *ngIf="selectedMediaType === 'audio'">
+        <audio
+          controls
+          style="width: 190px"
+          [src]="selectedMedia"
+        ></audio>
+        <div>
+          <span>File name: {{selectedMediaName}}</span>
+        </div>
+      </div>
+
+      <div
+        style="width: 100%"
+        *ngIf="selectedMediaType === 'video'">
+        <video
+          style="width: 100%"
+          controls
+          [src]="selectedMedia"
+        ></video>
+        <div>
+          <span>File name: {{selectedMediaName}}</span>
+        </div>
+      </div>
+
+    </div>
+
     <div class="buttonDiv">
-      <button class="select">Select</button>
+      <button class="select" [disabled]="!selectedMedia" (click)="selectFileAndCloseModal()">Select</button>
       <button class="cancel" (click)="hideFileManager()">Cancel</button>
     </div>
   </div>

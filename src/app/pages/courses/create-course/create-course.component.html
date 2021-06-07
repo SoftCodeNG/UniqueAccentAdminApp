@@ -1,6 +1,6 @@
 <div class="createCourseDiv">
   <div class="nextButton">
-    <button (click)="createCourse()">Next</button>
+    <button (click)="createCourse()" [disabled]="createCourseForm.invalid">Next</button>
   </div>
 
   <ng-container [formGroup]="createCourseForm">
@@ -19,15 +19,15 @@
       <div>
         <label>
           <span>Thumbnail</span>
-          <button (click)="showFileManager()">Select an Image</button>
-<!--          <input formControlName="thumbnail" type="text" placeholder="Select an image">-->
+          <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
+          <img *ngIf="selectedThumbnailFile" [src]="selectedThumbnailFile" alt="Selected Image">
         </label>
       </div>
       <div>
         <label>
           <span>Preview</span>
-          <button (click)="showFileManager()">Select a video</button>
-<!--          <input formControlName="video" type="text" placeholder="Select a video">-->
+          <button *ngIf="!selectedPreviewFile" (click)="showFileManager('video')">Select a video</button>
+          <video *ngIf="selectedPreviewFile" [src]="selectedPreviewFile" controls></video>
         </label>
       </div>
     </div>
