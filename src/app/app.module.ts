@@ -34,6 +34,9 @@ import { QuizDetails4Component } from './pages/audio-quiz/quiz-details4/quiz-det
 import { UserDisableUserComponent } from './pages/users/user-disable-user/user-disable-user.component';
 import { UserStaffComponent } from './pages/users/user-staff/user-staff.component';
 import { UserNewStaffComponent } from './pages/users/user-new-staff/user-new-staff.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -67,11 +70,13 @@ import { UserNewStaffComponent } from './pages/users/user-new-staff/user-new-sta
     HttpClientModule,
     ReactiveFormsModule,
     SharedModule,
+    MatDialogModule,
     NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production
     }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

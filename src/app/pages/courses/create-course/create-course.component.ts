@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {CoursesService} from '../../../core/services/courses.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {SetFileManagerState, SetHeaderVisibility} from '../../../store/app-store/app.action';
 import {Store} from '@ngxs/store';
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {FileManagerComponent} from '../../../shared/components/file-manager/file-manager.component';
 
 @Component({
   selector: 'app-create-course',
@@ -12,12 +13,15 @@ import {Router} from '@angular/router';
 })
 export class CreateCourseComponent implements OnInit {
   createCourseForm: FormGroup;
+  selectedThumbnailFile: string;
+  selectedPreviewFile: string;
 
   constructor(
     private coursesService: CoursesService,
     private fb: FormBuilder,
     private store: Store,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {
   }
 
@@ -26,8 +30,8 @@ export class CreateCourseComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       duration: ['2000', Validators.required],
-      thumbnail: ['https://uniqueaccent.com.ng/assets/courses/course2.jpg', Validators.required],
-      video: ['https://res.cloudinary.com/eden-life-inc/video/upload/v1612616596/eden-website-v2/EDEN_LIFE__q1rgcz.mp4', Validators.required],
+      thumbnail: ['', Validators.required],
+      video: ['', Validators.required],
       price: ['', Validators.required],
     });
   }
@@ -42,7 +46,25 @@ export class CreateCourseComponent implements OnInit {
     }
   }
 
-  showFileManager(): void {
-    this.store.dispatch(new SetFileManagerState(true));
+  showFileManager(mediaType): void {
+    const dialogRef = this.dialog.open(FileManagerComponent, {
+      data: {
+        mediaType
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: `, result); // Pizza!
+
+      if (result.selectedMediaType === 'image') {
+        this.selectedThumbnailFile = result.selectedMedia;
+        this.createCourseForm.controls.thumbnail.setValue(result.selectedMedia);
+      }
+
+      if (result.selectedMediaType === 'video') {
+        this.selectedPreviewFile = result.selectedMedia;
+        this.createCourseForm.controls.video.setValue(result.selectedMedia);
+      }
+    });
   }
 }

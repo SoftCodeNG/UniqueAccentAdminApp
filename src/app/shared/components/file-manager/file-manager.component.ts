@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {SetFileManagerState} from '../../../store/app-store/app.action';
 import {Store} from '@ngxs/store';
 import {FileManagerService} from '../../../core/services/file-manager.service';
 import {environment} from '../../../../environments/environment';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-file-manager',
@@ -12,6 +13,9 @@ import {environment} from '../../../../environments/environment';
 export class FileManagerComponent implements OnInit {
   baseURL = environment.baseUrl;
   selectedFile: any;
+  selectedMedia: any;
+  selectedMediaType: any;
+  selectedMediaName: any;
   currentView = 'image';
   allMedia: any[];
   allImages: any[];
@@ -20,14 +24,33 @@ export class FileManagerComponent implements OnInit {
 
   constructor(
     private store: Store,
-    private fileManagerService: FileManagerService
+    private fileManagerService: FileManagerService,
+    public dialogRef: MatDialogRef<FileManagerComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit(): void {
-    this.getAllMedia();
-    this.getAllImages();
-    this.getAllVideo();
-    this.getAllAudio();
+    this.getMedia();
+  }
+
+  getMedia(): void {
+    switch (this.data.mediaType) {
+      case 'image': {
+        this.getAllImages();
+        this.currentView = 'image';
+        break;
+      }
+      case 'video': {
+        this.getAllVideo();
+        this.currentView = 'video';
+        break;
+      }
+      case 'audio': {
+        this.getAllAudio();
+        this.currentView = 'audio';
+        break;
+      }
+    }
   }
 
   getAllMedia(): void {
@@ -59,7 +82,7 @@ export class FileManagerComponent implements OnInit {
   }
 
   hideFileManager(): void {
-    this.store.dispatch(new SetFileManagerState(false));
+    this.dialogRef.close();
   }
 
   setCurrentView(view: string): void {
@@ -76,7 +99,16 @@ export class FileManagerComponent implements OnInit {
     if (this.selectedFile) {
       this.fileManagerService.uploadMedia(this.selectedFile).subscribe(res => {
         console.log(res);
+        this.getMedia();
       });
     }
+  }
+
+  selectFileAndCloseModal(): void {
+    this.dialogRef.close({
+      selectedMedia: this.selectedMedia,
+      selectedMediaType: this.selectedMediaType,
+      selectedMediaName: this.selectedMediaName
+    });
   }
 }

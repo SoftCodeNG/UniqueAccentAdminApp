@@ -5,6 +5,8 @@ import {HeaderComponent} from './components/header/header.component';
 import {SideBarComponent} from './components/side-bar/side-bar.component';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from '../app-routing.module';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import {AppRoutingModule} from '../app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule
   ],
   exports: [
     HeaderComponent,

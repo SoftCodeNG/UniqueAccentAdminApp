@@ -1,6 +1,6 @@
 <div class="createLessonDiv">
   <div class="nextButton">
-    <button (click)="createLesson()">Save</button>
+    <button (click)="createLesson()" [disabled]="createLessonForm.invalid">Save</button>
   </div>
 
  <ng-container [formGroup]="createLessonForm">
@@ -11,17 +11,19 @@
       </label>
     </div>
 
-  <div class="createLessonRow2">
+  <div class="createCourseRow2">
     <div>
       <label>
         <span>Thumbnail</span>
-        <input (click)="showFileManager()" placeholder="Select an image">
+        <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
+        <img *ngIf="selectedThumbnailFile" [src]="selectedThumbnailFile" alt="Selected Image">
       </label>
     </div>
     <div>
       <label>
-        <span>Preview</span>
-        <input (click)="showFileManager()" placeholder="Select a video">
+        <span>Video</span>
+        <button *ngIf="!selectedPreviewFile" (click)="showFileManager('video')">Select a video</button>
+        <video *ngIf="selectedPreviewFile" [src]="selectedPreviewFile" controls></video>
       </label>
     </div>
   </div>

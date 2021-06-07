@@ -17,6 +17,11 @@
       margin-bottom: 30px;
       cursor: pointer;
       //float: right;
+
+      &:disabled {
+        background: grey;
+        cursor: default;
+      }
     }
   }
 
@@ -50,7 +55,7 @@
     }
   }
 
-  .createLessonRow2 {
+  .createCourseRow2 {
     width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -58,6 +63,15 @@
     box-sizing: border-box;
     gap: 0 10px;
 
+    button {
+      padding: 15px 20px;
+      border: none;
+      width: 200px;
+      background: #949494;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
     label {
       display: block;
       width: 100%;
@@ -69,16 +83,28 @@
         display: block;
         margin-bottom: 5px;
         font-size: 26px;
-
       }
 
       input {
         width: 50%;
-        //max-width: -webkit-fill-available;
+        max-width: -webkit-fill-available;
         padding: 15px 10px;
         border-radius: 10px;
         border: solid 1px #707070;
+        height: 20px;
+        font-size: 1.2em;
+        color: #484848;
+        border: solid 1px #707070;
+      }
 
+      img {
+        width: 200px;
+        height: auto;
+      }
+
+      video {
+        width: 200px;
+        height: auto;
       }
 
     }
