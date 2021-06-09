@@ -8,16 +8,18 @@ import {CoursesService} from '../../../core/services/courses.service';
 })
 export class LessonDetailsComponent implements OnInit {
   public lessonDetails: any;
+  private activatedRoute: any;
 
   constructor(private coursesService: CoursesService) { }
 
   ngOnInit(): void {
-    this.getLessonDetails('lesson-1');
+    this.getLessonDetails(this.activatedRoute.snapshot.params.slug);
   }
 
   getLessonDetails(slug: string): void {
     this.coursesService.getLessonDetails(slug).subscribe(res => {
       this.lessonDetails = res;
+      this.getLessonDetails(this.lessonDetails.slug);
     });
   }
 }

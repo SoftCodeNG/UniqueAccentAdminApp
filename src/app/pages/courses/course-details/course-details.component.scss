@@ -6,8 +6,9 @@
     width: calc(100% - 220px);
 
     .row1 {
-      //display: grid;
-      //grid-template-columns: 50% 50%;
+      display: grid;
+      justify-content: space-between;
+      grid-auto-flow: column;
       margin-bottom: 20px;
 
       :first-child {
@@ -79,13 +80,14 @@
             padding: 10px;
             cursor: pointer;
 
-            a {
+            button {
               cursor: pointer;
               background: #E4E4E4;
               color: black;
               border-radius: 5px;
               border: none;
               padding: 5px 10px;
+              font-weight: bold;
             }
           }
         }
