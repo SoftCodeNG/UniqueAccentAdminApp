@@ -24,7 +24,11 @@ const routes: Routes = [
     component: CourseDetailsComponent
   },
   {
-    path: 'lesson-details',
+    path: 'edit/:slug',
+    component: CreateCourseComponent
+  },
+  {
+    path: 'lesson-details/:slug',
     component: LessonDetailsComponent
   }
 ];

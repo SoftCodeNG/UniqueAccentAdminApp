@@ -79,4 +79,26 @@ export class CoursesService {
         })
       );
   }
+
+  getLessonComments(lessonId: any): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}courses/getLessonComments/${lessonId}`)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
+
+   replyComment(data: any): Observable<any> {
+    const payload = new FormData();
+    payload.append('commentId', data.commentId);
+    payload.append('userId', data.userId);
+    payload.append('comment', data.comment);
+    return this.http.post<any>(`${this.baseURL}courses/replyComment`, payload)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
 }
