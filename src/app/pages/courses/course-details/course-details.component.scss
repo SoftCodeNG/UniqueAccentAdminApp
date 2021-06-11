@@ -1,10 +1,9 @@
 .courseDetailsDiv {
   display: grid;
   grid-template-columns: 80% 20%;
+  width: calc(100% - 220px);
 
   .LeftDiv {
-    width: calc(100% - 220px);
-
     .row1 {
       display: grid;
       justify-content: space-between;
@@ -102,32 +101,31 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    top: 80px;
-    height: calc(100vh - 80px);
+    top: 48px;
+    height: calc(100vh - 48px);
     width: 220px;
 
     .courseImg {
       font-size: 28px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     img {
       height: 200px;
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     video {
-      height: 200px;
+      height: 150px;
       width: 100%;
     }
 
     .buttonDiv {
       display: grid;
-      //grid-template-columns: 50% 50%;
       justify-content: space-between;
       grid-auto-flow: column;
-      margin-top: 10px;
+      margin-top: 80px;
 
       :first-child {
         button {
@@ -147,6 +145,7 @@
           padding: 10px 20px;
           border-radius: 10px;
           border: none;
+          cursor: pointer;
         }
       }
 
