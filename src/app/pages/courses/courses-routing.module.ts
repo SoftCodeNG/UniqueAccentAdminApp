@@ -28,6 +28,10 @@ const routes: Routes = [
     component: CreateCourseComponent
   },
   {
+    path: 'edit/:slug',
+    component: CreateLessonComponent
+  },
+  {
     path: 'lesson-details/:slug',
     component: LessonDetailsComponent
   }

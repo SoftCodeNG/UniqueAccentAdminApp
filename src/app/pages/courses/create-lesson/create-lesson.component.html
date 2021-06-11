@@ -1,6 +1,7 @@
 <div class="createLessonDiv">
   <div class="nextButton">
-    <button (click)="createLesson()" [disabled]="createLessonForm.invalid">Save</button>
+    <button (click)="createLesson()" [disabled]="createLessonForm.invalid" *ngIf="isEditing === false">Next</button>
+    <button (click)="updateLesson()" [disabled]="createLessonForm.invalid" *ngIf="isEditing === true">Save</button>
   </div>
 
  <ng-container [formGroup]="createLessonForm">

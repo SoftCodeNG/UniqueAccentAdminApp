@@ -39,14 +39,18 @@
 
   <div class="RightDiv">
     <div class="courseImg">Thumbnail</div>
-    <div><img [src]="lessonDetails.thumbnail" alt=""></div>
+    <div>
+      <img [src]="lessonDetails.thumbnail" alt="">
+    </div>
 
     <div class="courseImg">Preview</div>
-    <div><img [src]="lessonDetails.video" alt=""></div>
+    <div>
+       <video [src]="lessonDetails.video" controls></video>
+    </div>
 
     <div class="buttonDiv">
       <div>
-        <button routerLink="lesson-details">Edit</button>
+        <button [routerLink]="'/courses/edit/' + lessonDetails.slug">Edit</button>
       </div>
       <div>
         <button>Delete</button>
