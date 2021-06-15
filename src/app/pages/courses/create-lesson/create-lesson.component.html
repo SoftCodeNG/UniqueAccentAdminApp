@@ -1,39 +1,42 @@
 <div class="createLessonDiv">
-  <div class="nextButton">
-    <button (click)="createLesson()" [disabled]="createLessonForm.invalid" *ngIf="isEditing === false">Next</button>
-    <button (click)="updateLesson()" [disabled]="createLessonForm.invalid" *ngIf="isEditing === true">Save</button>
+  <div class="textRow">
+    <div>Create Lesson</div>
+    <div class="nextButton">
+      <button (click)="createLesson()" [disabled]="createLessonForm.invalid" *ngIf="isEditing === false">Next</button>
+      <button (click)="updateLesson()" [disabled]="createLessonForm.invalid" *ngIf="isEditing === true">Save</button>
+    </div>
   </div>
 
- <ng-container [formGroup]="createLessonForm">
-  <div class="createLessonRow1">
+  <ng-container [formGroup]="createLessonForm">
+    <div class="createLessonRow1">
       <label>
         <span>Title</span>
-        <input formControlName="title" type="text"  placeholder="Enter a title">
+        <input formControlName="title" type="text" placeholder="Enter a title">
       </label>
     </div>
 
-  <div class="createCourseRow2">
-    <div>
-      <label>
-        <span>Thumbnail</span>
-        <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
-        <img *ngIf="selectedThumbnailFile" [src]="selectedThumbnailFile" alt="Selected Image">
-      </label>
+    <div class="createCourseRow2">
+      <div>
+        <label>
+          <span>Thumbnail</span>
+          <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
+          <img *ngIf="selectedThumbnailFile" [src]="selectedThumbnailFile" alt="Selected Image">
+        </label>
+      </div>
+      <div>
+        <label>
+          <span>Video</span>
+          <button *ngIf="!selectedPreviewFile" (click)="showFileManager('video')">Select a video</button>
+          <video *ngIf="selectedPreviewFile" [src]="selectedPreviewFile" controls></video>
+        </label>
+      </div>
     </div>
-    <div>
-      <label>
-        <span>Video</span>
-        <button *ngIf="!selectedPreviewFile" (click)="showFileManager('video')">Select a video</button>
-        <video *ngIf="selectedPreviewFile" [src]="selectedPreviewFile" controls></video>
-      </label>
-    </div>
-  </div>
 
-  <div class="row3">
-    <label>
-      <span>Description</span>
-      <textarea formControlName="description"></textarea>
-    </label>
-  </div>
-   </ng-container>
+    <div class="row3">
+      <label>
+        <span>Description</span>
+        <textarea formControlName="description"></textarea>
+      </label>
+    </div>
+  </ng-container>
 </div>
