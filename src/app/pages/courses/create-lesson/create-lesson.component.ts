@@ -17,7 +17,7 @@ export class CreateLessonComponent implements OnInit {
   selectedThumbnailFile: string;
   selectedPreviewFile: string;
   lessonDetails: any;
-  isEditing: boolean;
+  isEditing: boolean = false;
 
   constructor(
     private coursesService: CoursesService,
@@ -42,9 +42,10 @@ export class CreateLessonComponent implements OnInit {
       video: ['', Validators.required],
     });
 
-    if (this.activatedRoute.snapshot.params.slug){
+    if (this.activatedRoute.snapshot.params.slug && this.activatedRoute.snapshot.url[0].path === 'edit-lesson'){
       this.getLessonDetails(this.activatedRoute.snapshot.params.slug);
       this.isEditing = true;
+      console.log(this.activatedRoute.snapshot)
     }
   }
 
@@ -63,7 +64,6 @@ export class CreateLessonComponent implements OnInit {
       this.lessonDetails = res;
       console.log(res);
       this.createLessonForm.controls.title.setValue(res.title);
-      this.createLessonForm.controls.price.setValue(res.price);
       this.createLessonForm.controls.description.setValue(res.description);
       this.createLessonForm.controls.thumbnail.setValue(res.thumbnail);
       this.createLessonForm.controls.video.setValue(res.video);
@@ -99,7 +99,7 @@ export class CreateLessonComponent implements OnInit {
       console.log(this.createLessonForm.value);
       this.coursesService.createLesson(this.createLessonForm.value).subscribe(res => {
         console.log(res);
-        this.router.navigate([`courses/create-lesson/${res.slug}`]).then();
+        this.router.navigate([`courses/lesson-details/${res.slug}`]).then();
       });
     }
   }

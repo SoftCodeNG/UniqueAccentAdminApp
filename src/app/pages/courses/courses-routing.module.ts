@@ -28,7 +28,7 @@ const routes: Routes = [
     component: CreateCourseComponent
   },
   {
-    path: 'edit/:slug',
+    path: 'edit-lesson/:slug',
     component: CreateLessonComponent
   },
   {

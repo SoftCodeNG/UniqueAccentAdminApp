@@ -16,7 +16,7 @@ export class CreateCourseComponent implements OnInit {
   selectedThumbnailFile: string;
   selectedPreviewFile: string;
   courseDetails: any;
-  isEditing: boolean;
+  isEditing: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -108,7 +108,7 @@ export class CreateCourseComponent implements OnInit {
       console.log(this.createCourseForm.value);
       this.coursesService.createCourse(this.createCourseForm.value).subscribe(res => {
         console.log(res);
-        this.router.navigate([`courses/create-lesson/${res.slug}`]).then();
+        this.router.navigate([`courses/course-details/${res.slug}`]).then();
       });
     }
   }

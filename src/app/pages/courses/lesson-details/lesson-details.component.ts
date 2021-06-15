@@ -24,7 +24,6 @@ export class LessonDetailsComponent implements OnInit {
   getLessonDetails(slug: string): void {
     this.coursesService.getLessonDetails(slug).subscribe(res => {
       this.lessonDetails = res;
-      this.getLessonDetails(this.lessonDetails.slug);
       this.getLessonComments(res.id)
     });
   }
