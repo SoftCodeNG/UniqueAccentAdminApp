@@ -1,10 +1,13 @@
 import { State, Selector, Action, StateContext } from '@ngxs/store';
-import {SetFileManagerState, SetHeaderVisibility} from './app.action';
+import {SetDecodedToken, SetFileManagerState, SetHeaderVisibility, SetRefreshToken, SetToken} from './app.action';
 import {Injectable} from '@angular/core';
 
 export class AppStateModel {
   headerVisibility: string;
   showFileManager: boolean;
+  token: string;
+  refreshToken: string;
+  decodedToken: any;
 }
 
 @Injectable()
@@ -12,7 +15,10 @@ export class AppStateModel {
   name: 'App',
   defaults: {
     headerVisibility: 'visible',
-    showFileManager: false
+    showFileManager: false,
+    token: '',
+    refreshToken: '',
+    decodedToken: {}
   },
 })
 
@@ -25,6 +31,21 @@ export class AppState {
   static getFileManagerState(state: AppStateModel): boolean {
     console.log('QQQQQQQ: ', state.showFileManager);
     return state.showFileManager;
+  }
+
+  @Selector()
+  static getToken(state: AppStateModel): string {
+    return state.token;
+  }
+
+  @Selector()
+  static getRefreshToken(state: AppStateModel): string {
+    return state.refreshToken;
+  }
+
+  @Selector()
+  static getDecodedToken(state: AppStateModel): string {
+    return state.decodedToken;
   }
 
   //   actions
@@ -45,5 +66,34 @@ export class AppState {
       showFileManager: fileManagerState,
     });
   }
+
+
+  @Action(SetToken)
+  setToken({ getState, setState }: StateContext<AppStateModel>, { token }: SetToken): void {
+    const state = getState();
+    setState({
+      ...state,
+      token,
+    });
+  }
+
+  @Action(SetRefreshToken)
+  setRefreshToken({ getState, setState }: StateContext<AppStateModel>, { refreshToken }: SetRefreshToken): void {
+    const state = getState();
+    setState({
+      ...state,
+      refreshToken,
+    });
+  }
+
+  @Action(SetDecodedToken)
+  setDecodedToken({ getState, setState }: StateContext<AppStateModel>, { decodedToken }: SetDecodedToken): void {
+    const state = getState();
+    setState({
+      ...state,
+      decodedToken,
+    });
+  }
+
 
 }

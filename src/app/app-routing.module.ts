@@ -24,6 +24,8 @@ import {AudioQuestionReplayComponent} from './pages/audio-quiz/audio-question-re
 import {UserDisableUserComponent} from './pages/users/user-disable-user/user-disable-user.component';
 import {UserStaffComponent} from './pages/users/user-staff/user-staff.component';
 import {UserNewStaffComponent} from './pages/users/user-new-staff/user-new-staff.component';
+import {AuthGuard} from './core/guards/auth-guard';
+import {ReverseAuthGuard} from './core/guards/reverse-auth-guard';
 
 
 
@@ -35,11 +37,13 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule),
+    canActivate: [ReverseAuthGuard]
   },
   {
     path: 'courses',
-    loadChildren: () => import('./pages/courses/courses.module').then(m => m.CoursesModule)
+    loadChildren: () => import('./pages/courses/courses.module').then(m => m.CoursesModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'audio-quiz',

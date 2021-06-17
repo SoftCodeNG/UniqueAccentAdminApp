@@ -5,14 +5,14 @@
     </div>
     <div class="loginform">
       <img src="../../../../assets/UACLLogo.png" height="100" width="120"/>
-      <form action="action_page.php" >
+      <form [formGroup]="loginForm" (submit)="login()">
         <div class="container">
             <div class="one">
                <label for="email"><b>Email</b></label><br>
-          <input type="text" placeholder="" name="email" required> <br><br><br>
+          <input formControlName="email" type="email" placeholder="" name="email" required> <br><br><br>
 
           <label for="psw"><b>Password</b></label><br>
-          <input type="password" placeholder="" name="psw" required><br><br><br>
+          <input formControlName="password" type="password" placeholder="" name="psw" required><br><br><br>
 
             </div>
            <div class="two">
@@ -22,7 +22,7 @@
            </div>
 
           <div class="submit">
-         <a href="url">Sign in</a>
+         <button type="submit">Sign in</button>
           </div>
         </div>
         <h5>Developed with love by Softcode</h5>

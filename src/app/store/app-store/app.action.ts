@@ -8,3 +8,19 @@ export class SetFileManagerState {
   static readonly type = '[App] SetFileManagerState';
   constructor(public fileManagerState: boolean) {}
 }
+
+
+export class SetToken {
+  static readonly type = '[App] SetToken';
+  constructor(public token: string) {}
+}
+
+export class SetRefreshToken {
+  static readonly type = '[App] SetRefreshToken';
+  constructor(public refreshToken: string) {}
+}
+
+export class SetDecodedToken {
+  static readonly type = '[App] SetDecodedToken';
+  constructor(public decodedToken: any) {}
+}
