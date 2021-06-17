@@ -32,7 +32,7 @@
             <td>{{lesson.description}}</td>
             <td>{{lesson.duration}}</td>
             <td>
-              <button>View</button>
+              <button [routerLink]="'/courses/lesson-details/' + lesson.slug">View</button>
             </td>
           </tr>
 
@@ -48,15 +48,15 @@
 
     <div class="courseImg">Preview</div>
     <div>
-      <video [src]="courseDetails.video"></video>
+      <video [src]="courseDetails.video" controls></video>
     </div>
 
     <div class="buttonDiv">
       <div>
-        <button routerLink="lesson-details">Edit</button>
+        <button [routerLink]="'/courses/edit/' + courseDetails.slug">Edit</button>
       </div>
       <div>
-        <button>Delete</button>
+        <button>Unpublished</button>
       </div>
     </div>
   </div>

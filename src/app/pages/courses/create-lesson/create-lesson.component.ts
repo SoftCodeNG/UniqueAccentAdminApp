@@ -16,6 +16,8 @@ export class CreateLessonComponent implements OnInit {
   courseSlug: string;
   selectedThumbnailFile: string;
   selectedPreviewFile: string;
+  lessonDetails: any;
+  isEditing: boolean = false;
 
   constructor(
     private coursesService: CoursesService,
@@ -39,6 +41,12 @@ export class CreateLessonComponent implements OnInit {
       thumbnail: ['', Validators.required],
       video: ['', Validators.required],
     });
+
+    if (this.activatedRoute.snapshot.params.slug && this.activatedRoute.snapshot.url[0].path === 'edit-lesson'){
+      this.getLessonDetails(this.activatedRoute.snapshot.params.slug);
+      this.isEditing = true;
+      console.log(this.activatedRoute.snapshot)
+    }
   }
 
   createLesson(): void {
@@ -49,6 +57,19 @@ export class CreateLessonComponent implements OnInit {
         this.router.navigate([`courses/course-details/${res.courseSlug}`]).then();
       });
     }
+  }
+
+   getLessonDetails(slug: string): void {
+    this.coursesService.getLessonDetails(slug).subscribe(res => {
+      this.lessonDetails = res;
+      console.log(res);
+      this.createLessonForm.controls.title.setValue(res.title);
+      this.createLessonForm.controls.description.setValue(res.description);
+      this.createLessonForm.controls.thumbnail.setValue(res.thumbnail);
+      this.createLessonForm.controls.video.setValue(res.video);
+      this.selectedThumbnailFile = res.thumbnail;
+      this.selectedPreviewFile = res.video;
+    });
   }
 
   showFileManager(mediaType): void {
@@ -71,5 +92,15 @@ export class CreateLessonComponent implements OnInit {
         this.createLessonForm.controls.video.setValue(result.selectedMedia);
       }
     });
+  }
+
+  updateLesson() {
+    if (this.createLessonForm.valid === true) {
+      console.log(this.createLessonForm.value);
+      this.coursesService.createLesson(this.createLessonForm.value).subscribe(res => {
+        console.log(res);
+        this.router.navigate([`courses/lesson-details/${res.slug}`]).then();
+      });
+    }
   }
 }

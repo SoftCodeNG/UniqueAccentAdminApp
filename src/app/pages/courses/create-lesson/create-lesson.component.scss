@@ -1,8 +1,17 @@
 .createLessonDiv {
   padding: 50px 15%;
 
+  .textRow {
+    display: grid;
+    justify-content: space-between;
+    grid-auto-flow: column;
 
-  .nextButton {
+    :first-child {
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    .nextButton {
     margin-bottom: 30px;
     text-align: end;
 
@@ -23,6 +32,7 @@
         cursor: default;
       }
     }
+  }
   }
 
   .createLessonRow1 {

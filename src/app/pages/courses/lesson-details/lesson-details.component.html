@@ -1,4 +1,4 @@
-<div class="lessonDetailsDiv">
+<div class="lessonDetailsDiv" *ngIf="lessonDetails">
   <div class="leftDiv">
     <div class="row1">{{lessonDetails.title}}</div>
     <div class="row2">
@@ -7,102 +7,50 @@
     <div class="lessonTable">
       <div class="lessonText">Comments</div>
 
-      <div class="tableDiv">
-        <table>
-          <thead>
-          <tr>
-            <th>NAME</th>
-            <th>COMMENT</th>
-            <th>PURCHASES</th>
-            <th>LESSONS</th>
-            <th>ACTION</th>
-          </tr>
+       <div class="comment-details">
+      <ng-container *ngFor="let comment of allComment">
+        <div class="comment">
+          <div class="user">
+            <div class="userName">{{comment.user.name}}</div>
+            <div class="isAdmin" *ngIf="comment.user.isAdmin || comment.user.isStaff">Admin</div>
+          </div>
 
-          <tr>
-            <td>Direct</td>
-            <td>67,892</td>
-            <td>10</td>
-            <td>8</td>
-            <td>
-              <a href>View</a>
-            </td>
-          </tr>
+          <div class="commentBox">
+            <div class="commentText">{{comment.comment}}</div>
+            <div class="comment-reply" *ngFor="let reply of comment.replies">
+              <div class="user">
+                <div class="userName">{{reply.user.name}}</div>
+                <div class="isAdmin" *ngIf="reply.user.isAdmin || reply.user.isStaff">Admin</div>
+              </div>
+              <div>{{reply.comment}}</div>
+            </div>
+            <div class="reply-action">
+              <input type="text" #reply>
+              <button class="btn" (click)="replyComment(comment.id, reply.value)">Post</button>
+            </div>
+          </div>
+        </div>
 
-          <tr>
-            <td>Call In</td>
-            <td>89,298</td>
-            <td>50</td>
-            <td>15</td>
-            <td>
-              <a href>View</a>
-            </td>
-          </tr>
+      </ng-container>
 
-          <tr>
-            <td>Paid Search</td>
-            <td>62,767</td>
-            <td>25</td>
-            <td>14</td>
-            <td>
-              <a href>View</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Organic Search</td>
-            <td>123,879</td>
-            <td>30</td>
-            <td>32</td>
-            <td>
-              <a href>View</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Email</td>
-            <td>92,179</td>
-            <td>32</td>
-            <td>32</td>
-            <td>
-              <a href>View</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Referral</td>
-            <td>15,875</td>
-            <td>43</td>
-            <td>12</td>
-            <td>
-              <a href>View</a>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Proposal</td>
-            <td>92,179</td>
-            <td>65</td>
-            <td>21</td>
-            <td>
-              <a href>View</a>
-            </td>
-          </tr>
-          </thead>
-        </table>
-      </div>
+    </div>
     </div>
   </div>
 
   <div class="RightDiv">
     <div class="courseImg">Thumbnail</div>
-    <div><img [src]="lessonDetails.thumbnail" alt=""></div>
+    <div>
+      <img [src]="lessonDetails.thumbnail" alt="">
+    </div>
 
     <div class="courseImg">Preview</div>
-    <div><img [src]="lessonDetails.video" alt=""></div>
+    <div>
+       <video [src]="lessonDetails.video" controls></video>
+    </div>
 
     <div class="buttonDiv">
       <div>
-        <button routerLink="lesson-details">Edit</button>
+        <button [routerLink]="'/courses/edit-lesson/' + lessonDetails.slug">Edit</button>
       </div>
       <div>
         <button>Delete</button>
