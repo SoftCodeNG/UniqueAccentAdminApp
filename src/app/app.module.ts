@@ -14,7 +14,7 @@ import { CreateTextQuestionComponent } from './pages/audio-quiz/create-text-ques
 import { TrainingDetailsComponent } from './pages/trainings/training-details/training-details.component';
 import { AudioQuestionComponent } from './pages/audio-quiz/audio-question/audio-question.component';
 import { AudioQuestionReplayComponent } from './pages/audio-quiz/audio-question-replay/audio-question-replay.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxsModule} from '@ngxs/store';
 import {environment} from '../environments/environment';
@@ -36,6 +36,8 @@ import { UserStaffComponent } from './pages/users/user-staff/user-staff.componen
 import { UserNewStaffComponent } from './pages/users/user-new-staff/user-new-staff.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import {ToastrModule} from 'ngx-toastr';
+import {TokenInterceptor} from "./core/interceptors/token.interseptor";
 
 
 @NgModule({
@@ -71,6 +73,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ReactiveFormsModule,
     SharedModule,
     MatDialogModule,
+    ToastrModule.forRoot(),
     NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production
     }),
@@ -78,7 +81,13 @@ import {MatDialogModule} from '@angular/material/dialog';
     NgxsStoragePluginModule.forRoot(),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
