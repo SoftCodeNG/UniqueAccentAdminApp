@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Select, Store} from '@ngxs/store';
 import {AppState} from '../../store/app-store/app.state';
 import {SetToken} from '../../store/app-store/app.action';
 import {AuthService} from '../services/auth.service';
 import {catchError, filter, switchMap, take} from 'rxjs/operators';
+import {ToastrService} from "ngx-toastr";
 
 
 @Injectable()
@@ -20,8 +21,10 @@ export class TokenInterceptor implements HttpInterceptor {
   @Select(AppState.getRefreshToken) refreshToken$: Observable<string>;
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private store: Store,
-    public authService: AuthService
+    public authService: AuthService,
+    private toastr: ToastrService,
   ) {
     this.refreshToken$.subscribe(res => {
       this.refreshToken = res;
@@ -29,7 +32,6 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     this.token$.subscribe(res => {
       this.token = res;
       if (res) {
@@ -38,10 +40,16 @@ export class TokenInterceptor implements HttpInterceptor {
     });
 
     return next.handle(request).pipe(catchError(error => {
-      if (error instanceof HttpErrorResponse && error.status === 401) {
-        return this.handle401Error(request, next);
+      if (!request.url.includes('auth/token')) {
+        if (error instanceof HttpErrorResponse && error.status === 401) {
+          console.log(request);
+          return this.handle401Error(request, next);
+        } else {
+          return throwError(error);
+        }
       } else {
-        return throwError(error);
+        this.toastr.error('You entered a wrong  email or password', 'Access Denied');
+        return next.handle(request);
       }
     }));
   }

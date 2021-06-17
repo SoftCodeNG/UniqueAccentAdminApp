@@ -52,11 +52,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   login(): void {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(res => {
-        console.log('Login Successful');
-        this.store.dispatch(new SetToken(res.access));
-        this.store.dispatch(new SetRefreshToken(res.refresh));
-        this.toastr.success('Login successful');
-        this.router.navigate(['/']).then();
+        if (res.isAdmin || res.isStaff) {
+          console.log('Login Successful');
+          this.store.dispatch(new SetToken(res.access));
+          this.store.dispatch(new SetRefreshToken(res.refresh));
+          this.toastr.success('Login successful');
+          this.router.navigate(['/']).then();
+        } else {
+          this.toastr.error('You are not a staff of Unique Accent', 'Access Denied');
+        }
       });
     }
   }

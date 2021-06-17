@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
       const isExpired = helper.isTokenExpired(token);
       if (isExpired) {
         this.router.navigate(['/auth']).then(() => {
-          this.toastr.error('Login first to access the classroom', 'Access Denied');
+          this.toastr.error('Session expired. You would need to login again.', 'Access Denied');
         });
         return false;
       }
