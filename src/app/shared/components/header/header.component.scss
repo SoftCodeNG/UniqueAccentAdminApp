@@ -2,11 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //min-height: 100px;
-  //font-family: 'Averia Serif Libre', cursive;
+  height: 80px;
   color: black;
   padding: 0 20px;
   background: #E4E4E4;
+
+  .title {
+    font-weight: 900;
+    font-size: 1.8em;
+  }
 
   .logout {
     display: flex;
@@ -22,12 +26,16 @@
     }
 
     .powerButton {
-      font-size: 1.8em;
+      font-size: 1.5em;
       background: #B4B4B4;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
-      padding: 5px 8px;
-      border-radius: 5px;
+      padding: 10px;
+      font-weight: 600;
+      border-radius: 10px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 3px;
     }
   }
 

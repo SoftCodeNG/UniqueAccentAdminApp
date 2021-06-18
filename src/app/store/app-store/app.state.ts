@@ -1,5 +1,12 @@
 import { State, Selector, Action, StateContext } from '@ngxs/store';
-import {SetDecodedToken, SetFileManagerState, SetHeaderVisibility, SetRefreshToken, SetToken} from './app.action';
+import {
+  SetUserProfile,
+  SetFileManagerState,
+  SetHeaderVisibility,
+  SetRefreshToken,
+  SetToken,
+  SetTitle
+} from './app.action';
 import {Injectable} from '@angular/core';
 
 export class AppStateModel {
@@ -7,7 +14,8 @@ export class AppStateModel {
   showFileManager: boolean;
   token: string;
   refreshToken: string;
-  decodedToken: any;
+  userProfile: any;
+  title: string;
 }
 
 @Injectable()
@@ -18,7 +26,8 @@ export class AppStateModel {
     showFileManager: false,
     token: '',
     refreshToken: '',
-    decodedToken: {}
+    userProfile: {},
+    title: ''
   },
 })
 
@@ -44,8 +53,13 @@ export class AppState {
   }
 
   @Selector()
-  static getDecodedToken(state: AppStateModel): string {
-    return state.decodedToken;
+  static getUserProfile(state: AppStateModel): string {
+    return state.userProfile;
+  }
+
+  @Selector()
+  static getTitle(state: AppStateModel): string {
+    return state.title;
   }
 
   //   actions
@@ -86,14 +100,21 @@ export class AppState {
     });
   }
 
-  @Action(SetDecodedToken)
-  setDecodedToken({ getState, setState }: StateContext<AppStateModel>, { decodedToken }: SetDecodedToken): void {
+  @Action(SetUserProfile)
+  setUserProfile({ getState, setState }: StateContext<AppStateModel>, { userProfile }: SetUserProfile): void {
     const state = getState();
     setState({
       ...state,
-      decodedToken,
+      userProfile,
     });
   }
 
-
+  @Action(SetTitle)
+  setTitle({ getState, setState }: StateContext<AppStateModel>, { title }: SetTitle): void {
+    const state = getState();
+    setState({
+      ...state,
+      title,
+    });
+  }
 }

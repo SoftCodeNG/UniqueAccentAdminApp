@@ -1,9 +1,11 @@
 <div class="header">
-    <h1>Dashboard</h1>
+    <div class="title">{{title}}</div>
 
    <div class="logout">
-     <div class="user">Hi Cathy</div>
-     <div class="powerButton"><i class="fas fa-power-off"></i></div>
+     <div class="user">Hi {{userProfile.user}}</div>
+     <div class="powerButton" (click)="logout()">
+       <i class="fas fa-power-off"></i>
+       <span>Logout</span>
+     </div>
    </div>
-<!--    <h2>Hi {{user.username}}</h2>-->
   </div>
