@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Select, Store} from '@ngxs/store';
-import {SetHeaderVisibility, SetRefreshToken, SetToken} from '../../../store/app-store/app.action';
+import {SetUserProfile, SetHeaderVisibility, SetRefreshToken, SetToken} from '../../../store/app-store/app.action';
 import {AuthService} from '../../../core/services/auth.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
@@ -16,6 +16,7 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
+  rememberMe = false;
 
   @Select(AppState.getToken) token$: Observable<string>;
   constructor(
@@ -27,6 +28,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('systemUser')) {
+      this.router.navigate(['/auth/return']).then();
+    }
     this.token$.subscribe(token => {
       const helper = new JwtHelperService();
       const isExpired = helper.isTokenExpired(token);
@@ -56,8 +60,18 @@ export class LoginComponent implements OnInit, OnDestroy {
           console.log('Login Successful');
           this.store.dispatch(new SetToken(res.access));
           this.store.dispatch(new SetRefreshToken(res.refresh));
+          this.store.dispatch(new SetUserProfile({
+            isAdmin: res.isAdmin,
+            isStaff: res.isStaff,
+            lastLogin: res.lastLogin,
+            user: res.user,
+          }));
           this.toastr.success('Login successful');
           this.router.navigate(['/']).then();
+
+          if (this.rememberMe) {
+            localStorage.setItem('systemUser', JSON.stringify({email: this.loginForm.value.email, username: res.user}));
+          }
         } else {
           this.toastr.error('You are not a staff of Unique Accent', 'Access Denied');
         }

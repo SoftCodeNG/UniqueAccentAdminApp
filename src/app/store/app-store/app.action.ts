@@ -20,7 +20,12 @@ export class SetRefreshToken {
   constructor(public refreshToken: string) {}
 }
 
-export class SetDecodedToken {
-  static readonly type = '[App] SetDecodedToken';
-  constructor(public decodedToken: any) {}
+export class SetUserProfile {
+  static readonly type = '[App] SetUserProfile';
+  constructor(public userProfile: any) {}
+}
+
+export class SetTitle {
+  static readonly type = '[App] SetTitle';
+  constructor(public title: any) {}
 }

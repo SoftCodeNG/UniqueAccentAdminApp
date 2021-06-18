@@ -1,32 +1,64 @@
-  <div class="main">
-    <div class="sidetext">
-      <P>Hi Maxwell,</P>
-      <p>Welcome to Unique Accent <br>Admin Portal</p>
-        <div class="notmax">
-         <p>Not Maxwell?</p>
-           <div class="diff">
-         <a href="url">Sign in as different admin</a>
-          </div>
-      </div>
+<!--  <div class="main">-->
+<!--    <div class="sidetext">-->
+<!--      <P>Hi Maxwell,</P>-->
+<!--      <p>Welcome to Unique Accent <br>Admin Portal</p>-->
+<!--        <div class="notmax">-->
+<!--         <p>Not Maxwell?</p>-->
+<!--           <div class="diff">-->
+<!--         <a href="url">Sign in as different admin</a>-->
+<!--          </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="loginform">-->
+<!--      <img src="../../../../assets/UACLLogo.png" height="100" width="120"/>-->
+<!--      <form action="action_page.php" >-->
+<!--        <div class="container">-->
+<!--            <div class="one">-->
+<!--              <h2>Signing in as</h2>-->
+<!--              <h3>maxwel@yopmail.com</h3>-->
+<!--          <label for="psw"><b>Enter your password</b></label><br>-->
+<!--          <input type="password" placeholder="" name="psw" required><br><br><br>-->
+<!--            </div>-->
+<!--          <div class="submit">-->
+<!--         <a href="url">Sign in</a>-->
+<!--          </div>-->
+<!--          <h4>Swicth account</h4>-->
+<!--        </div>-->
+<!--        <h5>Developed with love by Softcode</h5>-->
+
+
+<!--     </form>-->
+<!--    </div>-->
+
+
+
+
+<div class="main">
+  <div class="sideText">
+    <div>Hi {{userName}},</div>
+    <div>Welcome back to Staff Portal</div>
+    <div class="notUser">
+      <div>Not {{userName}}?</div>
+      <button (click)="switchAccount()">Login as a different staff</button>
     </div>
-
-    <div class="loginform">
-      <img src="../../../../assets/UACLLogo.png" height="100" width="120"/>
-      <form action="action_page.php" >
-        <div class="container">
-            <div class="one">
-              <h2>Signing in as</h2>
-              <h3>maxwel@yopmail.com</h3>
-          <label for="psw"><b>Enter your password</b></label><br>
-          <input type="password" placeholder="" name="psw" required><br><br><br>
-            </div>
-          <div class="submit">
-         <a href="url">Sign in</a>
-          </div>
-          <h4>Swicth account</h4>
-        </div>
-        <h5>Developed with love by Softcode</h5>
+  </div>
 
 
-     </form>
-    </div>
+  <div class="login">
+    <img class="logo" src="../../../../assets/UACLLogo.png" alt="Unique Accent"/>
+    <div class="intoText">Log in as</div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="userEmail">{{userEmail}}</div>
+      <label class="input">
+        <span>Password</span>
+        <input formControlName="password" type="password" autocomplete="">
+      </label>
+
+      <button class="signInButton">Login</button>
+    </form>
+
+
+  </div>
+</div>

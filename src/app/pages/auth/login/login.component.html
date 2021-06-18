@@ -1,32 +1,33 @@
-  <div class="main">
-    <div class="sidetext">
-      <P>Hi,</P>
-      <p>Welcome to Unique Accent <br>Admin Portal</p>
-    </div>
-    <div class="loginform">
-      <img src="../../../../assets/UACLLogo.png" height="100" width="120"/>
-      <form [formGroup]="loginForm" (submit)="login()">
-        <div class="container">
-            <div class="one">
-               <label for="email"><b>Email</b></label><br>
-          <input formControlName="email" type="email" placeholder="" name="email" required> <br><br><br>
-
-          <label for="psw"><b>Password</b></label><br>
-          <input formControlName="password" type="password" placeholder="" name="psw" required><br><br><br>
-
-            </div>
-           <div class="two">
-               <label>
-             <input type="checkbox" /> Remember me
-            </label><br><br><br>
-           </div>
-
-          <div class="submit">
-         <button type="submit">Sign in</button>
-          </div>
-        </div>
-        <h5>Developed with love by Softcode</h5>
+<div class="main">
+  <div class="sideText">
+    <div>Hi,</div>
+    <div>Welcome to Unique Accent Staff Portal</div>
+  </div>
 
 
-     </form>
-    </div>
+  <div class="login">
+    <img class="logo" src="../../../../assets/UACLLogo.png" alt="Unique Accent"/>
+    <div class="intoText">Login to Staff Portal</div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <label class="input">
+        <span>Email Address</span>
+        <input formControlName="email" type="email">
+      </label>
+
+      <label class="input">
+        <span>Password</span>
+        <input formControlName="password" type="password" autocomplete="">
+      </label>
+
+      <label class="rememberMe">
+        <input type="checkbox" #remember (change)="remember.checked ? rememberMe = true : rememberMe = false">
+        <span>Remember me</span>
+      </label>
+
+      <button class="signInButton">Login</button>
+    </form>
+
+
+  </div>
+</div>
