@@ -4,7 +4,7 @@
   </div>
 
   <div class="coursesTable">
-    <div class="coursesText">Most Recent Training</div>
+    <div class="coursesText">Most Recent Courses</div>
 
     <div class="tableDiv">
       <table>
@@ -18,7 +18,7 @@
         </tr>
 
         <tr *ngFor="let course of allCourses">
-          <td>{{course.title}}</td>
+          <td><div class="title">{{course.title}}</div></td>
           <td>{{course.price  | currency:'₦'}}</td>
           <td>{{course.purchases}}</td>
           <td>{{course.lessons}}</td>
