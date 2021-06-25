@@ -30,7 +30,7 @@
             </td>
             <td><div class="textAlign">{{lesson.title}}</div></td>
             <td><div class="textAlign">{{lesson.description}}</div></td>
-            <td>{{lesson.duration}}</td>
+            <td>{{(lesson.duration / 60).toString().split('.')[0]}}mins {{lesson.duration - ((lesson.duration / 60).toString().split('.')[0] * 60)}}sec</td>
             <td>
               <button [routerLink]="'/courses/lesson-details/' + lesson.slug">View</button>
             </td>
@@ -52,6 +52,7 @@
     </div>
 
     <div class="buttonDiv">
+      <div>
       <div>
         <button [routerLink]="'/courses/edit/' + courseDetails.slug">Edit</button>
       </div>

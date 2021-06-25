@@ -37,7 +37,7 @@ export class CreateLessonComponent implements OnInit {
       courseSlug: [this.courseSlug, Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
-      duration: ['2000', Validators.required],
+      duration: ['', Validators.required],
       thumbnail: ['', Validators.required],
       video: ['', Validators.required],
     });
@@ -45,7 +45,7 @@ export class CreateLessonComponent implements OnInit {
     if (this.activatedRoute.snapshot.params.slug && this.activatedRoute.snapshot.url[0].path === 'edit-lesson'){
       this.getLessonDetails(this.activatedRoute.snapshot.params.slug);
       this.isEditing = true;
-      console.log(this.activatedRoute.snapshot)
+      console.log(this.activatedRoute.snapshot);
     }
   }
 
@@ -89,12 +89,14 @@ export class CreateLessonComponent implements OnInit {
 
       if (result.selectedMediaType === 'video') {
         this.selectedPreviewFile = result.selectedMedia;
+        console.log('QQQQQQQQQQQQ', result)
+        this.createLessonForm.controls.duration.setValue(result.selectedMediaDuration);
         this.createLessonForm.controls.video.setValue(result.selectedMedia);
       }
     });
   }
 
-  updateLesson() {
+  updateLesson(): void {
     if (this.createLessonForm.valid === true) {
       console.log(this.createLessonForm.value);
       this.coursesService.createLesson(this.createLessonForm.value).subscribe(res => {
