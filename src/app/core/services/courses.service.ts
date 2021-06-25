@@ -101,4 +101,15 @@ export class CoursesService {
         })
       );
   }
+
+  changeCourseStatus(isPublished: boolean, slug: string): Observable<any> {
+    const payload = new FormData();
+    payload.append('isPublished', isPublished.toString())
+    return this.http.put<any>(`${this.baseURL}courses/changeCourseStatus/${slug}`, payload)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
 }

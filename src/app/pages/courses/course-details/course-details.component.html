@@ -56,7 +56,8 @@
         <button [routerLink]="'/courses/edit/' + courseDetails.slug">Edit</button>
       </div>
       <div>
-        <button>Unpublished</button>
+        <button (click)="changeCourseStatus(false)" [disabled]="courseDetails.invalid" *ngIf="isPublished === true">Unpublished</button>
+        <button (click)="changeCourseStatus(true)" [disabled]="courseDetails.invalid" *ngIf="isPublished === false">Publish</button>
       </div>
     </div>
   </div>
