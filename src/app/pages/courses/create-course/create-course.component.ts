@@ -103,10 +103,10 @@ export class CreateCourseComponent implements OnInit {
     });
   }
 
-  updateCourse() {
+  updateCourse(): void {
     if (this.createCourseForm.valid === true) {
       console.log(this.createCourseForm.value);
-      this.coursesService.createCourse(this.createCourseForm.value).subscribe(res => {
+      this.coursesService.updateCourse(this.createCourseForm.value, this.activatedRoute.snapshot.params.slug).subscribe(res => {
         console.log(res);
         this.router.navigate([`courses/course-details/${res.slug}`]).then();
       });

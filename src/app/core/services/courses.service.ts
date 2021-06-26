@@ -64,6 +64,22 @@ export class CoursesService {
       );
   }
 
+  updateCourse(data: any, slug: string): Observable<any> {
+    const payload = new FormData();
+    payload.append('title', data.title);
+    payload.append('duration', data.duration);
+    payload.append('price', data.price);
+    payload.append('thumbnail', data.thumbnail);
+    payload.append('description', data.description);
+    payload.append('video', data.video);
+    return this.http.put<any>(`${this.baseURL}courses/updateCourse/${slug}`, payload)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
+
  createLesson(data: any): Observable<any> {
     const payload = new FormData();
     payload.append('title', data.title);
@@ -73,6 +89,31 @@ export class CoursesService {
     payload.append('description', data.description);
     payload.append('video', data.video);
     return this.http.post<any>(`${this.baseURL}courses/createLesson`, payload)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
+
+ updateLesson(data: any, slug: string): Observable<any> {
+    const payload = new FormData();
+    payload.append('title', data.title);
+    payload.append('duration', data.duration);
+    payload.append('courseSlug', data.courseSlug);
+    payload.append('thumbnail', data.thumbnail);
+    payload.append('description', data.description);
+    payload.append('video', data.video);
+    return this.http.put<any>(`${this.baseURL}courses/updateLesson/${slug}`, payload)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
+
+  deleteLesson(slug: string): Observable<any>{
+    return this.http.delete<any>(`${this.baseURL}courses/deleteLesson/${slug}`)
      .pipe(
         map(res => {
           return res.payload;

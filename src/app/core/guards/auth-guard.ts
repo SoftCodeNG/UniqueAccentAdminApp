@@ -5,8 +5,8 @@ import {Select, Store} from '@ngxs/store';
 import {AppState} from '../../store/app-store/app.state';
 import {Observable} from 'rxjs';
 import {ToastrService} from 'ngx-toastr';
-import {AuthService} from "../services/auth.service";
-import {SetToken} from "../../store/app-store/app.action";
+import {AuthService} from '../services/auth.service';
+import {SetToken} from '../../store/app-store/app.action';
 
 @Injectable({
   providedIn: 'root',

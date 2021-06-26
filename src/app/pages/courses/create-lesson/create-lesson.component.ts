@@ -63,8 +63,10 @@ export class CreateLessonComponent implements OnInit {
     this.coursesService.getLessonDetails(slug).subscribe(res => {
       this.lessonDetails = res;
       console.log(res);
+      this.createLessonForm.controls.courseSlug.setValue(res.courseSlug);
       this.createLessonForm.controls.title.setValue(res.title);
       this.createLessonForm.controls.description.setValue(res.description);
+      this.createLessonForm.controls.duration.setValue(res.duration);
       this.createLessonForm.controls.thumbnail.setValue(res.thumbnail);
       this.createLessonForm.controls.video.setValue(res.video);
       this.selectedThumbnailFile = res.thumbnail;
@@ -80,8 +82,6 @@ export class CreateLessonComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: `, result);
-
       if (result.selectedMediaType === 'image') {
         this.selectedThumbnailFile = result.selectedMedia;
         this.createLessonForm.controls.thumbnail.setValue(result.selectedMedia);
@@ -89,7 +89,6 @@ export class CreateLessonComponent implements OnInit {
 
       if (result.selectedMediaType === 'video') {
         this.selectedPreviewFile = result.selectedMedia;
-        console.log('QQQQQQQQQQQQ', result)
         this.createLessonForm.controls.duration.setValue(result.selectedMediaDuration);
         this.createLessonForm.controls.video.setValue(result.selectedMedia);
       }
@@ -97,9 +96,10 @@ export class CreateLessonComponent implements OnInit {
   }
 
   updateLesson(): void {
+    console.log(this.createLessonForm);
     if (this.createLessonForm.valid === true) {
       console.log(this.createLessonForm.value);
-      this.coursesService.createLesson(this.createLessonForm.value).subscribe(res => {
+      this.coursesService.updateLesson(this.createLessonForm.value, this.activatedRoute.snapshot.params.slug).subscribe(res => {
         console.log(res);
         this.router.navigate([`courses/lesson-details/${res.slug}`]).then();
       });
