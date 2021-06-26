@@ -53,7 +53,7 @@
         <button [routerLink]="'/courses/edit-lesson/' + lessonDetails.slug">Edit</button>
       </div>
       <div>
-        <button>Delete</button>
+        <button (click)="deleteLesson()">Delete</button>
       </div>
     </div>
   </div>
