@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CoursesService} from '../../../core/services/courses.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-course-details',
@@ -10,10 +11,13 @@ import {ActivatedRoute} from '@angular/router';
 export class CourseDetailsComponent implements OnInit {
   public courseDetails: any;
   public lessons: any;
+  isPublished: boolean;
 
   constructor(
     private coursesService: CoursesService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +27,7 @@ export class CourseDetailsComponent implements OnInit {
   getCourseDetails(slug: string): void {
     this.coursesService.getCourseDetails(slug).subscribe(res => {
       this.courseDetails = res;
+      this.isPublished = res.isPublished
       this.getCourseLessons(this.courseDetails.slug);
       console.log(res)
     });
@@ -33,4 +38,12 @@ export class CourseDetailsComponent implements OnInit {
       this.lessons = res;
     });
   }
+
+   changeCourseStatus(isPublished: boolean) {
+      this.coursesService.changeCourseStatus(isPublished, this.activatedRoute.snapshot.params.slug).subscribe(res => {
+        console.log(res);
+         this.toastr.success('You are not a staff of Unique Accent', 'Access Denied');
+        // this.router.navigate([`courses/changeCourseStatus/${res.slug}`]).then();
+      });
+    }
 }
