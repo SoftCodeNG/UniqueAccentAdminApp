@@ -14,6 +14,7 @@
           <th>PRICE</th>
           <th>PURCHASES</th>
           <th>LESSONS</th>
+          <th>STATUS</th>
           <th>ACTION</th>
         </tr>
 
@@ -22,6 +23,10 @@
           <td>{{course.price  | currency:'₦'}}</td>
           <td>{{course.purchases}}</td>
           <td>{{course.lessons}}</td>
+          <td>
+            <span *ngIf="course.isPublished === true" style="color: green; font-weight: 900">Published</span>
+            <span *ngIf="course.isPublished === false" style="color: red; font-weight: 900">Unpublished</span>
+          </td>
           <td>
              <button [routerLink]="'/courses/course-details/' + course.slug">View</button>
           </td>
