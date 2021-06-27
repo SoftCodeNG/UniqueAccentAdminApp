@@ -25,7 +25,7 @@
         <img
           *ngFor="let image of allImages"
           [src]="baseURL.slice(0, -1) + image.file"
-          (click)="selectedMedia = baseURL.slice(0, -1) + image.file; selectedMediaType = 'image'; selectedMediaName = image.name"
+          (click)="selectMedia(baseURL.slice(0, -1) + image.file, 'image', image.name)"
           [alt]="image.name"/>
       </div>
     </ng-container>
@@ -36,9 +36,10 @@
         <video
           class="video"
           controls
-          *ngFor="let video of allVideo"
+          *ngFor="let video of allVideo; let i = index"
+          [id]="video + i"
           [src]="baseURL.slice(0, -1) + video.file"
-          (click)="selectedMedia = baseURL.slice(0, -1) + video.file; selectedMediaType = 'video'; selectedMediaName = video.name"
+          (click)="selectMedia(baseURL.slice(0, -1) + video.file, 'video', video.name, video + i)"
         ></video>
       </div>
     </ng-container>
@@ -80,7 +81,7 @@
       </div>
       <div
         style="width: 100%"
-        *ngIf="selectedMediaType === 'audio'">
+        *ngIf="selectedMediaType === 'audio' && selectedMediaDuration">
         <audio
           controls
           style="width: 190px"
@@ -93,7 +94,7 @@
 
       <div
         style="width: 100%"
-        *ngIf="selectedMediaType === 'video'">
+        *ngIf="selectedMediaType === 'video' && selectedMediaDuration">
         <video
           style="width: 100%"
           controls

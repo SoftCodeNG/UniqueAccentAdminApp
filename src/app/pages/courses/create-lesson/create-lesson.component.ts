@@ -37,7 +37,7 @@ export class CreateLessonComponent implements OnInit {
       courseSlug: [this.courseSlug, Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
-      duration: ['2000', Validators.required],
+      duration: ['', Validators.required],
       thumbnail: ['', Validators.required],
       video: ['', Validators.required],
     });
@@ -45,7 +45,7 @@ export class CreateLessonComponent implements OnInit {
     if (this.activatedRoute.snapshot.params.slug && this.activatedRoute.snapshot.url[0].path === 'edit-lesson'){
       this.getLessonDetails(this.activatedRoute.snapshot.params.slug);
       this.isEditing = true;
-      console.log(this.activatedRoute.snapshot)
+      console.log(this.activatedRoute.snapshot);
     }
   }
 
@@ -63,8 +63,10 @@ export class CreateLessonComponent implements OnInit {
     this.coursesService.getLessonDetails(slug).subscribe(res => {
       this.lessonDetails = res;
       console.log(res);
+      this.createLessonForm.controls.courseSlug.setValue(res.courseSlug);
       this.createLessonForm.controls.title.setValue(res.title);
       this.createLessonForm.controls.description.setValue(res.description);
+      this.createLessonForm.controls.duration.setValue(res.duration);
       this.createLessonForm.controls.thumbnail.setValue(res.thumbnail);
       this.createLessonForm.controls.video.setValue(res.video);
       this.selectedThumbnailFile = res.thumbnail;
@@ -80,8 +82,6 @@ export class CreateLessonComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: `, result);
-
       if (result.selectedMediaType === 'image') {
         this.selectedThumbnailFile = result.selectedMedia;
         this.createLessonForm.controls.thumbnail.setValue(result.selectedMedia);
@@ -89,15 +89,17 @@ export class CreateLessonComponent implements OnInit {
 
       if (result.selectedMediaType === 'video') {
         this.selectedPreviewFile = result.selectedMedia;
+        this.createLessonForm.controls.duration.setValue(result.selectedMediaDuration);
         this.createLessonForm.controls.video.setValue(result.selectedMedia);
       }
     });
   }
 
-  updateLesson() {
+  updateLesson(): void {
+    console.log(this.createLessonForm);
     if (this.createLessonForm.valid === true) {
       console.log(this.createLessonForm.value);
-      this.coursesService.createLesson(this.createLessonForm.value).subscribe(res => {
+      this.coursesService.updateLesson(this.createLessonForm.value, this.activatedRoute.snapshot.params.slug).subscribe(res => {
         console.log(res);
         this.router.navigate([`courses/lesson-details/${res.slug}`]).then();
       });

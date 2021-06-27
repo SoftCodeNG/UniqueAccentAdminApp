@@ -16,11 +16,14 @@ export class FileManagerComponent implements OnInit {
   selectedMedia: any;
   selectedMediaType: any;
   selectedMediaName: any;
+  selectedMediaDuration: any;
   currentView = 'image';
   allMedia: any[];
   allImages: any[];
   allVideo: any[];
   allAudio: any[];
+  video: any;
+  audio: any;
 
   constructor(
     private store: Store,
@@ -31,6 +34,9 @@ export class FileManagerComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMedia();
+
+    this.video = document.getElementById('previewVideo') as HTMLVideoElement;
+    this.audio = document.getElementById('previewAudio') as HTMLVideoElement;
   }
 
   getMedia(): void {
@@ -108,7 +114,20 @@ export class FileManagerComponent implements OnInit {
     this.dialogRef.close({
       selectedMedia: this.selectedMedia,
       selectedMediaType: this.selectedMediaType,
-      selectedMediaName: this.selectedMediaName
+      selectedMediaName: this.selectedMediaName,
+      selectedMediaDuration: this.selectedMediaDuration
+    });
+  }
+
+  selectMedia(fileURL: string, fileType: string, fileName, id?: string): void {
+    this.selectedMedia = fileURL;
+    this.selectedMediaType = fileType;
+    this.selectedMediaName = fileName;
+    const media = document.getElementById(id) as HTMLVideoElement;
+    this.selectedMediaDuration = Math.round(media.duration);
+    media.addEventListener(('playing'), () => {
+      console.log('WWWWWWWWWWWWWWWWWWWWWWWWWWWW');
+      this.selectedMediaDuration = Math.round(media.duration);
     });
   }
 }

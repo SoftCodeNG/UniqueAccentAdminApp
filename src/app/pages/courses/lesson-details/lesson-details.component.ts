@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CoursesService} from '../../../core/services/courses.service';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-lesson-details',
@@ -13,7 +14,9 @@ export class LessonDetailsComponent implements OnInit {
 
   constructor(
     private coursesService: CoursesService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService
   ) {
   }
 
@@ -47,5 +50,12 @@ export class LessonDetailsComponent implements OnInit {
         this.getLessonComments(1);
       });
     }
+  }
+
+  deleteLesson(): void {
+    this.coursesService.deleteLesson(this.activatedRoute.snapshot.params.slug).subscribe(res => {
+      this.toastr.success('Lesson deleted successfully');
+      this.router.navigate([`/courses/course-details/${this.lessonDetails.courseSlug}`]).then();
+    });
   }
 }
