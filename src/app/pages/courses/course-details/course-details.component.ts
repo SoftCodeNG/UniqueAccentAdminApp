@@ -42,7 +42,8 @@ export class CourseDetailsComponent implements OnInit {
    changeCourseStatus(isPublished: boolean) {
       this.coursesService.changeCourseStatus(isPublished, this.activatedRoute.snapshot.params.slug).subscribe(res => {
         console.log(res);
-         this.toastr.success('You are not a staff of Unique Accent', 'Access Denied');
+         this.toastr.success('Course Published Successfully', 'Course Updated');
+         // if (res.isPublished)
         // this.router.navigate([`courses/changeCourseStatus/${res.slug}`]).then();
       });
     }
