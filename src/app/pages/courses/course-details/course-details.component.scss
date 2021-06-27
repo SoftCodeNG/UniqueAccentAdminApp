@@ -1,7 +1,14 @@
 .courseDetailsDiv {
   display: grid;
-  grid-template-columns: 80% 20%;
-  width: calc(100% - 220px);
+  width: calc(100% - 180px);
+  height: calc(100vh - 119px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 20px 20px 20px 0;
+
+  * {
+    box-sizing: border-box;
+  }
 
   .LeftDiv {
     .row1 {
@@ -127,31 +134,18 @@
     }
 
     .buttonDiv {
-      display: grid;
-      justify-content: space-between;
-      grid-auto-flow: column;
       margin-top: 40px;
-
-      :first-child {
-        button {
-          background: #707070;
-          color: #000000;
-          padding: 10px 30px;
-          border-radius: 10px;
-          border: none;
-          cursor: pointer;
-        }
-      }
-
-      :nth-child(2) {
-        button {
-          background: #9D0000;
-          color: #FFD9D9;
-          padding: 10px 20px;
-          border-radius: 10px;
-          border: none;
-          cursor: pointer;
-        }
+      width: 100%;
+      button {
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        margin: 5px 0;
+        background: #707070;
+        color: #000000;
+        font-weight: 700;
       }
 
     }

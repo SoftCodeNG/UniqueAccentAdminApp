@@ -4,7 +4,13 @@
   </div>
 
   <div class="coursesTable">
-    <div class="coursesText">Most Recent Courses</div>
+    <div class="coursesText">
+      <div>Most Recent Courses</div>
+      <label>
+        <input type="search" placeholder="Search Courses" #search (keyup)="searchAllCourses(search.value)" (blur)="searchAllCourses(search.value)" (change)="searchAllCourses(search.value)">
+        <i class="fa fa-search"></i>
+      </label>
+    </div>
 
     <div class="tableDiv">
       <table>
@@ -37,8 +43,8 @@
     </div>
   </div>
 
-<!--  <div class="pagination">-->
-<!-- <a href="#">1</a>-->
-<!--  <a class="active" href="#">2</a>-->
-<!--  </div>-->
+  <div class="buttons">
+     <button [disabled]="prev === null" (click)="navigate(prev)"><i class="fas fa-chevron-left"></i>Prev</button>
+     <button [disabled]="next === null" (click)="navigate(next)">Next<i class="fas fa-chevron-right"></i></button>
+  </div>
 </div>

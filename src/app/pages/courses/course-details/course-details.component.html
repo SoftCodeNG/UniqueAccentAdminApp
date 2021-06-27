@@ -5,7 +5,23 @@
       <div>Fee: ₦{{courseDetails.price}}</div>
     </div>
 
-    <div class="row2">{{courseDetails.description}}</div>
+    <div class="row2">
+        <span>{{courseDetails.description.substr(0, descriptionLength)}}</span>
+        <ng-container *ngIf="courseDetails.description.length > 500">
+          <span
+          *ngIf="descriptionLength <= 500"
+          style="cursor: pointer; font-weight: 900"
+          (click)="descriptionLength = courseDetails.description.length">
+          ... Read more <i class="fa fa-angle-down"></i>
+        </span>
+        </ng-container>
+        <span
+          *ngIf="descriptionLength > 500"
+          style="cursor: pointer; font-weight: 900"
+          (click)="descriptionLength = 500">
+          Read less <i class="fa fa-angle-up"></i>
+        </span>
+    </div>
 
     <div class="lessonTable">
       <div class="lessonText">
@@ -29,7 +45,7 @@
               <img [src]="lesson.thumbnail" alt="lesson thumbnail" style="width: 80px; height:80px">
             </td>
             <td><div class="textAlign">{{lesson.title}}</div></td>
-            <td><div class="textAlign">{{lesson.description}}</div></td>
+            <td><div class="textAlign">{{lesson.description.substr(0, 100).trim()}}{{lesson.description.length > 100 ? '...' : ''}}</div></td>
             <td>{{(lesson.duration / 60).toString().split('.')[0]}}mins {{lesson.duration - ((lesson.duration / 60).toString().split('.')[0] * 60)}}sec</td>
             <td>
               <button [routerLink]="'/courses/lesson-details/' + lesson.slug">View</button>
@@ -53,15 +69,13 @@
 
     <div class="buttonDiv">
       <div>
-      <div>
         <button [routerLink]="'/courses/edit/' + courseDetails.slug">Edit</button>
       </div>
       <div>
-        <button (click)="changeCourseStatus(false)" [disabled]="courseDetails.invalid" *ngIf="isPublished === true">Unpublished</button>
-        <button (click)="changeCourseStatus(true)" [disabled]="courseDetails.invalid" *ngIf="isPublished === false">Publish</button>
+        <button style="background: #9D0000; color: white" (click)="changeCourseStatus(false)" [disabled]="courseDetails.invalid" *ngIf="isPublished === true">Unpublished</button>
+        <button style="background: #076907" (click)="changeCourseStatus(true)" [disabled]="courseDetails.invalid" *ngIf="isPublished === false">Publish</button>
       </div>
     </div>
-  </div>
 
   <div class="pagination">
 
