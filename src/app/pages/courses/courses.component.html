@@ -4,16 +4,23 @@
   </div>
 
   <div class="coursesTable">
-    <div class="coursesText">Most Recent Courses</div>
+    <div class="coursesText">
+      <div>Most Recent Courses</div>
+      <label>
+        <input type="search" placeholder="Search Courses" #search (keyup)="searchAllCourses(search.value)" (blur)="searchAllCourses(search.value)" (change)="searchAllCourses(search.value)">
+        <i class="fa fa-search"></i>
+      </label>
+    </div>
 
     <div class="tableDiv">
       <table>
         <thead>
         <tr>
-          <th>TITLE</th>
+          <th><div class="titleHead">TITLE</div></th>
           <th>PRICE</th>
           <th>PURCHASES</th>
           <th>LESSONS</th>
+          <th>STATUS</th>
           <th>ACTION</th>
         </tr>
 
@@ -22,6 +29,10 @@
           <td>{{course.price  | currency:'₦'}}</td>
           <td>{{course.purchases}}</td>
           <td>{{course.lessons}}</td>
+          <td>
+            <span *ngIf="course.isPublished === true" style="color: green; font-weight: 900">Published</span>
+            <span *ngIf="course.isPublished === false" style="color: red; font-weight: 900">Unpublished</span>
+          </td>
           <td>
              <button [routerLink]="'/courses/course-details/' + course.slug">View</button>
           </td>
@@ -32,8 +43,8 @@
     </div>
   </div>
 
-<!--  <div class="pagination">-->
-<!-- <a href="#">1</a>-->
-<!--  <a class="active" href="#">2</a>-->
-<!--  </div>-->
+  <div class="buttons">
+     <button [disabled]="prev === null" (click)="navigate(prev)"><i class="fas fa-chevron-left"></i>Prev</button>
+     <button [disabled]="next === null" (click)="navigate(next)">Next<i class="fas fa-chevron-right"></i></button>
+  </div>
 </div>

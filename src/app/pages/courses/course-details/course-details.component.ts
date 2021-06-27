@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CoursesService} from '../../../core/services/courses.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-course-details',
@@ -10,10 +11,14 @@ import {ActivatedRoute} from '@angular/router';
 export class CourseDetailsComponent implements OnInit {
   public courseDetails: any;
   public lessons: any;
+  isPublished: boolean;
+  descriptionLength = 500;
 
   constructor(
     private coursesService: CoursesService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -23,8 +28,9 @@ export class CourseDetailsComponent implements OnInit {
   getCourseDetails(slug: string): void {
     this.coursesService.getCourseDetails(slug).subscribe(res => {
       this.courseDetails = res;
+      this.isPublished = res.isPublished;
       this.getCourseLessons(this.courseDetails.slug);
-      console.log(res)
+      console.log(res);
     });
   }
 
@@ -33,4 +39,15 @@ export class CourseDetailsComponent implements OnInit {
       this.lessons = res;
     });
   }
+
+   changeCourseStatus(isPublished: boolean): void {
+      this.coursesService.changeCourseStatus(isPublished, this.activatedRoute.snapshot.params.slug).subscribe(res => {
+        this.getCourseDetails(this.activatedRoute.snapshot.params.slug);
+        if (res.isPublished) {
+          this.toastr.success('Course published successfully');
+        } else {
+          this.toastr.success('Course unpublished successfully');
+        }
+      });
+    }
 }

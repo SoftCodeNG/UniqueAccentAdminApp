@@ -16,7 +16,25 @@ export class CoursesService {
     return this.http.get<any>(`${this.baseURL}courses/getCourses`)
       .pipe(
         map(res => {
-          return res.results;
+          return res;
+        })
+      );
+  }
+
+  searchAllCourses(value: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}courses/searchCourses/${value}`)
+      .pipe(
+        map(res => {
+          return res;
+        })
+      );
+  }
+
+  navigateCourses(direction: string): Observable<any> {
+    return this.http.get<any>(direction)
+      .pipe(
+        map(res => {
+          return res;
         })
       );
   }
@@ -136,6 +154,17 @@ export class CoursesService {
     payload.append('userId', data.userId);
     payload.append('comment', data.comment);
     return this.http.post<any>(`${this.baseURL}courses/replyComment`, payload)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+      );
+  }
+
+  changeCourseStatus(isPublished: boolean, slug: string): Observable<any> {
+    const payload = new FormData();
+    payload.append('isPublished', isPublished.toString())
+    return this.http.put<any>(`${this.baseURL}courses/changeCourseStatus/${slug}`, payload)
      .pipe(
         map(res => {
           return res.payload;
