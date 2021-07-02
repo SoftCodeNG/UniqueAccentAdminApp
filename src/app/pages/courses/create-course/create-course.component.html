@@ -1,14 +1,17 @@
 <div class="createCourseDiv">
-  <div class="nextButton">
-    <button (click)="createCourse()" [disabled]="createCourseForm.invalid" *ngIf="isEditing === false">Next</button>
-    <button (click)="updateCourse()" [disabled]="createCourseForm.invalid" *ngIf="isEditing === true">Save</button>
+  <div class="createCourseText">
+    <div>Create Course</div>
+    <div class="nextButton">
+      <button (click)="createCourse()" [disabled]="createCourseForm.invalid" *ngIf="isEditing === false">Next</button>
+      <button (click)="updateCourse()" [disabled]="createCourseForm.invalid" *ngIf="isEditing === true">Save</button>
+    </div>
   </div>
 
   <ng-container [formGroup]="createCourseForm">
     <div class="createCourseRow1">
       <label>
         <span>Title</span>
-        <input formControlName="title" type="text"  placeholder="Enter a title">
+        <input formControlName="title" type="text" placeholder="Enter a title">
       </label>
       <label>
         <span>Price</span>
@@ -21,14 +24,16 @@
         <label>
           <span>Thumbnail</span>
           <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
-          <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile" alt="Selected Image">
+          <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile"
+               alt="Selected Image">
         </label>
       </div>
       <div>
         <label>
           <span>Preview</span>
           <button *ngIf="!selectedPreviewFile" (click)="showFileManager('video')">Select a video</button>
-          <video *ngIf="selectedPreviewFile" (click)="showFileManager('video')" [src]="selectedPreviewFile" controls></video>
+          <video *ngIf="selectedPreviewFile" (click)="showFileManager('video')" [src]="selectedPreviewFile"
+                 controls></video>
         </label>
       </div>
     </div>
