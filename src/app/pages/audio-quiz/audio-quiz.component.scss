@@ -1,6 +1,8 @@
 .quizDiv {
+
   .rightDiv {
     text-align: end;
+
     button {
       background: #FF6600;
       color: black;
@@ -8,10 +10,12 @@
       border-radius: 10px;
       font-size: 20px;
       font-weight: bold;
+      border: none;
       margin-bottom: 30px;
       cursor: pointer;
     }
   }
+
   .bottomDiv {
     background: #FFFFFF;
     margin-top: 20px;
@@ -22,27 +26,33 @@
       font-weight: bold;
     }
   }
+
   .tableDiv {
     margin-top: 20px;
+
     table {
       width: 100%;
       border-collapse: collapse;
+
       thead {
+
         th {
           background: #E4E4E4;
+          color: black;
           width: 150px;
-          text-align: left;
+          text-align: center;
           border: none;
-          padding: 10px 10px 10px 45px;
+          padding: 10px;
         }
-            td {
-              color: black;
-              width: 150px;
-              text-align:left;
-              border: none;
-              padding: 10px 10px 10px 45px;
-              cursor: pointer;
-          a {
+
+        td {
+          width: 150px;
+          text-align: center;
+          border: none;
+          padding: 10px;
+          cursor: pointer;
+
+          button {
             cursor: pointer;
             background: #E4E4E4;
             color: black;
