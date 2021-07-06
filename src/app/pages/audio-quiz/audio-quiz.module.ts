@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {AudioQuizComponent} from "./audio-quiz.component";
 import {CreateQuizComponent} from "./create-quiz/create-quiz.component";
-import {QuizDetails1Component} from "./quiz-details1/quiz-details1.component";
+import {QuizDetailsComponent} from "./quiz-details/quiz-details.component";
 import {AudioQuizRoutingModule} from "./audio-quiz-routing.module";
 import {ReactiveFormsModule} from "@angular/forms";
 
@@ -12,7 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
   declarations: [
     AudioQuizComponent,
     CreateQuizComponent,
-    QuizDetails1Component
+    QuizDetailsComponent
   ],
   imports: [
     CommonModule,

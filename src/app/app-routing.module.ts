@@ -23,6 +23,7 @@ import {UserStaffComponent} from './pages/users/user-staff/user-staff.component'
 import {UserNewStaffComponent} from './pages/users/user-new-staff/user-new-staff.component';
 import {AuthGuard} from './core/guards/auth-guard';
 import {ReverseAuthGuard} from './core/guards/reverse-auth-guard';
+// import {QuizDetailsComponent} from "./pages/audio-quiz/quiz-details/quiz-details.component";
 
 
 
@@ -42,11 +43,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/courses/courses.module').then(m => m.CoursesModule),
     canActivate: [AuthGuard]
   },
-  // {
-  //   path: 'audio-quiz',
-  //   loadChildren: () => import('./pages/audio-quiz/audio-quiz.module').then(m => m.AudioQuizModule),
-  //   canActivate: [AuthGuard]
-  // },
+  {
+    path: 'audio-quiz',
+    loadChildren: () => import('./pages/audio-quiz/audio-quiz.module').then(m => m.AudioQuizModule),
+    canActivate: [AuthGuard]
+  },
   {
     path: 'trainings',
     component: TrainingsComponent
@@ -84,7 +85,7 @@ const routes: Routes = [
   //   component: CreateQuizComponent
   // },
   // {
-  //   path: 'audio-quiz/create-quiz/quiz-details',
+  //   path: 'quiz-details',
   //   component: QuizDetailsComponent
   // },
   {

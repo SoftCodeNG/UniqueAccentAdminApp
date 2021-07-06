@@ -13,79 +13,79 @@
           <th>TITLE</th>
           <th>PARTICIPANT</th>
           <th>PASS CODE</th>
-          <th>LESSONS</th>
+          <th>QUESTION</th>
           <th>ACTION</th>
         </tr>
 
-<!--        <tr  *ngFor="let quiz of allQuiz">-->
-<!--          <td>{{quiz.title}}</td>-->
-<!--          <td>{{quiz.participant}}</td>-->
-<!--          <td>{{quiz.passcode}}</td>-->
-<!--          <td>{{quiz.lessons}}</td>-->
+        <tr  *ngFor="let quiz of allQuiz">
+          <td>{{quiz.title}}</td>
+          <td>{{quiz.participant}}</td>
+          <td>{{quiz.passcode}}</td>
+          <td>{{quiz.question}}</td>
+          <td>
+             <button [routerLink]="'/quiz/quiz-details/' + quiz.slug">View</button>
+          </td>
+        </tr>
+
+<!--        <tr>-->
+<!--          <td>Call In</td>-->
+<!--          <td>89,298</td>-->
+<!--          <td>50</td>-->
+<!--          <td>15</td>-->
 <!--          <td>-->
-<!--             <button [routerLink]="'/quiz/quiz-details/' + quiz.slug">View</button>-->
+<!--            <a href>View</a>-->
 <!--          </td>-->
 <!--        </tr>-->
 
-        <tr>
-          <td>Call In</td>
-          <td>89,298</td>
-          <td>50</td>
-          <td>15</td>
-          <td>
-            <a href>View</a>
-          </td>
-        </tr>
+<!--        <tr>-->
+<!--          <td>Paid Search</td>-->
+<!--          <td>62,767</td>-->
+<!--          <td>25</td>-->
+<!--          <td>14</td>-->
+<!--          <td>-->
+<!--             <a href>View</a>-->
+<!--          </td>-->
+<!--        </tr>-->
 
-        <tr>
-          <td>Paid Search</td>
-          <td>62,767</td>
-          <td>25</td>
-          <td>14</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
+<!--        <tr>-->
+<!--          <td>Organic Search</td>-->
+<!--          <td>123,879</td>-->
+<!--          <td>30</td>-->
+<!--          <td>32</td>-->
+<!--          <td>-->
+<!--             <a href>View</a>-->
+<!--          </td>-->
+<!--        </tr>-->
 
-        <tr>
-          <td>Organic Search</td>
-          <td>123,879</td>
-          <td>30</td>
-          <td>32</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
+<!--        <tr>-->
+<!--          <td>Email</td>-->
+<!--          <td>92,179</td>-->
+<!--          <td>32</td>-->
+<!--          <td>32</td>-->
+<!--          <td>-->
+<!--             <a href>View</a>-->
+<!--          </td>-->
+<!--        </tr>-->
 
-        <tr>
-          <td>Email</td>
-          <td>92,179</td>
-          <td>32</td>
-          <td>32</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
+<!--        <tr>-->
+<!--          <td>Referral</td>-->
+<!--          <td>15,875</td>-->
+<!--          <td>43</td>-->
+<!--          <td>12</td>-->
+<!--          <td>-->
+<!--             <a href>View</a>-->
+<!--          </td>-->
+<!--        </tr>-->
 
-        <tr>
-          <td>Referral</td>
-          <td>15,875</td>
-          <td>43</td>
-          <td>12</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Proposal</td>
-          <td>92,179</td>
-          <td>65</td>
-          <td>21</td>
-          <td>
-             <a href>View</a>
-          </td>
-        </tr>
+<!--        <tr>-->
+<!--          <td>Proposal</td>-->
+<!--          <td>92,179</td>-->
+<!--          <td>65</td>-->
+<!--          <td>21</td>-->
+<!--          <td>-->
+<!--             <a href>View</a>-->
+<!--          </td>-->
+<!--        </tr>-->
         </thead>
       </table>
     </div>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AudioQuizComponent} from "./audio-quiz.component";
 import {CreateQuizComponent} from "./create-quiz/create-quiz.component";
-import {QuizDetails1Component} from "./quiz-details1/quiz-details1.component";
+import {QuizDetailsComponent} from "./quiz-details/quiz-details.component";
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'quiz-details/:slug',
-    component: QuizDetails1Component
+    component: QuizDetailsComponent
   },
   // {
   //   path: 'edit/:slug',

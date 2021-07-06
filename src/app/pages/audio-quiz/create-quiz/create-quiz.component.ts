@@ -14,8 +14,8 @@ import {QuizService} from "../../../core/quiz.service";
 export class CreateQuizComponent implements OnInit {
   createQuizForm: FormGroup;
   // selectedThumbnailFile: string;
-  quizDetails: any;
-  isEditing: boolean = false;
+  // quizDetails: any;
+  // isEditing: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,43 +31,46 @@ export class CreateQuizComponent implements OnInit {
     this.createQuizForm = this.fb.group({
       title: ['', Validators.required],
       instruction: ['', Validators.required],
-      duration: ['2000', Validators.required],
+      duration: ['', Validators.required],
       endDate: ['', Validators.required],
       organisation: ['', Validators.required],
       organisationLogo: ['', Validators.required],
       startDate: ['', Validators.required],
       passCode: ['', Validators.required],
     });
-         if (this.activatedRoute.snapshot.params.slug){
-      this.getQuizDetails(this.activatedRoute.snapshot.params.slug);
-      this.isEditing = true;
-    }
+    //      if (this.activatedRoute.snapshot.params.slug){
+    //   this.getQuizDetails(this.activatedRoute.snapshot.params.slug);
+    //   this.isEditing = true;
+    // }
   }
 
   createQuiz(): void {
+    console.log(this.createQuizForm)
     if (this.createQuizForm.valid === true) {
       console.log(this.createQuizForm.value);
       this.quizService.createQuiz(this.createQuizForm.value).subscribe(res => {
         console.log(res);
+        // this.router.navigate([`quiz-details/:slug`]).then()
+        this.router.navigate([`audio-quiz/quiz-details/${res.slug}`]).then()
       });
     }
   }
 
-  getQuizDetails(slug: string): void {
-    this.quizService.getQuizDetails(slug).subscribe(res => {
-      this.quizDetails = res;
-      console.log(res);
-      this.createQuizForm.controls.title.setValue(res.title);
-      this.createQuizForm.controls.instruction.setValue(res.instruction);
-      this.createQuizForm.controls.duration.setValue(res.duration);
-      this.createQuizForm.controls.endDate.setValue(res.endDate);
-      this.createQuizForm.controls.organisation.setValue(res.organisation);
-      this.createQuizForm.controls.organisationLogo.setValue(res.organisationLogo);
-      this.createQuizForm.controls.startDate.setValue(res.startDate);
-      this.createQuizForm.controls.passCode.setValue(res.passCode);
-      // this.selectedThumbnailFile = res.thumbnail;
-    });
-  }
+  // getQuizDetails(slug: string): void {
+  //   this.quizService.getQuizDetails(slug).subscribe(res => {
+  //     this.quizDetails = res;
+  //     console.log(res);
+  //     this.createQuizForm.controls.title.setValue(res.title);
+  //     this.createQuizForm.controls.instruction.setValue(res.instruction);
+  //     this.createQuizForm.controls.duration.setValue(res.duration);
+  //     this.createQuizForm.controls.endDate.setValue(res.endDate);
+  //     this.createQuizForm.controls.organisation.setValue(res.organisation);
+  //     this.createQuizForm.controls.organisationLogo.setValue(res.organisationLogo);
+  //     this.createQuizForm.controls.startDate.setValue(res.startDate);
+  //     this.createQuizForm.controls.passCode.setValue(res.passCode);
+  //     // this.selectedThumbnailFile = res.thumbnail;
+  //   });
+  // }
 
   // showFileManager(mediaType): void {
   //   const dialogRef = this.dialog.open(FileManagerComponent, {
@@ -91,14 +94,5 @@ export class CreateQuizComponent implements OnInit {
   //   });
   // }
 
-  updateQuiz(): void {
-    if (this.createQuizForm.valid === true) {
-      console.log(this.createQuizForm.value);
-      this.quizService.updateQuiz(this.createQuizForm.value, this.activatedRoute.snapshot.params.slug).subscribe(res => {
-        console.log(res);
-        this.router.navigate([`quiz/quiz-details/${res.slug}`]).then();
-      });
-    }
-  }
 
 }

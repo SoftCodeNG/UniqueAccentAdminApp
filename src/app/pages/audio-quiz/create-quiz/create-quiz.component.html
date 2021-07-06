@@ -1,19 +1,24 @@
 <div class="createQuizDiv">
   <div class="saveButton">
-    <button (click)="createQuiz()" [disabled]="createQuizForm.invalid" *ngIf="isEditing === false">Next</button>
-    <button (click)="updateQuiz()" [disabled]="createQuizForm.invalid" *ngIf="isEditing === true">Save</button>
-
+    <button (click)="createQuiz()">Next</button>
+<!--    <button routerLink="audio-quiz/create-quiz/quiz-details/create-text-question">Next</button>-->
   </div>
 
-<!--  <ng-container [formGroup]="createQuizForm">-->
+  <ng-container [formGroup]="createQuizForm">
     <div class="createQuizRow1">
       <label>
         <span>Title</span>
-        <input type="text" placeholder="Enter a title">
+        <input formControlName="title" type="text" placeholder="Enter a title">
       </label>
+
+      <label>
+        <span>Organisation</span>
+        <input formControlName="organisation" type="text" placeholder="Enter an organisation">
+      </label>
+
       <label>
         <span>Pass Code</span>
-        <input type="text" placeholder="Enter a passcode">
+        <input formControlName="passCode" type="text" placeholder="Enter a passcode">
       </label>
     </div>
 
@@ -21,13 +26,13 @@
       <div>
         <label>
           <span>Organisational Logo</span>
-          <input type="text" placeholder="Select an image">
+          <input formControlName="organisationLogo" type="text" placeholder="Select an image">
         </label>
       </div>
       <div>
         <label>
           <span>Allocated Time in Mins</span>
-          <input type="text" placeholder="60">
+          <input formControlName="duration" type="text" placeholder="60">
         </label>
       </div>
     </div>
@@ -36,13 +41,13 @@
       <div>
         <label>
           <span>Start Date</span>
-          <input type="text" placeholder="Select a date">
+          <input formControlName="startDate" type="datetime-local" placeholder="Select a date">
         </label>
       </div>
       <div>
         <label>
           <span>End Date</span>
-          <input type="text" placeholder="Select a date">
+          <input formControlName="endDate" type="datetime-local" placeholder="Select a date">
         </label>
       </div>
     </div>
@@ -50,9 +55,9 @@
     <div class="row3">
       <label>
         <span>Instruction</span>
-        <input type="text">
+        <input formControlName="instruction" type="text">
       </label>
     </div>
-<!--  </ng-container>-->
+  </ng-container>
 
 </div>
