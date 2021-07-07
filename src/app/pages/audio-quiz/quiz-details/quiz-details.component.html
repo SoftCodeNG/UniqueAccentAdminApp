@@ -6,23 +6,23 @@
       <div><img src="../../../../assets/questionLogo.png" alt=""></div>
       <div>No Question Found</div>
       <div class="addQuestionButton">
-        <button routerLink="create-text-question">Add Question</button>
+        <button routerLink="audio-quiz/create-text-question/ + quizDetails.slug">Add Question</button>
       </div>
     </div>
   </div>
 
-  <div class="rightDiv">
+  <div class="rightDiv" *ngIf="quizDetails">
     <div class="SchLogo">Logo</div>
-    <div><img src="../../../../assets/EarlyLifeSecondarySchoolLogo.png" alt=""></div>
+    <div><img [src]="quizDetails.organisationLogo" alt=""></div>
 
     <div class="dateAndTime">
       <div>Start Date</div>
-      <div>April 7 2021</div>
+      <div>{{quizDetails.startDate}}</div>
     </div>
 
     <div class="dateAndTime">
       <div>End Date</div>
-      <div>April 7 2021</div>
+      <div>{{quizDetails.endDate}}</div>
     </div>
 
     <div class="dateAndTime">
