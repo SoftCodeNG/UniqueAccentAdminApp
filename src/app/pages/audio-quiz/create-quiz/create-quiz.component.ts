@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Store} from "@ngxs/store";
-import {MatDialog} from "@angular/material/dialog";
-import {QuizService} from "../../../core/quiz.service";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Store} from '@ngxs/store';
+import {MatDialog} from '@angular/material/dialog';
+import {QuizService} from '../../../core/quiz.service';
 // import {FileManagerComponent} from "../../../shared/components/file-manager/file-manager.component";
 
 @Component({
@@ -45,13 +45,13 @@ export class CreateQuizComponent implements OnInit {
   }
 
   createQuiz(): void {
-    console.log(this.createQuizForm)
+    console.log(this.createQuizForm);
     if (this.createQuizForm.valid === true) {
       console.log(this.createQuizForm.value);
       this.quizService.createQuiz(this.createQuizForm.value).subscribe(res => {
         console.log(res);
         // this.router.navigate([`quiz-details/:slug`]).then()
-        this.router.navigate([`audio-quiz/quiz-details/${res.slug}`]).then()
+        this.router.navigate([`audio-quiz/quiz-details/${res.slug}`]).then();
       });
     }
   }
