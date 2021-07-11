@@ -4,6 +4,7 @@ import {AudioQuizComponent} from "./audio-quiz.component";
 import {CreateQuizComponent} from "./create-quiz/create-quiz.component";
 import {QuizDetailsComponent} from "./quiz-details/quiz-details.component";
 import {CreateTextQuestionComponent} from "./create-text-question/create-text-question.component";
+import {AudioQuestionComponent} from "./audio-question/audio-question.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'create-text-question/:id',
     component: CreateTextQuestionComponent
+  },
+  {
+    path: 'audio-question/:id',
+    component: AudioQuestionComponent
   },
   // {
   //   path: 'edit/:slug',

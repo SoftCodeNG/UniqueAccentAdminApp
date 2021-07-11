@@ -4,90 +4,47 @@
   </div>
 
   <div class="bottomDiv">
-    <div class="quizText">Most Recent Quiz</div>
+    <div class="quizText">
+      <div>Most Recent Quiz</div>
+      <label>
+        <input type="search" placeholder="Search Quiz" #search (keyup)="searchAllQuiz(search.value)"
+               (blur)="searchAllQuiz(search.value)" (change)="searchAllQuiz(search.value)">
+        <i class="fa fa-search"></i>
+      </label>
+    </div>
+
 
     <div class="tableDiv">
       <table>
         <thead>
         <tr>
-          <th>TITLE</th>
+          <th>
+            <div class="titleHead">TITLE</div>
+          </th>
           <th>PARTICIPANT</th>
           <th>PASS CODE</th>
           <th>QUESTION</th>
           <th>ACTION</th>
         </tr>
 
-        <tr  *ngFor="let quiz of allQuiz">
-          <td>{{quiz.title}}</td>
+        <tr *ngFor="let quiz of allQuiz">
+          <td>
+            <div class="title">{{quiz.title}}</div>
+          </td>
           <td>{{quiz.participant}}</td>
           <td>{{quiz.passcode}}</td>
           <td>{{quiz.question}}</td>
           <td>
-             <button [routerLink]="'/audio-quiz/quiz-details/' + quiz.slug">View</button>
+            <button [routerLink]="'/audio-quiz/quiz-details/' + quiz.slug">View</button>
           </td>
         </tr>
-
-<!--        <tr>-->
-<!--          <td>Call In</td>-->
-<!--          <td>89,298</td>-->
-<!--          <td>50</td>-->
-<!--          <td>15</td>-->
-<!--          <td>-->
-<!--            <a href>View</a>-->
-<!--          </td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td>Paid Search</td>-->
-<!--          <td>62,767</td>-->
-<!--          <td>25</td>-->
-<!--          <td>14</td>-->
-<!--          <td>-->
-<!--             <a href>View</a>-->
-<!--          </td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td>Organic Search</td>-->
-<!--          <td>123,879</td>-->
-<!--          <td>30</td>-->
-<!--          <td>32</td>-->
-<!--          <td>-->
-<!--             <a href>View</a>-->
-<!--          </td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td>Email</td>-->
-<!--          <td>92,179</td>-->
-<!--          <td>32</td>-->
-<!--          <td>32</td>-->
-<!--          <td>-->
-<!--             <a href>View</a>-->
-<!--          </td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td>Referral</td>-->
-<!--          <td>15,875</td>-->
-<!--          <td>43</td>-->
-<!--          <td>12</td>-->
-<!--          <td>-->
-<!--             <a href>View</a>-->
-<!--          </td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td>Proposal</td>-->
-<!--          <td>92,179</td>-->
-<!--          <td>65</td>-->
-<!--          <td>21</td>-->
-<!--          <td>-->
-<!--             <a href>View</a>-->
-<!--          </td>-->
-<!--        </tr>-->
         </thead>
       </table>
     </div>
+  </div>
+
+  <div class="buttons">
+    <button [disabled]="prev === null" (click)="navigate(prev)"><i class="fas fa-chevron-left"></i>Prev</button>
+    <button [disabled]="next === null" (click)="navigate(next)">Next<i class="fas fa-chevron-right"></i></button>
   </div>
 </div>

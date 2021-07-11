@@ -22,6 +22,16 @@ export class QuizService {
       );
   }
 
+  searchAllQuiz(value: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}quiz/getQuiz/searchValue/${value}`)
+      .pipe(
+        map(res => {
+          return res;
+        })
+      );
+  }
+
+
   createQuiz(data: any): Observable<any> {
     const payload = new FormData();
     payload.append('title', data.title);
@@ -49,7 +59,7 @@ export class QuizService {
       );
   }
 
-    createTextQuestion(data: any): Observable<any> {
+  createTextQuestion(data: any): Observable<any> {
     const payload = new FormData();
     payload.append('quizId', data.quizId);
     payload.append('question', data.question);
@@ -59,6 +69,15 @@ export class QuizService {
       .pipe(
         map(res => {
           return res.payload;
+        })
+      );
+  }
+
+  navigateQuiz(direction: string): Observable<any> {
+    return this.http.get<any>(direction)
+      .pipe(
+        map(res => {
+          return res;
         })
       );
   }

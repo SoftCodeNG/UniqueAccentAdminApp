@@ -36,7 +36,6 @@ export class CreateTextQuestionComponent implements OnInit {
       console.log(this.createTextQuestionForm.value);
       this.quizService.createTextQuestion(this.createTextQuestionForm.value).subscribe(res => {
         console.log(res);
-        // this.router.navigate([`audio-quiz/quiz-details/${res.slug}`]).then()
       });
     }
   }

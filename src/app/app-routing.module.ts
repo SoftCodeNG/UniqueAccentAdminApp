@@ -15,7 +15,6 @@ import {QuizDetails3Component} from './pages/audio-quiz/quiz-details3/quiz-detai
 import {QuizDetails4Component} from './pages/audio-quiz/quiz-details4/quiz-details4.component';
 import {CreateTrainingComponent} from './pages/trainings/create-training/create-training.component';
 import {TrainingDetailsComponent} from './pages/trainings/training-details/training-details.component';
-import {AudioQuestionComponent} from './pages/audio-quiz/audio-question/audio-question.component';
 import {AudioQuestionReplayComponent} from './pages/audio-quiz/audio-question-replay/audio-question-replay.component';
 import {UserDisableUserComponent} from './pages/users/user-disable-user/user-disable-user.component';
 import {UserStaffComponent} from './pages/users/user-staff/user-staff.component';
@@ -93,14 +92,6 @@ const routes: Routes = [
   {
     path: 'audio-quiz/audio-total',
     component: QuizDetails4Component
-  },
-  // {
-  //   path: 'audio-quiz/create-quiz/quiz-details/create-text-question',
-  //   component: CreateTextQuestionComponent
-  // },
-  {
-    path: 'audio-quiz/create-quiz/quiz-details/create-text-question/audio-question',
-    component: AudioQuestionComponent
   },
   {
     path: 'audio-quiz/create-quiz/quiz-details/create-text-question/audio-question/audio-question-replay',
