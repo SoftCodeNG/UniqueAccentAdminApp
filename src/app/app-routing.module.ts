@@ -14,7 +14,6 @@ import {QuizDetails2Component} from './pages/audio-quiz/quiz-details2/quiz-detai
 import {QuizDetails3Component} from './pages/audio-quiz/quiz-details3/quiz-details3.component';
 import {QuizDetails4Component} from './pages/audio-quiz/quiz-details4/quiz-details4.component';
 import {CreateTrainingComponent} from './pages/trainings/create-training/create-training.component';
-import {CreateTextQuestionComponent} from './pages/audio-quiz/create-text-question/create-text-question.component';
 import {TrainingDetailsComponent} from './pages/trainings/training-details/training-details.component';
 import {AudioQuestionComponent} from './pages/audio-quiz/audio-question/audio-question.component';
 import {AudioQuestionReplayComponent} from './pages/audio-quiz/audio-question-replay/audio-question-replay.component';
@@ -23,7 +22,6 @@ import {UserStaffComponent} from './pages/users/user-staff/user-staff.component'
 import {UserNewStaffComponent} from './pages/users/user-new-staff/user-new-staff.component';
 import {AuthGuard} from './core/guards/auth-guard';
 import {ReverseAuthGuard} from './core/guards/reverse-auth-guard';
-// import {QuizDetailsComponent} from "./pages/audio-quiz/quiz-details/quiz-details.component";
 
 
 
@@ -80,14 +78,6 @@ const routes: Routes = [
     path: 'settings-testimonials',
     component: SettingsTestimonialsComponent
   },
-  // {
-  //   path: 'audio-quiz/create-quiz',
-  //   component: CreateQuizComponent
-  // },
-  // {
-  //   path: 'quiz-details',
-  //   component: QuizDetailsComponent
-  // },
   {
     path: 'audio-quiz/evaluate',
     component: QuizDetails1Component
@@ -104,10 +94,10 @@ const routes: Routes = [
     path: 'audio-quiz/audio-total',
     component: QuizDetails4Component
   },
-  {
-    path: 'audio-quiz/create-quiz/quiz-details/create-text-question',
-    component: CreateTextQuestionComponent
-  },
+  // {
+  //   path: 'audio-quiz/create-quiz/quiz-details/create-text-question',
+  //   component: CreateTextQuestionComponent
+  // },
   {
     path: 'audio-quiz/create-quiz/quiz-details/create-text-question/audio-question',
     component: AudioQuestionComponent

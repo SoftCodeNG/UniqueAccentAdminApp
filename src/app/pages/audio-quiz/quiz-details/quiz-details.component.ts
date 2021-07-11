@@ -9,6 +9,7 @@ import {QuizService} from "../../../core/quiz.service";
 })
 export class QuizDetailsComponent implements OnInit {
   public quizDetails: any;
+  // public createTextQuestion: any;
 
   constructor(
     private quizService: QuizService,
@@ -18,14 +19,11 @@ export class QuizDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQuizDetails(this.activatedRoute.snapshot.params.slug);
-
   }
 
-  getQuizDetails(slug: string): void {
-    this.quizService.getQuizDetails(slug).subscribe(res => {
+  getQuizDetails(id: string): void {
+    this.quizService.getQuizDetails(id).subscribe(res => {
       this.quizDetails = res;
-      // this.isPublished = res.isPublished;
-      this.getQuizDetails(this.quizDetails.slug);
       console.log(res);
     });
   }

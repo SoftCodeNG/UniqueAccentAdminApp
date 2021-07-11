@@ -1,11 +1,25 @@
-<div class="createTextDiv">
+<div class="createTextDiv" [formGroup]="createTextQuestionForm">
   <div class="saveButton">
-    <button routerLink="audio-question">Save</button>
+    <button (click)="createTextQuestion()">Save</button>
   </div>
-  <div>
+  <div class="row1">
     <label>
       <span>Question</span>
-      <input type="text">
+      <textarea formControlName="question"></textarea>
     </label>
+  </div>
+  <div class="row2">
+    <div>
+      <label>
+        <span>Max Score</span>
+        <input formControlName="maxScore" type="number" placeholder="max score">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Question Number</span>
+        <input formControlName="questionNo" type="number">
+      </label>
+    </div>
   </div>
 </div>
