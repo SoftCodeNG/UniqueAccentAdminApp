@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {AudioQuizComponent} from "./audio-quiz.component";
 import {CreateQuizComponent} from "./create-quiz/create-quiz.component";
 import {QuizDetailsComponent} from "./quiz-details/quiz-details.component";
+import {CreateTextQuestionComponent} from "./create-text-question/create-text-question.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'quiz-details/:slug',
     component: QuizDetailsComponent
+  },
+  {
+    path: 'create-text-question/:id',
+    component: CreateTextQuestionComponent
   },
   // {
   //   path: 'edit/:slug',

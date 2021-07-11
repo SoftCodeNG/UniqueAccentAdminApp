@@ -5,6 +5,8 @@ import {CreateQuizComponent} from "./create-quiz/create-quiz.component";
 import {QuizDetailsComponent} from "./quiz-details/quiz-details.component";
 import {AudioQuizRoutingModule} from "./audio-quiz-routing.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import {QuizDetails1Component} from "./quiz-details1/quiz-details1.component";
+import {QuizDetails4Component} from "./quiz-details4/quiz-details4.component";
 
 
 
@@ -12,7 +14,9 @@ import {ReactiveFormsModule} from "@angular/forms";
   declarations: [
     AudioQuizComponent,
     CreateQuizComponent,
-    QuizDetailsComponent
+    QuizDetailsComponent,
+    QuizDetails1Component,
+    QuizDetails4Component
   ],
   imports: [
     CommonModule,

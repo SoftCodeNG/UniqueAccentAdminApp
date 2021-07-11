@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Store} from "@ngxs/store";
-import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 import {QuizService} from "../../../core/quiz.service";
 // import {FileManagerComponent} from "../../../shared/components/file-manager/file-manager.component";
 
@@ -18,12 +16,10 @@ export class CreateQuizComponent implements OnInit {
   // isEditing: boolean = false;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    // private activatedRoute: ActivatedRoute,
     private quizService: QuizService,
     private fb: FormBuilder,
-    private store: Store,
     private router: Router,
-    public dialog: MatDialog
   ) {
   }
 
@@ -50,7 +46,6 @@ export class CreateQuizComponent implements OnInit {
       console.log(this.createQuizForm.value);
       this.quizService.createQuiz(this.createQuizForm.value).subscribe(res => {
         console.log(res);
-        // this.router.navigate([`quiz-details/:slug`]).then()
         this.router.navigate([`audio-quiz/quiz-details/${res.slug}`]).then()
       });
     }
@@ -68,6 +63,7 @@ export class CreateQuizComponent implements OnInit {
   //     this.createQuizForm.controls.organisationLogo.setValue(res.organisationLogo);
   //     this.createQuizForm.controls.startDate.setValue(res.startDate);
   //     this.createQuizForm.controls.passCode.setValue(res.passCode);
+  //     this.router.navigate([`audio-quiz/create-text-question/${res.slug}`]).then()
   //     // this.selectedThumbnailFile = res.thumbnail;
   //   });
   // }
