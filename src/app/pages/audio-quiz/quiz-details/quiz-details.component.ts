@@ -9,7 +9,6 @@ import {QuizService} from "../../../core/quiz.service";
 })
 export class QuizDetailsComponent implements OnInit {
   public quizDetails: any;
-  // public createTextQuestion: any;
 
   constructor(
     private quizService: QuizService,

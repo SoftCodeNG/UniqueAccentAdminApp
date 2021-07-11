@@ -38,7 +38,6 @@ import {TokenInterceptor} from "./core/interceptors/token.interseptor";
     AppComponent,
     DashboardComponent,
     SettingsComponent,
-    // AudioQuizComponent,
     TrainingsComponent,
     UsersComponent,
     CreateTrainingComponent,
