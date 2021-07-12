@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {QuizService} from "../../../core/quiz.service";
+import {ActivatedRoute} from '@angular/router';
+import {QuizService} from '../../../core/quiz.service';
 
 @Component({
   selector: 'app-quiz-details',
@@ -17,7 +17,7 @@ export class QuizDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getQuizDetails(this.activatedRoute.snapshot.params.slug);
+    this.getQuizDetails(this.activatedRoute.snapshot.params.id);
   }
 
   getQuizDetails(id: string): void {

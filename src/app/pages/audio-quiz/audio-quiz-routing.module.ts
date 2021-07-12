@@ -16,11 +16,11 @@ const routes: Routes = [
     component: CreateQuizComponent
   },
   {
-    path: 'quiz-details/:slug',
+    path: 'quiz-details/:id',
     component: QuizDetailsComponent
   },
   {
-    path: 'create-text-question/:id',
+    path: 'create-text-question/:id/:slug',
     component: CreateTextQuestionComponent
   },
   {

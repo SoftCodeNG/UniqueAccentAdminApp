@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SetTitle} from '../../store/app-store/app.action';
 import {Store} from '@ngxs/store';
-import {QuizService} from "../../core/quiz.service";
+import {QuizService} from '../../core/quiz.service';
 
 @Component({
   selector: 'app-quiz',
