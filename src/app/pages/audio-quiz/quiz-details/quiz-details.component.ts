@@ -17,7 +17,7 @@ export class QuizDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getQuizDetails(this.activatedRoute.snapshot.params.slug);
+    this.getQuizDetails(this.activatedRoute.snapshot.params.id);
   }
 
   getQuizDetails(id: string): void {

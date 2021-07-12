@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {QuizService} from "../../../core/quiz.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-text-question',
@@ -15,14 +15,14 @@ export class CreateTextQuestionComponent implements OnInit {
   constructor(
     private quizService: QuizService,
     private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute
-    // private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
   }
 
   ngOnInit(): void {
     this.createTextQuestionForm = this.fb.group({
-      quizId: [this.activatedRoute.snapshot.params.id, Validators.required],
+      quizId: [this.activatedRoute.snapshot.params.slug, Validators.required],
       question: ['', Validators.required],
       questionNo: ['', Validators.required],
       maxScore: ['', Validators.required],
@@ -36,6 +36,7 @@ export class CreateTextQuestionComponent implements OnInit {
       console.log(this.createTextQuestionForm.value);
       this.quizService.createTextQuestion(this.createTextQuestionForm.value).subscribe(res => {
         console.log(res);
+        this.router.navigate([`/audio-quiz/quiz-details/${this.activatedRoute.snapshot.params.slug}`]).then();
       });
     }
   }

@@ -6,7 +6,7 @@
       <div><img src="../../../../assets/questionLogo.png" alt=""></div>
       <div>No Question Found</div>
       <div class="addQuestionButton">
-       <div><button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id">Add Text Question</button></div>
+       <div><button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id  + '/' +  quizDetails.slug">Add Text Question</button></div>
        <div> <button [routerLink]="'/audio-quiz/audio-question/' + quizDetails.id">Add Audio Question</button></div>
       </div>
     </div>
