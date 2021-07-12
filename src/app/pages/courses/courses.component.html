@@ -7,7 +7,8 @@
     <div class="coursesText">
       <div>Most Recent Courses</div>
       <label>
-        <input type="search" placeholder="Search Courses" #search (keyup)="searchAllCourses(search.value)" (blur)="searchAllCourses(search.value)" (change)="searchAllCourses(search.value)">
+        <input type="search" placeholder="Search Courses" #search (keyup)="searchAllCourses(search.value)"
+               (blur)="searchAllCourses(search.value)" (change)="searchAllCourses(search.value)">
         <i class="fa fa-search"></i>
       </label>
     </div>
@@ -16,7 +17,9 @@
       <table>
         <thead>
         <tr>
-          <th><div class="titleHead">TITLE</div></th>
+          <th>
+            <div class="titleHead">TITLE</div>
+          </th>
           <th>PRICE</th>
           <th>PURCHASES</th>
           <th>LESSONS</th>
@@ -25,7 +28,9 @@
         </tr>
 
         <tr *ngFor="let course of allCourses">
-          <td><div class="title">{{course.title}}</div></td>
+          <td>
+            <div class="title">{{course.title}}</div>
+          </td>
           <td>{{course.price  | currency:'₦'}}</td>
           <td>{{course.purchases}}</td>
           <td>{{course.lessons}}</td>
@@ -34,7 +39,7 @@
             <span *ngIf="course.isPublished === false" style="color: red; font-weight: 900">Unpublished</span>
           </td>
           <td>
-             <button [routerLink]="'/courses/course-details/' + course.slug">View</button>
+            <button [routerLink]="'/courses/course-details/' + course.slug">View</button>
           </td>
         </tr>
 
@@ -44,7 +49,7 @@
   </div>
 
   <div class="buttons">
-     <button [disabled]="prev === null" (click)="navigate(prev)"><i class="fas fa-chevron-left"></i>Prev</button>
-     <button [disabled]="next === null" (click)="navigate(next)">Next<i class="fas fa-chevron-right"></i></button>
+    <button [disabled]="prev === null" (click)="navigate(prev)"><i class="fas fa-chevron-left"></i>Prev</button>
+    <button [disabled]="next === null" (click)="navigate(next)">Next<i class="fas fa-chevron-right"></i></button>
   </div>
 </div>

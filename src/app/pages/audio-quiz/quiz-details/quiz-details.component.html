@@ -1,4 +1,4 @@
-<div class="quizDetailsDiv">
+<div class="quizDetailsDiv" *ngIf="quizDetails.quizQuestions.length === 0">
   <div class="leftDiv">
     <div>Early Life School 1st Term Exam</div>
 
@@ -6,7 +6,8 @@
       <div><img src="../../../../assets/questionLogo.png" alt=""></div>
       <div>No Question Found</div>
       <div class="addQuestionButton">
-        <button routerLink="audio-quiz/create-text-question/ + quizDetails.slug">Add Question</button>
+       <div><button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id">Add Text Question</button></div>
+       <div> <button [routerLink]="'/audio-quiz/audio-question/' + quizDetails.id">Add Audio Question</button></div>
       </div>
     </div>
   </div>
@@ -40,3 +41,4 @@
     </div>
   </div>
 </div>
+<app-quiz-details4  *ngIf="quizDetails.quizQuestions.length > 0"></app-quiz-details4>

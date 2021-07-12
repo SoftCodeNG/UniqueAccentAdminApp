@@ -1,6 +1,26 @@
-<div class="audioQuestionDiv">
+<div class="audioQuestionDiv" [formGroup]="audioQuestionForm">
+  <div class="saveButton">
+    <button (click)="audioQuestion()">Save</button>
+  </div>
   <div><img src="../../../../assets/audioLogo.png" alt=""></div>
   <div>Record Question</div>
   <div>or</div>
-  <div><button routerLink="audio-question-replay">Upload an Audio</button></div>
+  <div>
+    <button routerLink="audio-question-replay">Upload an Audio</button>
+  </div>
+
+  <div class="row1">
+    <div>
+      <label>
+        <span>Max Score</span>
+        <input formControlName="maxScore" type="number" placeholder="max score">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Question Number</span>
+        <input formControlName="questionNo" type="number">
+      </label>
+    </div>
+  </div>
 </div>
