@@ -14,7 +14,7 @@ import {QuizService} from '../../../core/quiz.service';
 export class CreateQuizComponent implements OnInit {
   createQuizForm: FormGroup;
   // selectedThumbnailFile: string;
-  // quizDetails: any;
+  quizDetails: any;
   // isEditing: boolean = false;
 
   constructor(
@@ -56,21 +56,22 @@ export class CreateQuizComponent implements OnInit {
     }
   }
 
-  // getQuizDetails(slug: string): void {
-  //   this.quizService.getQuizDetails(slug).subscribe(res => {
-  //     this.quizDetails = res;
-  //     console.log(res);
-  //     this.createQuizForm.controls.title.setValue(res.title);
-  //     this.createQuizForm.controls.instruction.setValue(res.instruction);
-  //     this.createQuizForm.controls.duration.setValue(res.duration);
-  //     this.createQuizForm.controls.endDate.setValue(res.endDate);
-  //     this.createQuizForm.controls.organisation.setValue(res.organisation);
-  //     this.createQuizForm.controls.organisationLogo.setValue(res.organisationLogo);
-  //     this.createQuizForm.controls.startDate.setValue(res.startDate);
-  //     this.createQuizForm.controls.passCode.setValue(res.passCode);
-  //     // this.selectedThumbnailFile = res.thumbnail;
-  //   });
-  // }
+  getQuizDetails(slug: string): void {
+    this.quizService.getQuizDetails(slug).subscribe(res => {
+      this.quizDetails = res;
+      console.log(res);
+      this.createQuizForm.controls.title.setValue(res.title);
+      this.createQuizForm.controls.instruction.setValue(res.instruction);
+      this.createQuizForm.controls.duration.setValue(res.duration);
+      this.createQuizForm.controls.endDate.setValue(res.endDate);
+      this.createQuizForm.controls.organisation.setValue(res.organisation);
+      this.createQuizForm.controls.organisationLogo.setValue(res.organisationLogo);
+      this.createQuizForm.controls.startDate.setValue(res.startDate);
+      this.createQuizForm.controls.passCode.setValue(res.passCode);
+      this.router.navigate([`audio-quiz/create-text-question/${res.slug}`]).then();
+      // this.selectedThumbnailFile = res.thumbnail;
+    });
+  }
 
   // showFileManager(mediaType): void {
   //   const dialogRef = this.dialog.open(FileManagerComponent, {
