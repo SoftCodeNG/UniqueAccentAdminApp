@@ -23,8 +23,35 @@
     padding: 25px;
 
     .quizText {
-      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      label {
+        box-shadow: 0 0 5px black;
+        border-radius: 5px;
+        padding: 5px;
+        box-sizing: border-box;
+        margin: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+        @media (max-width: 700px) {
+          display: none;
+        }
+
+        input {
+          border: none;
+        }
+      }
+
     }
+
   }
 
   .tableDiv {
@@ -43,6 +70,10 @@
           text-align: center;
           border: none;
           padding: 10px;
+
+          .titleHead {
+            text-align: left;
+          }
         }
 
         td {
@@ -52,7 +83,11 @@
           padding: 10px;
           cursor: pointer;
 
-          a {
+          .title {
+            text-align: left;
+          }
+
+          button {
             cursor: pointer;
             background: #E4E4E4;
             color: black;
@@ -63,6 +98,34 @@
         }
       }
     }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    button {
+      padding: 5px 15px;
+      margin: 30px 20px;
+      background-color: #000000;
+      font-weight: bold;
+      font-size: 1.2em;
+      border-radius: 10px;
+      text-align: center;
+      color: white;
+
+      &:disabled {
+        background: #353535;
+        cursor: default;
+        color: black;
+      }
+
+      i {
+        margin: 3px;
+      }
+    }
+
   }
 }
 

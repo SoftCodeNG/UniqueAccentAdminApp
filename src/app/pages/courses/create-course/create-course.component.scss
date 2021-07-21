@@ -1,25 +1,35 @@
 .createCourseDiv {
   padding: 50px 15%;
 
+  .createCourseText {
+    display: grid;
+    justify-content: space-between;
+    grid-auto-flow: column;
 
-  .nextButton {
-    margin-bottom: 30px;
-    text-align: end;
-
-    button {
-      background: #FF6600;
-      padding: 8px 20px;
-      color: black;
+    :first-child {
       font-weight: bold;
-      font-size: 20px;
-      border: none;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      cursor: pointer;
+      font-size: 30px;
+    }
 
-      &:disabled {
-        background: grey;
-        cursor: default;
+    .nextButton {
+      margin-bottom: 30px;
+      text-align: end;
+
+      button {
+        background: #FF6600;
+        padding: 8px 20px;
+        color: black;
+        font-weight: bold;
+        font-size: 20px;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        cursor: pointer;
+
+        &:disabled {
+          background: grey;
+          cursor: default;
+        }
       }
     }
   }
@@ -54,7 +64,6 @@
         height: 20px;
         font-size: 1.2em;
         color: #484848;
-        border: solid 1px #707070;
       }
 
     }
@@ -76,6 +85,7 @@
       font-size: 1.2em;
       cursor: pointer;
     }
+
     label {
       display: block;
       width: 100%;

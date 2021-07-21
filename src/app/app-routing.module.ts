@@ -7,19 +7,14 @@ import {SettingsHomepageSliderComponent} from './pages/settings/settings-homepag
 import {SettingsTestimonialvideoComponent} from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
 import {SettingsServicesComponent} from './pages/settings/settings-services/settings-services.component';
 import {SettingsTestimonialsComponent} from './pages/settings/settings-testimonials/settings-testimonials.component';
-import {AudioQuizComponent} from './pages/audio-quiz/audio-quiz.component';
 import {TrainingsComponent} from './pages/trainings/trainings.component';
 import {UsersComponent} from './pages/users/users.component';
-import {CreateQuizComponent} from './pages/audio-quiz/create-quiz/create-quiz.component';
-import {QuizDetailsComponent} from './pages/audio-quiz/quiz-details/quiz-details.component';
 import {QuizDetails1Component} from './pages/audio-quiz/quiz-details1/quiz-details1.component';
 import {QuizDetails2Component} from './pages/audio-quiz/quiz-details2/quiz-details2.component';
 import {QuizDetails3Component} from './pages/audio-quiz/quiz-details3/quiz-details3.component';
 import {QuizDetails4Component} from './pages/audio-quiz/quiz-details4/quiz-details4.component';
 import {CreateTrainingComponent} from './pages/trainings/create-training/create-training.component';
-import {CreateTextQuestionComponent} from './pages/audio-quiz/create-text-question/create-text-question.component';
 import {TrainingDetailsComponent} from './pages/trainings/training-details/training-details.component';
-import {AudioQuestionComponent} from './pages/audio-quiz/audio-question/audio-question.component';
 import {AudioQuestionReplayComponent} from './pages/audio-quiz/audio-question-replay/audio-question-replay.component';
 import {UserDisableUserComponent} from './pages/users/user-disable-user/user-disable-user.component';
 import {UserStaffComponent} from './pages/users/user-staff/user-staff.component';
@@ -47,7 +42,8 @@ const routes: Routes = [
   },
   {
     path: 'audio-quiz',
-    component: AudioQuizComponent
+    loadChildren: () => import('./pages/audio-quiz/audio-quiz.module').then(m => m.AudioQuizModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'trainings',
@@ -82,14 +78,6 @@ const routes: Routes = [
     component: SettingsTestimonialsComponent
   },
   {
-    path: 'audio-quiz/create-quiz',
-    component: CreateQuizComponent
-  },
-  {
-    path: 'audio-quiz/create-quiz/quiz-details',
-    component: QuizDetailsComponent
-  },
-  {
     path: 'audio-quiz/evaluate',
     component: QuizDetails1Component
   },
@@ -104,14 +92,6 @@ const routes: Routes = [
   {
     path: 'audio-quiz/audio-total',
     component: QuizDetails4Component
-  },
-  {
-    path: 'audio-quiz/create-quiz/quiz-details/create-text-question',
-    component: CreateTextQuestionComponent
-  },
-  {
-    path: 'audio-quiz/create-quiz/quiz-details/create-text-question/audio-question',
-    component: AudioQuestionComponent
   },
   {
     path: 'audio-quiz/create-quiz/quiz-details/create-text-question/audio-question/audio-question-replay',

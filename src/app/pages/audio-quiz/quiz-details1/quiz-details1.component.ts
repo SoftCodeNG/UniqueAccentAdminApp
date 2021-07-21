@@ -13,3 +13,6 @@ export class QuizDetails1Component implements OnInit {
   }
 
 }
+
+export class QuizDetailsComponent {
+}
