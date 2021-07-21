@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Select, Store} from "@ngxs/store";
-import {AppState} from "./store/app-store/app.state";
-import {Observable} from "rxjs";
-import {Router} from "@angular/router";
-import {SetHeaderVisibility} from "./store/app-store/app.action";
+import {Select, Store} from '@ngxs/store';
+import {AppState} from './store/app-store/app.state';
+import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
+import {SetHeaderVisibility} from './store/app-store/app.action';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit{
     });
     this.fileManagerState$.subscribe(res => {
       this.showFileManager = res;
-      console.log('res: ', res)
+      console.log('res: ', res);
     });
 
   }

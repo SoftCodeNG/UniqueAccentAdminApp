@@ -16,7 +16,7 @@ import {QuizDetails4Component} from "./quiz-details4/quiz-details4.component";
     CreateQuizComponent,
     QuizDetailsComponent,
     QuizDetails1Component,
-    QuizDetails4Component
+    QuizDetails4Component,
   ],
   imports: [
     CommonModule,

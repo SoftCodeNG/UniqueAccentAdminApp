@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {QuizService} from "../../../core/quiz.service";
+import {QuizService} from "../../../core/services/quiz.service";
 // import {FileManagerComponent} from "../../../shared/components/file-manager/file-manager.component";
 
 @Component({
