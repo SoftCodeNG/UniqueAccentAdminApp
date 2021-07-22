@@ -1,4 +1,4 @@
-<div class="quizDetailsDiv" *ngIf="quizDetails.quizQuestions.length === 0">
+<div class="quizDetailsDiv" *ngIf="quizDetails?.quizQuestions.length === 0">
   <div class="leftDiv">
     <div>Early Life School 1st Term Exam</div>
 
@@ -41,4 +41,32 @@
     </div>
   </div>
 </div>
-<app-quiz-details4  *ngIf="quizDetails.quizQuestions.length > 0"></app-quiz-details4>
+
+<div  *ngIf="quizDetails?.quizQuestions.length > 0">
+  <div *ngIf="quizDetails">
+    <h1>{{quizDetails.title}}</h1>
+
+    <img [src]="quizDetails.organisationLogo" alt="">
+
+    <h2>{{quizDetails.organisation}}</h2>
+
+    <div>
+      Start date: {{quizDetails.startDate | date}}
+    </div>
+
+    <div>
+      End data: {{quizDetails.endDate | date}}
+    </div>
+
+    <div>
+      <h1>This are the questions</h1>
+      <div *ngFor="let question of quizDetails.quizQuestions">
+        <span>{{question.questionNo}}</span>
+        <span>{{question.question}}</span>
+        <span>{{question.maxScore}}</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
