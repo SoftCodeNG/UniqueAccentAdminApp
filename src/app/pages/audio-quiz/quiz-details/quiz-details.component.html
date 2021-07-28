@@ -10,7 +10,19 @@
       </div>
     </div>
       </div>
-
+<div class="quizDetailsDiv" *ngIf="quizDetails?.quizQuestions.length === 0">
+    <div class="leftDiv">
+      <div>Early Life School 1st Term Exam</div>
+      <div class="questionDiv">
+          <div><img src="../../../../assets/questionLogo.png" alt=""></div>
+          <div>No Question Found</div>
+          <div class="addQuestionButton">
+             <div><button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id  + '/' +  quizDetails.slug">Add Text Question</button></div>
+             <div> <button [routerLink]="'/audio-quiz/audio-question/' + quizDetails.id">Add Audio Question</button></div>
+          </div>
+        </div>
+    </div>
+</div>
   </div>
 
   <div class="rightbar">
@@ -42,21 +54,21 @@
   </div>
 </div>
 
-<!--<div class="quizDetailsDiv" *ngIf="quizDetails?.quizQuestions.length === 0">-->
-<!--  <div class="leftDiv">-->
-<!--    <div>Early Life School 1st Term Exam</div>-->
+<!-- <div class="quizDetailsDiv" *ngIf="quizDetails?.quizQuestions.length === 0">-->
+<!--    <div class="leftDiv">-->
+<!--      <div>Early Life School 1st Term Exam</div>-->
 
-<!--    <div class="questionDiv">-->
-<!--      <div><img src="../../../../assets/questionLogo.png" alt=""></div>-->
-<!--      <div>No Question Found</div>-->
-<!--      <div class="addQuestionButton">-->
-<!--       <div><button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id  + '/' +  quizDetails.slug">Add Text Question</button></div>-->
-<!--       <div> <button [routerLink]="'/audio-quiz/audio-question/' + quizDetails.id">Add Audio Question</button></div>-->
-<!--      </div>-->
+<!--      <div class="questionDiv">-->
+<!--          <div><img src="../../../../assets/questionLogo.png" alt=""></div>-->
+<!--          <div>No Question Found</div>-->
+<!--          <div class="addQuestionButton">-->
+<!--             <div><button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id  + '/' +  quizDetails.slug">Add Text Question</button></div>-->
+<!--             <div> <button [routerLink]="'/audio-quiz/audio-question/' + quizDetails.id">Add Audio Question</button></div>-->
+<!--          </div>-->
+<!--        </div>-->
 <!--    </div>-->
-<!--  </div>-->
-
-<!--  <div class="rightDiv">-->
+<!-- </div>-->
+<!--&lt;!&ndash;  <div class="rightDiv">&ndash;&gt;-->
 <!--    <div class="SchLogo">Logo</div>-->
 <!--    <div><img src="" alt=""></div>-->
 
