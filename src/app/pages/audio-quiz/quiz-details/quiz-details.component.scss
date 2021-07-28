@@ -43,7 +43,7 @@
   }
   button{
     border-radius: 5px;
-    margin-left: 30px;
+    margin-left: 12px;
     margin-top: 30px;
     margin-bottom: 5px;
     border: none;
@@ -56,7 +56,7 @@
   .buttons{
     margin-bottom: 10px;
     button{
-      margin-left: 30px;
+      margin-left: 15px;
       width: 105px;
       background-color: #707070;
       font-size: 1.2em;
@@ -83,7 +83,7 @@
       border: #707070 2px solid;
       margin-left:30px;
       overflow: hidden;
-      width: 900px;
+      width: 760px;
       height: auto;
       margin-top: 30px;
       margin-bottom: 40px;
@@ -101,95 +101,96 @@
 
 
 
-//.quizDetailsDiv {
-//  display: grid;
-//  grid-template-columns: 80% 20%;
-//
-//  .leftDiv {
-//    width: calc(100% - 220px);
-//
-//    > :first-child {
-//      font-size: 50px;
-//      color: #272727;
-//    }
-//    .questionDiv {
-//      display: grid;
-//      justify-content: center;
-//      padding: 30px;
-//
-//      :nth-child(2) {
-//        font-size: 56px;
-//        color: #4D4D4D;
-//        margin: 10px 0;
-//      }
-//    }
-//
-//    .addQuestionButton {
-//      button {
-//        background: #FF6600;
-//        border-radius: 10px;
-//        border: none;
-//        box-shadow: #000000;
-//        padding: 10px 20px;
-//        font-size: 32px;
-//        color: #000000;
-//      }
-//    }
-//  }
-//
-//  .rightDiv {
-//    background: #C9C9C9;
-//    padding: 20px;
-//    position: fixed;
-//    right: 0;
-//    bottom: 0;
-//    top: 80px;
-//    height: calc(100vh - 80px);
-//    width: 220px;
-//
-//    .SchLogo {
-//      font-size: 28px;
-//      margin-bottom: 10px;
-//    }
-//
-//    img {
-//      height: 200px;
-//      width: 100%;
-//    }
-//
-//    .dateAndTime {
-//      margin: 20px 0;
-//
-//      :first-child {
-//        font-size: 28px;
-//      }
-//    }
-//
-//    .buttonDiv {
-//      display: grid;
-//      grid-template-columns: 50% 50%;
-//      margin-top: 40px;
-//
-//      :first-child {
-//        button {
-//          background: #707070;
-//          color: #000000;
-//          padding: 10px 30px;
-//          border-radius: 10px;
-//          border: none;
-//        }
-//      }
-//
-//      :nth-child(2) {
-//        button {
-//          background: #9D0000;
-//          color: #FFD9D9;
-//          padding: 10px 20px;
-//          border-radius: 10px;
-//          border: none;
-//        }
-//      }
-//
-//    }
-//  }
-//}
+.quizDetailsDiv {
+  display: grid;
+  grid-template-columns: 80% 20%;
+
+  .leftDiv {
+    //width: calc(100% - 220px);
+
+    > :first-child {
+      font-size: 50px;
+      color: #272727;
+    }
+    .questionDiv {
+      display: grid;
+      justify-content: center;
+      padding: 30px;
+
+      :nth-child(2) {
+        font-size: 56px;
+        color: #4D4D4D;
+        margin: 10px 0;
+      }
+    }
+
+    .addQuestionButton {
+      button {
+        width: 500px;
+        background: #FF6600;
+        border-radius: 10px;
+        border: none;
+        box-shadow: #000000;
+        padding: 10px 20px;
+        font-size: 32px;
+        color: #000000;
+      }
+    }
+  }
+
+  //.rightDiv {
+  //  background: #C9C9C9;
+  //  padding: 20px;
+  //  position: fixed;
+  //  right: 0;
+  //  bottom: 0;
+  //  top: 80px;
+  //  height: calc(100vh - 80px);
+  //  width: 220px;
+  //
+  //  .SchLogo {
+  //    font-size: 28px;
+  //    margin-bottom: 10px;
+  //  }
+  //
+  //  img {
+  //    height: 200px;
+  //    width: 100%;
+  //  }
+  //
+  //  .dateAndTime {
+  //    margin: 20px 0;
+  //
+  //    :first-child {
+  //      font-size: 28px;
+  //    }
+  //  }
+  //
+  //  .buttonDiv {
+  //    display: grid;
+  //    grid-template-columns: 50% 50%;
+  //    margin-top: 40px;
+  //
+  //    :first-child {
+  //      button {
+  //        background: #707070;
+  //        color: #000000;
+  //        padding: 10px 30px;
+  //        border-radius: 10px;
+  //        border: none;
+  //      }
+  //    }
+  //
+  //    :nth-child(2) {
+  //      button {
+  //        background: #9D0000;
+  //        color: #FFD9D9;
+  //        padding: 10px 20px;
+  //        border-radius: 10px;
+  //        border: none;
+  //      }
+  //    }
+  //
+  //  }
+  //}
+}
