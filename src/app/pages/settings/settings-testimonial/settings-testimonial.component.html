@@ -9,6 +9,7 @@
     <div class="bar homepage">
       <a routerLink="quiz-details">Homepage Slider</a>
     </div>
+
   </div>
     <div class="text-video">
       <div class="text">
@@ -26,11 +27,11 @@
       </div>
 
     </div>
-    <ng-container>
-      <div class="settingsRow1">
+    <ng-container [formGroup]="testimonialFormGroup">
+      <div class="name">
         <label>
           <span>Name</span>
-          <input formControlName="title" type="text">
+          <input formControlName="name" type="text">
         </label>
       </div>
 
@@ -39,25 +40,27 @@
         <div>
           <div class="avater">
             <span>Avatar</span>
-            <button>Select an image</button>
+           <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
+        <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile"
+             alt="Selected Image">
           </div>
         </div>
         <div class="subtext">
           <label>
             <span>SubText</span>
-            <input formControlName="thumbnail" type="text">
+            <input formControlName="subtext" type="text">
           </label>
         </div>
     </div>
 
-      <div class="row3">
+      <div class="testimony">
         <label>
-          <span>Testimonials</span>
-          <textarea formControlName="description"></textarea>
+          <span>Testimony</span>
+          <textarea formControlName="testimony"></textarea>
         </label>
       </div>
       <div class="saveButton">
-        <button routerLink="quiz-details">Save</button>
+        <button (click)="createTestimonial()">Save</button>
       </div>
     </ng-container>
 </div>

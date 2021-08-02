@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Store} from '@ngxs/store';
 import {SettingsService} from '../../../core/services/settings.service';
@@ -7,41 +7,37 @@ import {ToastrService} from 'ngx-toastr';
 import {SetTitle} from '../../../store/app-store/app.action';
 import {FileManagerComponent} from '../../../shared/components/file-manager/file-manager.component';
 
-class SettingsTestimonial {
-}
-
 @Component({
-  selector: 'app-settings-testimonial',
-  templateUrl: './settings-testimonial.component.html',
-  styleUrls: ['./settings-testimonial.component.scss']
+  selector: 'app-create-services',
+  templateUrl: './create-services.component.html',
+  styleUrls: ['./create-services.component.scss']
 })
-export class SettingsTestimonialComponent implements OnInit {
-  testimonial: any;
-  testimonialFormGroup = new FormGroup({});
+export class CreateServicesComponent implements OnInit {
+  testimonials: any;
+  settingsFormGroup = new FormGroup({});
   selectedThumbnailFile: string;
   selectedPreviewFile: string;
-
 
   constructor(
     private store: Store,
     private fb: FormBuilder,
-    private  testimonials: SettingsService,
+    private setting: SettingsService,
     public dialog: MatDialog,
     private toastr: ToastrService,
-    ) {
+  ) {
   }
 
-   ngOnInit(): void {
+  ngOnInit(): void {
     this.store.dispatch(new SetTitle('Settings'));
-    this.testimonialFormGroup = this.fb.group({
-      name: ['', Validators.required],
-      avater: ['', Validators.required],
-      subtext: ['', Validators.required],
-      testimony: ['', Validators.required]
+    this.settingsFormGroup = this.fb.group({
+      title: ['', Validators.required],
+      thumbnail: ['', Validators.required],
+      featured: ['false', Validators.required],
+      description: ['', Validators.required]
     });
   }
 
-   showFileManager(mediaType): void {
+  showFileManager(mediaType): void {
     const dialogRef = this.dialog.open(FileManagerComponent, {
       data: {
         mediaType
@@ -53,19 +49,21 @@ export class SettingsTestimonialComponent implements OnInit {
 
       if (result.selectedMediaType === 'image') {
         this.selectedThumbnailFile = result.selectedMedia;
-        this.testimonialFormGroup.controls.thumbnail.setValue(result.selectedMedia);
+        this.settingsFormGroup.controls.thumbnail.setValue(result.selectedMedia);
       }
 
       if (result.selectedMediaType === 'video') {
         this.selectedPreviewFile = result.selectedMedia;
-        this.testimonialFormGroup.controls.video.setValue(result.selectedMedia);
+        this.settingsFormGroup.controls.video.setValue(result.selectedMedia);
       }
     });
   }
-   createTestimonial(): void {
-    console.log(this.testimonialFormGroup);
-    if (this.testimonialFormGroup.valid) {
-      this.testimonials.createService(this.testimonialFormGroup.value).subscribe(res => {
+
+
+  createService(): void {
+    console.log(this.settingsFormGroup);
+    if (this.settingsFormGroup.valid) {
+      this.setting.createService(this.settingsFormGroup.value).subscribe(res => {
         this.toastr.success('Service Created Successfully');
       });
     }

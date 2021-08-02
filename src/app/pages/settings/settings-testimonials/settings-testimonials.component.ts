@@ -13,3 +13,5 @@ export class SettingsTestimonialsComponent implements OnInit {
   }
 
 }
+
+
