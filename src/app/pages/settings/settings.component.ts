@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Store} from '@ngxs/store';
-import {SetTitle} from '../../store/app-store/app.action';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-settings',
@@ -8,13 +6,10 @@ import {SetTitle} from '../../store/app-store/app.action';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-
-  constructor(
-    private store: Store
-  ) { }
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.store.dispatch(new SetTitle('Settings'));
   }
 
 }

@@ -1,13 +1,12 @@
 .main {
-   height: 680px;
+  height: 680px;
 
-   .box {
+  .box {
     height: 40px;
     width: 80%;
-   width: 100%;
     margin: 10px 0px 5px 0px;
     display: flex;
-    background-color:#E4E4E4;
+    background-color: #E4E4E4;
     padding: 5px;
     cursor: pointer;
   }
@@ -60,7 +59,8 @@
       color: black;
     }
   }
-  .text-video{
+
+  .text-video {
     display: flex;
     padding: 30px 10%;
     font-weight: bold;
@@ -68,21 +68,22 @@
     cursor: pointer;
 
 
-    .video{
+    .video {
       margin-left: 40px;
     }
   }
-  .settingsRow1 {
+
+  .name {
     width: 100%;
     display: grid;
     box-sizing: border-box;
     gap: 0 10px;
     padding: 10px 10%;
-     font-weight: bold;
+    font-weight: bold;
 
     label {
       display: block;
-      width: 100%;
+      width: 90%;
       padding: 10px;
       box-sizing: border-box;
 
@@ -100,7 +101,7 @@
         padding: 15px 10px;
         border-radius: 5px;
         border: solid 1px #707070;
-         font-size: 1.3em;
+        font-size: 1.3em;
 
       }
 
@@ -109,53 +110,60 @@
   }
 
   .settingsRow2 {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 50% 50%;
-      //justify-content: space-between;
-      box-sizing: border-box;
-      gap: 0 10px;
-      padding: 10px 10%;
-      font-weight: bold;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    //justify-content: space-between;
+    box-sizing: border-box;
+    gap: 0 10px;
+    padding: 10px 10%;
+    font-weight: bold;
 
-      span {
-        display: block;
-        margin-bottom: 10px;
-        font-size: 26px;
-      }
-       button{
-         background-color: white;
-          width: 30%;
-          padding: 10px 7px;
-          border-radius: 5px;
-          border: solid 1px #707070;
-          cursor: pointer;
+    span {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
 
-        }
-    .avater{
-      width: 400px;
+    button {
+      background-color: white;
+      width: 30%;
+      padding: 10px 7px;
+      border-radius: 5px;
+      border: solid 1px #707070;
+      cursor: pointer;
 
     }
-    .subtext{
-      width: 550px;
-      margin-right: 200px;
-    }
-      input {
-        width: 420px;
-        padding: 15px 10px;
-        border-radius: 5px;
-        border: solid 1px #707070;
-        cursor: pointer;
 
-      }
-   }
-    .row3 {
-      padding: 10px 10%;
-     label {
+    .avater {
+      width: 500px;
+      margin-left: 7px;
+
+    }
+
+    .subtext {
+      width: 500px;
+
+    }
+
+    input {
+      width: 340px;
+      padding: 15px 10px;
+      border-radius: 5px;
+      border: solid 1px #707070;
+      cursor: pointer;
+
+    }
+  }
+
+  .testimony {
+    padding: 10px 10%;
+
+    label {
       width: 100%;
       padding: 10px;
       box-sizing: border-box;
-       font-weight: bold;
+      font-weight: bold;
 
       span {
         display: block;
@@ -173,29 +181,29 @@
         font-size: 2em;
 
       }
-      }
-
     }
 
-    .saveButton {
-      margin-bottom: 10px;
-      text-align: end;
-      padding: 10px 10%;
-       font-weight: bold;
+  }
 
-      button {
-        width: 150px;
-        background: #FF6600;
-        padding: 8px 20px;
-        color: black;
-        font-weight: bold;
-        font-size: 20px;
-        border: none;
-        border-radius: 10px;
-        margin-bottom: 30px;
-        float: left;
-        cursor: pointer;
-      }
+  .saveButton {
+    margin-bottom: 10px;
+    text-align: end;
+    padding: 10px 10%;
+    font-weight: bold;
+
+    button {
+      width: 150px;
+      background: #FF6600;
+      padding: 8px 20px;
+      color: black;
+      font-weight: bold;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      float: left;
+      cursor: pointer;
     }
+  }
 
 }

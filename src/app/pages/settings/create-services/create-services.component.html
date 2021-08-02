@@ -1,0 +1,33 @@
+ <ng-container [formGroup]="settingsFormGroup">
+    <div class="settingsRow1">
+      <label>
+        <span>Title</span>
+        <input formControlName="title" type="text">
+      </label>
+    </div>
+
+    <div class="settingsRow2">
+      <label>
+        <span>Thumbnail</span>
+        <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
+        <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile"
+             alt="Selected Image">
+      </label>
+      <label>
+        <span>Featured</span>
+        <select formControlName="featured">
+          <option value="false">Unfeatured</option>
+          <option value="true">Featured</option>
+        </select>
+      </label>
+    </div>
+    <div class="row3">
+      <label>
+        <span>Description</span>
+        <textarea formControlName="description"></textarea>
+      </label>
+    </div>
+    <div class="saveButton">
+      <button (click)="createService()">Save</button>
+    </div>
+  </ng-container>

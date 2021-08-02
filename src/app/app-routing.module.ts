@@ -1,12 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
-import {SettingsComponent} from './pages/settings/settings.component';
-import {SettingsTestimonialComponent} from './pages/settings/settings-testimonial/settings-testimonial.component';
-import {SettingsHomepageSliderComponent} from './pages/settings/settings-homepage-slider/settings-homepage-slider.component';
-import {SettingsTestimonialvideoComponent} from './pages/settings/settings-testimonialvideo/settings-testimonialvideo.component';
-import {SettingsServicesComponent} from './pages/settings/settings-services/settings-services.component';
-import {SettingsTestimonialsComponent} from './pages/settings/settings-testimonials/settings-testimonials.component';
 import {TrainingsComponent} from './pages/trainings/trainings.component';
 import {UsersComponent} from './pages/users/users.component';
 import {QuizDetails1Component} from './pages/audio-quiz/quiz-details1/quiz-details1.component';
@@ -46,36 +40,17 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'trainings',
     component: TrainingsComponent
   },
   {
     path: 'users',
     component: UsersComponent
-  },
-  {
-    path: 'settings',
-    component: SettingsComponent
-  },
-  {
-    path: 'settings-testimonial',
-    component: SettingsTestimonialComponent
-  },
-   {
-    path: 'settings-homepage-slider',
-    component: SettingsHomepageSliderComponent
-  },
-  {
-    path: 'settings-testimonial-video',
-    component: SettingsTestimonialvideoComponent
-  },
-  {
-    path: 'settings-services',
-    component: SettingsServicesComponent
-  },
-  {
-    path: 'settings-testimonials',
-    component: SettingsTestimonialsComponent
   },
   {
     path: 'audio-quiz/evaluate',

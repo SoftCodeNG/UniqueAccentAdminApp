@@ -56,7 +56,7 @@ export class QuizService {
         map(res => {
           return res.payload;
         })
-      );
+      ) ;
   }
 
   createTextQuestion(data: any): Observable<any> {
