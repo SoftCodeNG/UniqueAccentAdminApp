@@ -12,22 +12,22 @@ const routes: Routes = [
     component: SettingsServicesComponent,
     children: []
   },
-  {
-    path: 'create-service',
-    component: CreateServicesComponent
-  },
-  {
-    path: 'settings-testimonial',
-    component: SettingsTestimonialComponent
-  },
-  {
-    path: 'settings-testimonialvideo',
-    component: SettingsTestimonialvideoComponent
-  },
-  {
-    path: 'settings-testimonials',
-    component: SettingsTestimonialsComponent
-  }
+  // {
+  //   path: 'create-service',
+  //   component: CreateServicesComponent
+  // },
+  // {
+  //   path: 'settings-testimonial',
+  //   component: SettingsTestimonialComponent
+  // },
+  // {
+  //   path: 'settings-testimonialvideo',
+  //   component: SettingsTestimonialvideoComponent
+  // },
+  // {
+  //   path: 'settings-testimonials',
+  //   component: SettingsTestimonialsComponent
+  // }
 ];
 
 
