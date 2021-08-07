@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from "@ngxs/store";
-import {SetTitle} from "../../store/app-store/app.action";
+import {Store} from '@ngxs/store';
+import {SetTitle} from '../../store/app-store/app.action';
 
 @Component({
   selector: 'app-trainings',

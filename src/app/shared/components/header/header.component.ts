@@ -3,8 +3,8 @@ import {Router} from '@angular/router';
 import {SetRefreshToken, SetToken} from '../../../store/app-store/app.action';
 import {Select, Store} from '@ngxs/store';
 import {ToastrService} from 'ngx-toastr';
-import {AppState} from "../../../store/app-store/app.state";
-import {Observable} from "rxjs";
+import {AppState} from '../../../store/app-store/app.state';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-header',
