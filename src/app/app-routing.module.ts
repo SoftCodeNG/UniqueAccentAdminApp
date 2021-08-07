@@ -21,7 +21,7 @@ import {ReverseAuthGuard} from './core/guards/reverse-auth-guard';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent
   },
   {

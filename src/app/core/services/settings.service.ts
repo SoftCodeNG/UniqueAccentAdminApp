@@ -38,4 +38,13 @@ export class SettingsService {
         })
       );
   }
+   getAllTestimonials(slug: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}settings/testimonials/getAllTestimonials/${slug}`)
+      .pipe(
+        map(res => {
+          return res.results;
+        })
+      ) ;
+  }
 }
+
