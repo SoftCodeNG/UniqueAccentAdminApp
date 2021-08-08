@@ -38,8 +38,8 @@ export class SettingsService {
         })
       );
   }
-   getAllTestimonials(slug: string): Observable<any> {
-    return this.http.get<any>(`${this.baseURL}settings/testimonials/getAllTestimonials/${slug}`)
+   getAllTestimonials(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}settings/testimonials/getAllTestimonials/${id}`)
       .pipe(
         map(res => {
           return res.results;
