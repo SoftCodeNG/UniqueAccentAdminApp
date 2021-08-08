@@ -5,29 +5,39 @@ import {SettingsServicesComponent} from './settings-services/settings-services.c
 import {SettingsTestimonialsComponent} from './settings-testimonials/settings-testimonials.component';
 import {SettingsTestimonialComponent} from './settings-testimonial/settings-testimonial.component';
 import {SettingsTestimonialvideoComponent} from './settings-testimonialvideo/settings-testimonialvideo.component';
+import {SettingsComponent} from './settings.component';
+import {SettingsHomepageSliderComponent} from './settings-homepage-slider/settings-homepage-slider.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SettingsServicesComponent,
+    component: SettingsComponent,
     children: []
   },
-  // {
-  //   path: 'create-service',
-  //   component: CreateServicesComponent
-  // },
-  // {
-  //   path: 'settings-testimonial',
-  //   component: SettingsTestimonialComponent
-  // },
-  // {
-  //   path: 'settings-testimonialvideo',
-  //   component: SettingsTestimonialvideoComponent
-  // },
-  // {
-  //   path: 'settings-testimonials',
-  //   component: SettingsTestimonialsComponent
-  // }
+  {
+    path: 'settings-services',
+    component: SettingsServicesComponent
+  },
+  {
+    path: 'create-service',
+    component: CreateServicesComponent
+  },
+  {
+    path: 'settings-testimonial',
+    component: SettingsTestimonialComponent
+  },
+  {
+    path: 'settings-testimonialvideo',
+    component: SettingsTestimonialvideoComponent
+  },
+  {
+    path: 'settings-testimonials',
+    component: SettingsTestimonialsComponent
+  },
+  {
+    path: 'settings-homepage-slider',
+    component: SettingsHomepageSliderComponent
+  }
 ];
 
 
