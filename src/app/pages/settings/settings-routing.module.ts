@@ -11,8 +11,8 @@ import {SettingsHomepageSliderComponent} from './settings-homepage-slider/settin
 const routes: Routes = [
   {
     path: '',
-    component: SettingsComponent,
-    children: []
+    redirectTo: 'settings-services',
+    pathMatch: 'full'
   },
   {
     path: 'settings-services',

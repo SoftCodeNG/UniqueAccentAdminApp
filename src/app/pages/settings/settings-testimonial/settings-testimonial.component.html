@@ -40,7 +40,7 @@
           <div class="avater">
             <span>Avatar</span>
            <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
-        <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile"
+            <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile"
              alt="Selected Image">
           </div>
         </div>
