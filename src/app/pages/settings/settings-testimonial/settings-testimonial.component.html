@@ -37,10 +37,10 @@
 
       <div class="settingsRow2">
         <div>
-          <div class="avater">
+          <div class="avatar">
             <span>Avatar</span>
-           <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
-            <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile"
+           <button *ngIf="!selectedAvatarFile" (click)="showFileManager('image')">Select an Image</button>
+            <img *ngIf="selectedAvatarFile" (click)="showFileManager('image')" [src]="selectedAvatarFile"
              alt="Selected Image">
           </div>
         </div>

@@ -27,10 +27,9 @@ export class SettingsService {
   settingsTestimonial(data: any): Observable<any> {
     const payload = new FormData();
     payload.append('name', data.name);
-    payload.append('thumbnail', data.thumbnail);
-    payload.append('isFeatured', data.featured);
-    payload.append('isFeatured', data.featured);
-    payload.append('description', data.description);
+    payload.append('avatar', data.avatar);
+    payload.append('subtext', data.subtext);
+    payload.append('testimony', data.testimony);
     return this.http.post<any>(`${this.baseURL}settings/settings-testimonial `, payload)
       .pipe(
         map(res => {
@@ -38,8 +37,8 @@ export class SettingsService {
         })
       );
   }
-   getAllTestimonials(slug: string): Observable<any> {
-    return this.http.get<any>(`${this.baseURL}settings/testimonials/getAllTestimonials/${slug}`)
+   getAllTestimonials(id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}settings/testimonials/getAllTestimonials/${id}`)
       .pipe(
         map(res => {
           return res.results;

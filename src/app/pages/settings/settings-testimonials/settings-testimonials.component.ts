@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {SettingsService} from '../../../core/services/settings.service';
 
 @Component({
   selector: 'app-settings-testimonials',
@@ -6,17 +7,18 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./settings-testimonials.component.scss']
 })
 export class SettingsTestimonialsComponent implements OnInit {
-  private settingsServices: any;
+  allTestimonials: any;
+  id: string;
 
-  constructor() {
+  constructor(
+    private  settingsService: SettingsService) {
   }
-
   ngOnInit(): void {
+    this.getAllTestimonials(this.id);
   }
-
-  getAllTestimonials(id: string): void {
-    this.settingsServices.getAllTestimonials(id).subscribe(res => {
-      this.getAllTestimonials = res;
+getAllTestimonials(id: string): void {
+    this.settingsService.getAllTestimonials(id).subscribe(res => {
+      this.allTestimonials = res;
       console.log(res);
     });
   }
