@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {ToastrService} from 'ngx-toastr';
 import {SetTitle} from '../../../store/app-store/app.action';
 import {FileManagerComponent} from '../../../shared/components/file-manager/file-manager.component';
+import {Router} from "@angular/router";
 
 class SettingsTestimonial {
 }
@@ -18,8 +19,8 @@ class SettingsTestimonial {
 export class SettingsTestimonialComponent implements OnInit {
   testimonial: any;
   testimonialFormGroup = new FormGroup({});
-  selectedThumbnailFile: string;
   selectedPreviewFile: string;
+  selectedAvatarFile: string;
 
 
   constructor(
@@ -28,14 +29,16 @@ export class SettingsTestimonialComponent implements OnInit {
     private  testimonials: SettingsService,
     public dialog: MatDialog,
     private toastr: ToastrService,
+    private router: Router
     ) {
   }
 
    ngOnInit(): void {
     this.store.dispatch(new SetTitle('Settings'));
     this.testimonialFormGroup = this.fb.group({
+      radio: ['text', Validators.required],
       name: ['', Validators.required],
-      avater: ['', Validators.required],
+      avatar: ['', Validators.required],
       subtext: ['', Validators.required],
       testimony: ['', Validators.required]
     });
@@ -52,8 +55,8 @@ export class SettingsTestimonialComponent implements OnInit {
       console.log(`Dialog result: `, result); // Pizza!
 
       if (result.selectedMediaType === 'image') {
-        this.selectedThumbnailFile = result.selectedMedia;
-        this.testimonialFormGroup.controls.thumbnail.setValue(result.selectedMedia);
+        this.selectedAvatarFile = result.selectedMedia;
+        this.testimonialFormGroup.controls.avatar.setValue(result.selectedMedia);
       }
 
       if (result.selectedMediaType === 'video') {
@@ -65,8 +68,9 @@ export class SettingsTestimonialComponent implements OnInit {
    createTestimonial(): void {
     console.log(this.testimonialFormGroup);
     if (this.testimonialFormGroup.valid) {
-      this.testimonials.createService(this.testimonialFormGroup.value).subscribe(res => {
-        this.toastr.success('Service Created Successfully');
+      this.testimonials.createTestimonial(this.testimonialFormGroup.value).subscribe(res => {
+        this.toastr.success('Testimony Created Successfully');
+        this.router.navigate(['/settings/settings-testimonials']).then();
       });
     }
   }

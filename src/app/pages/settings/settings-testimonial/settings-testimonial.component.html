@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" [formGroup]="testimonialFormGroup">
     <div class="box">
     <div class="bar services">
       <a routerLink="/settings/settings-services">Services</a>
@@ -13,20 +13,19 @@
     <div class="text-video">
       <div class="text">
         <label>
-          <input type="radio" checked>
+          <input type="radio"formControlName="radio" value="text">
           <span>Text Testimonial</span>
         </label>
       </div>
 
       <div class="video">
         <label>
-          <input type="radio">
+          <input type="radio" formControlName="radio" value="video">
           <span>Video Testimonial</span>
         </label>
       </div>
-
     </div>
-    <ng-container [formGroup]="testimonialFormGroup">
+    <ng-container>
       <div class="name">
         <label>
           <span>Name</span>
@@ -37,11 +36,17 @@
 
       <div class="settingsRow2">
         <div>
-          <div class="avater">
+          <div *ngIf="testimonialFormGroup.controls.radio.value === 'text'" class="avatar">
             <span>Avatar</span>
-           <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
-            <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile"
-             alt="Selected Image">
+           <button *ngIf="!selectedAvatarFile" (click)="showFileManager('image')">Select an Image</button>
+            <img *ngIf="selectedAvatarFile" (click)="showFileManager('image')" [src]="selectedAvatarFile"
+             alt="Selected Image" width="70px">
+          </div>
+           <div *ngIf="testimonialFormGroup.controls.radio.value === 'video'" class="avatar">
+            <span>Avatar</span>
+           <button *ngIf="!selectedAvatarFile" (click)="showFileManager('video')">Select a Video</button>
+            <video *ngIf="selectedAvatarFile" (click)="showFileManager('video')" [src]="selectedAvatarFile"
+             width="70px"></video>
           </div>
         </div>
         <div class="subtext">
