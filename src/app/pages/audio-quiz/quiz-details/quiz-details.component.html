@@ -1,56 +1,74 @@
 <div class="container">
   <div class="middle">
-    <div class="title">
-      <h1>{{quizDetails.title}}</h1>
-    </div>
-    <div class="questions">
-      <div *ngFor="let question of quizDetails.quizQuestions">
-        <div class="box">
-        <P>{{question.question}}</P>
+
+    <ng-container *ngIf="quizDetails?.quizQuestions.length > 0">
+      <div class="title">
+        <h1>{{quizDetails.title}}</h1>
       </div>
-    </div>
+      <div class="questions">
+        <div *ngFor="let question of quizDetails.quizQuestions">
+          <div class="box">
+            <P>{{question.question}}</P>
+          </div>
+        </div>
       </div>
-<div class="quizDetailsDiv" *ngIf="quizDetails?.quizQuestions.length === 0">
-    <div class="leftDiv">
-      <div>Early Life School 1st Term Exam</div>
-      <div class="questionDiv">
+    </ng-container>
+
+
+    <div class="quizDetailsDiv" *ngIf="quizDetails?.quizQuestions.length === 0">
+      <div class="leftDiv">
+        <div>{{quizDetails.title}}</div>
+        <div class="questionDiv">
           <div><img src="../../../../assets/questionLogo.png" alt=""></div>
           <div>No Question Found</div>
           <div class="addQuestionButton">
-             <div><button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id  + '/' +  quizDetails.slug">Add Text Question</button></div>
-             <div> <button [routerLink]="'/audio-quiz/audio-question/' + quizDetails.id">Add Audio Question</button></div>
+            <div>
+              <button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id  + '/' +  quizDetails.slug">Add
+                Text Question
+              </button>
+            </div>
+            <div>
+              <button [routerLink]="'/audio-quiz/audio-question/' + quizDetails.id">Add Audio Question</button>
+            </div>
           </div>
         </div>
+      </div>
     </div>
-</div>
   </div>
 
   <div class="rightbar">
     <div class="nameoforg">
-      <h2>Easy Life School, First term</h2>
+      <h2>{{quizDetails.organisation}}</h2>
     </div>
-       <div class="logo">
-         <img [src]="quizDetails.organisationLogo" alt="">
-       </div>
-     <div class="dateandtime">
-       <div class="start">
-         <div>Start Date</div>
-         <span>{{quizDetails.startDate | date}}</span>
-       </div>
-       <div class="end">
-         <div>End Date</div>
-         <div>{{quizDetails.endDate | date}}</div>
-       </div>
-       <div class="allocatedtime">
-         <div>Allocated Time</div>
-        <div>{{quizDetails.duration}}</div>
-       </div>
-     </div>
-     <button>Submitted Questions</button>
-      <div class="buttons">
-         <button>Edit</button>
-        <span> <button>Delete</button></span>
+    <div class="logo">
+      <img [src]="quizDetails.organisationLogo" alt="">
+    </div>
+    <div class="dateandtime">
+      <div class="start">
+        <div>Start Date</div>
+        <span>{{quizDetails.startDate | date}}</span>
       </div>
+      <div class="end">
+        <div>End Date</div>
+        <div>{{quizDetails.endDate | date}}</div>
+      </div>
+      <div class="allocatedtime">
+        <div>Allocated Time</div>
+        <div>{{quizDetails.duration}}</div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="quizDetails?.quizQuestions.length > 0">
+      <button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id + '/' + quizDetails.slug">
+        Add Text Question
+      </button>
+      <button>Add Audio Question</button>
+    </ng-container>
+
+    <div class="buttons">
+      <button>Edit</button>
+      <span> <button>Delete</button></span>
+    </div>
   </div>
 </div>
 
