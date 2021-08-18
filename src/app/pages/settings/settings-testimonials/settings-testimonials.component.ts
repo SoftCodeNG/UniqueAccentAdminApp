@@ -9,18 +9,24 @@ import {SettingsService} from '../../../core/services/settings.service';
 export class SettingsTestimonialsComponent implements OnInit {
   allTestimonials: any;
   id: string;
+  selectedTestimonial: any;
 
   constructor(
     private  settingsService: SettingsService) {
   }
   ngOnInit(): void {
-    this.getAllTestimonials(this.id);
+    this.getAllTestimonials();
   }
-getAllTestimonials(id: string): void {
-    this.settingsService.getAllTestimonials(id).subscribe(res => {
+getAllTestimonials(): void {
+    this.settingsService.getAllTestimonials().subscribe(res => {
       this.allTestimonials = res;
+
       console.log(res);
     });
+  }
+
+  showTestimonial(testimonial: any): void {
+    this.selectedTestimonial = testimonial;
   }
 }
 

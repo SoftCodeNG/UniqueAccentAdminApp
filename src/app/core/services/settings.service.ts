@@ -1,3 +1,6 @@
+// @ts-ignore
+// @ts-ignore
+
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -9,7 +12,9 @@ import {map} from 'rxjs/operators';
 })
 export class SettingsService {
   baseURL = environment.baseUrl;
-  constructor( private http: HttpClient ) { }
+
+  constructor(private http: HttpClient) {
+  }
 
   createService(data: any): Observable<any> {
     const payload = new FormData();
@@ -24,26 +29,27 @@ export class SettingsService {
         })
       );
   }
-  settingsTestimonial(data: any): Observable<any> {
+
+  createTestimonial(data: any): Observable<any> {
     const payload = new FormData();
     payload.append('name', data.name);
     payload.append('avatar', data.avatar);
     payload.append('subtext', data.subtext);
     payload.append('testimony', data.testimony);
-    return this.http.post<any>(`${this.baseURL}settings/settings-testimonial `, payload)
+    return this.http.post<any>(`${this.baseURL}settings/testimonial/createTestimonial`, payload)
       .pipe(
         map(res => {
           return res;
         })
       );
   }
-   getAllTestimonials(id: string): Observable<any> {
-    return this.http.get<any>(`${this.baseURL}settings/testimonials/getAllTestimonials/${id}`)
+
+  getAllTestimonials(): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}settings/testimonial/getAllTestimonials`)
       .pipe(
         map(res => {
           return res.results;
         })
-      ) ;
+      );
   }
 }
-

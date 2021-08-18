@@ -17,7 +17,7 @@
   }
 
   .services {
-    background-color: #ff6600;
+    background-color:darkgray;
     font-size: 1.3em;
     padding: 10px;
     text-align: center;
@@ -108,11 +108,13 @@
         border-radius: 10px;
         font-size: 1.3em;
          margin-left: 30px;
+        cursor: pointer;
 
       }
       .list{
         margin-top: 20px;
         margin-left: 20px;
+        cursor:pointer;
       div{
         padding: 15px;
         margin: 2px 0px 2px 2px;
@@ -123,7 +125,7 @@
         font-size: 1.5em;
 
       }
-        .highlighted{
+        :hover{
           background-color: #888888;
 
         }

@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {ToastrService} from 'ngx-toastr';
 import {SetTitle} from '../../../store/app-store/app.action';
 import {FileManagerComponent} from '../../../shared/components/file-manager/file-manager.component';
+import {Router} from "@angular/router";
 
 class SettingsTestimonial {
 }
@@ -28,12 +29,14 @@ export class SettingsTestimonialComponent implements OnInit {
     private  testimonials: SettingsService,
     public dialog: MatDialog,
     private toastr: ToastrService,
+    private router: Router
     ) {
   }
 
    ngOnInit(): void {
     this.store.dispatch(new SetTitle('Settings'));
     this.testimonialFormGroup = this.fb.group({
+      radio: ['text', Validators.required],
       name: ['', Validators.required],
       avatar: ['', Validators.required],
       subtext: ['', Validators.required],
@@ -65,8 +68,9 @@ export class SettingsTestimonialComponent implements OnInit {
    createTestimonial(): void {
     console.log(this.testimonialFormGroup);
     if (this.testimonialFormGroup.valid) {
-      this.testimonials.createService(this.testimonialFormGroup.value).subscribe(res => {
+      this.testimonials.createTestimonial(this.testimonialFormGroup.value).subscribe(res => {
         this.toastr.success('Testimony Created Successfully');
+        this.router.navigate(['/settings/settings-testimonials']).then();
       });
     }
   }
