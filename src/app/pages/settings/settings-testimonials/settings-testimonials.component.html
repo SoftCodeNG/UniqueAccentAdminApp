@@ -24,35 +24,20 @@
       </div>
     </div>
         <div class="rightbar" *ngIf="selectedTestimonial">
-           <div class="edit">
-               Edit
+           <div class="editAndDelete">
+               <button (click)="editService(selectedTestimonial)">Edit</button>
+               <button (click)="delTestimonial(selectedTestimonial)">Delete</button>
            </div>
           <div class="intro">
             <div class="name">
                <h1>{{selectedTestimonial.name}}</h1>
-               <h5>{{selectedTestimonial.subtext}}</h5>
+               <h5>{{selectedTestimonial.title}}</h5>
             </div>
             <div class= "avatar">
               {{selectedTestimonial.avatar}}
             </div>
           <div class="testimony">
-            SPEAKING IS DIFFERENT FROM COMMUNICATION, You can Speak without
-            communicating and this is what many people do not understand. A lot of
-            People think that speaking with good diction is about faking an accent or
-            rolling your tongue, NO! It is never about rolling your tongueor faking an
-            accent, It is about accurate and effective communication such that anyone
-            from any part of the world can understand you clearly. This is what a lot of
-            people do not know. As a Public speaker, A radio/TV presenter, A voice over
-            artiste, Customer service representative
-
-            SPEAKING IS DIFFERENT FROM COMMUNICATION, You can Speak without
-            communicating and this is what many people do not understand. A lot of
-            People think that speaking with good diction is about faking an accent or
-            rolling your tongue, NO! It is never about rolling your tongueor faking an
-            accent, It is about accurate and effective communication such that anyone
-             from any part of the world can understand you clearly. This is what a lot of
-            people do not know. As a Public speaker, A radio/TV presenter, A voice over
-            artiste, Customer service representative
+            {{selectedTestimonial.testimony}}
           </div>
         </div>
   </div>
