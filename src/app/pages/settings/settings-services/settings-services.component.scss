@@ -63,28 +63,36 @@
     display: flex;
 
     .rightbar{
+      margin-top: 30px;
       width: 700px;
-      height: 600px;
+      height: 100%;
       margin-right: 20px;
       background-color: #888888;
       padding: 10px;
-      .edit{
-         width: 100px;
-        margin-left: 520px;
+
+       .editAndDelete{
+        display: flex;
+         margin-left: 400px;
+        margin-top: 20px;
+      }
+       button{
+        border: none;
+        width: 100px;
+        margin-left: 40px;
         color: white;
-        font-weight: bold;
         background-color: black;
         font-size: 1.3em;
         text-align: center;
-        padding: 2px;
-        border-radius: 20px;
+        padding: 4px;
+        border-radius: 10px;
+         cursor: pointer;
       }
       .intro{
         display: flex;
         padding-top: 20px;
         height: 270px;
         margin-right: 70px;
-        .name{
+        .title{
           width: 300px;
         }
         .picture{

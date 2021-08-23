@@ -11,7 +11,7 @@
         <span>Thumbnail</span>
         <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
         <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile"
-             alt="Selected Image">
+             alt="Selected Image" width="70px">
       </label>
       <label>
         <span>Featured</span>

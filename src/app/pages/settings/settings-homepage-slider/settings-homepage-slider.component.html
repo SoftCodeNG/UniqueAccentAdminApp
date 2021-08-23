@@ -10,14 +10,12 @@
       <a routerLink="/settings/settings-homepage-slider">Homepage Slider</a>
     </div>
   </div>
-
-
-        <button>Add New Image</button>
-        <div class="images">
-          <img src="../../../../assets/slide7.jpg" height="218" width="305"/>
-          <img src="../../../../assets/slide4.jpg" height="218" width="306"/>
-          <img src="../../../../assets/slide3.jpg" height="218" width="306"/>
-          <img src="../../../../assets/slide2.jpg" height="218" width="305"/>
-          <img src="../../../../assets/slide1.jpg" height="218" width="305"/>
+      <ng-container [formGroup]="homepageSliderForm">
+         <button *ngIf="!selectedImageFile" (click)="showFileManager('image')">Add New Image</button>
+        <div class="images" formControlName="image">
+          <img  *ngIf="selectedImageFile" (click)="showFileManager('image')" [src]="selectedImageFile"
+             alt="Selected Image" height="218" width="305"/>
         </div>
+      </ng-container>
+
 </div>

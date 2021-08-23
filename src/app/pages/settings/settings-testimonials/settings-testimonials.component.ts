@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SettingsService} from '../../../core/services/settings.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-settings-testimonials',
@@ -12,7 +13,9 @@ export class SettingsTestimonialsComponent implements OnInit {
   selectedTestimonial: any;
 
   constructor(
-    private  settingsService: SettingsService) {
+    private  settingsService: SettingsService,
+    private  router: Router
+  ) {
   }
   ngOnInit(): void {
     this.getAllTestimonials();
@@ -28,6 +31,14 @@ getAllTestimonials(): void {
   showTestimonial(testimonial: any): void {
     this.selectedTestimonial = testimonial;
   }
+
+  editService(testimonial: any): void {
+    sessionStorage.setItem('testimonialData', JSON.stringify(testimonial));
+    this.router.navigate(['/settings/settings-testimonial']).then();
+  }
+//
+//   delTestimonial(id: string):{
+//   }
 }
 
 
