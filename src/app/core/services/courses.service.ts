@@ -130,7 +130,7 @@ export class CoursesService {
       );
   }
 
-  deleteLesson(slug: string): Observable<any>{
+  deleteLesson(slug: number): Observable<any>{
     return this.http.delete<any>(`${this.baseURL}courses/deleteLesson/${slug}`)
      .pipe(
         map(res => {

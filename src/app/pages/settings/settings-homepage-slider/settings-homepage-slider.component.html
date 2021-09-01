@@ -11,10 +11,13 @@
     </div>
   </div>
       <ng-container [formGroup]="homepageSliderForm">
-         <button *ngIf="!selectedImageFile" (click)="showFileManager('image')">Add New Image</button>
+         <button (click)="showFileManager('image')">Add New Image</button>
         <div class="images" formControlName="image">
-          <img  *ngIf="selectedImageFile" (click)="showFileManager('image')" [src]="selectedImageFile"
-             alt="Selected Image" height="218" width="305"/>
+          <div  *ngFor="let image of allHomePageSlider">
+            <img [src]="image.image" alt="">
+            <button (click)="deleteHomePageSlider(image.id)">Delete</button>
+          </div>
+
         </div>
       </ng-container>
 

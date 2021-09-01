@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SettingsService} from '../../../core/services/settings.service';
 import {Router} from '@angular/router';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-settings-testimonials',
@@ -11,10 +12,13 @@ export class SettingsTestimonialsComponent implements OnInit {
   allTestimonials: any;
   id: string;
   selectedTestimonial: any;
+  activatedRoute: any;
+  settingsTestimonial: any;
 
   constructor(
     private  settingsService: SettingsService,
-    private  router: Router
+    private  router: Router,
+    private toastr: ToastrService,
   ) {
   }
   ngOnInit(): void {
@@ -39,6 +43,13 @@ getAllTestimonials(): void {
 //
 //   delTestimonial(id: string):{
 //   }
+  deleteTestimonial(): void {
+    this.settingsService.deleteTestimonial(this.selectedTestimonial.id).subscribe(res => {
+      this.toastr.success('testimonial deleted successfully');
+      this.getAllTestimonials();
+      this.selectedTestimonial = undefined;
+    });
+  }
 }
 
 
