@@ -59,3 +59,4 @@ export class LessonDetailsComponent implements OnInit {
     });
   }
 }
+

@@ -79,7 +79,6 @@ UpdateService(data: any, id: number): Observable<any> {
         })
       );
   }
-
    getAllServices(): Observable<any> {
     return this.http.get<any>(`${this.baseURL}settings/services/getAllServices`)
       .pipe(
@@ -88,24 +87,48 @@ UpdateService(data: any, id: number): Observable<any> {
         })
       );
   }
-  // homepageSlider(data: any): Observable<any> {
-  //   const payload = new FormData();
-  //   payload.append('image', data.image);
-  //   return this.http.post<any>(`${this.baseURL}settings/homePageSlider/addHomePageSlider`, payload)
-  //     .pipe(
-  //       map(res => {
-  //         return res;
-  //       })
-  //     );
-  // }
-  homepageSlider(): Observable<any> {
+  deleteTestimonial(id: number): Observable<any>{
+   return this.http.delete<any>(`${this.baseURL}settings/testimonial/deleteTestimonial/${id}`)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+       );
+  }
+ addHomePageSlider(data: any ): Observable<any> {
     const payload = new FormData();
-    return this.http.post<any>(`${this.baseURL}settings/homePageSlider/addHomePageSlider`, payload)
+    payload.append('image', data.image);
+    return this.http.post<any>(`${this.baseURL}settings/homePageSlider/addHomePageSlider` , payload)
       .pipe(
         map(res => {
-          return res;
+          return res.payload;
         })
       );
   }
+    getAllHomePageSlider(): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}settings/homePageSlider/getAllHomePageSlider`)
+      .pipe(
+        map(res => {
+          return res.results;
+        })
+      );
+  }
+  deleteService(slug: string): Observable<any>{
+   return this.http.delete<any>(`${this.baseURL}settings/services/deleteService/${slug}`)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+       );
+  }
+   deleteHomePageSlider(id: string): Observable<any>{
+   return this.http.delete<any>(`${this.baseURL}settings/homePageSlider/deleteHomePageSlider/${id}`)
+     .pipe(
+        map(res => {
+          return res.payload;
+        })
+       );
+  }
 }
+
 

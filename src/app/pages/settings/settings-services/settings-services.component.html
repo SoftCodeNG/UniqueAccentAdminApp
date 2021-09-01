@@ -25,7 +25,7 @@
     <div *ngIf="selectedService" class="rightbar">
        <div class="editAndDelete">
                <button (click)="editService(selectedService)">Edit</button>
-               <button>Delete</button>
+               <button (click)="deleteService(selectedService)">Delete</button>
            </div>
       <div class="intro">
         <div class="title">

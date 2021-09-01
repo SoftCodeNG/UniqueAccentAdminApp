@@ -7,6 +7,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-settings-homepage-slider',
   templateUrl: './settings-homepage-slider.component.html',
@@ -15,16 +16,19 @@ import {Router} from '@angular/router';
 export class SettingsHomepageSliderComponent implements OnInit {
   selectedImageFile: string;
   homepageSliderForm: FormGroup;
-  fb: any;
-  dialog: any;
+  allHomePageSlider: any;
 
 
   constructor(
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    public dialog: MatDialog,
+    private fb: FormBuilder,
+    private toastr: ToastrService,
   ) {
   }
 
   ngOnInit(): void {
+    this.getAllHomePageSlider();
     this.homepageSliderForm = this.fb.group({
       image: ['', Validators.required],
     });
@@ -40,13 +44,28 @@ export class SettingsHomepageSliderComponent implements OnInit {
       if (result.selectedMediaType === 'image') {
         this.selectedImageFile = result.selectedMedia;
         this.homepageSliderForm.controls.image.setValue(result.selectedMedia);
+        this.addHomePageSlider();
       }
     });
   }
-
-  homepageSlider(): void{
-    this.settingsService.homepageSlider().subscribe(res => {
-      this.selectedImageFile = res.image;
+   addHomePageSlider(): void{
+     this.settingsService.addHomePageSlider(this.homepageSliderForm.value).subscribe(res => {
+       this.selectedImageFile = res.payload;
+       this.getAllHomePageSlider();
+     });
+   }
+   getAllHomePageSlider(): void {
+    this.settingsService.getAllHomePageSlider().subscribe(res => {
+      this.allHomePageSlider = res;
+      console.log(res);
     });
   }
+
+  deleteHomePageSlider(id: string): void {
+    this.settingsService.deleteHomePageSlider(id).subscribe(res => {
+      this.toastr.success('Service deleted successfully');
+      this.getAllHomePageSlider();
+      this.selectedImageFile = undefined;
+  });
+}
 }
