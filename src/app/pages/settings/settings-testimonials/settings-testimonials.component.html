@@ -16,31 +16,26 @@
          New Testimonials
        </div>
       <div class="list">
-        <div>Adeola ABC</div>
-        <div>Victor Anene</div>
-        <div>Esther XYZ</div>
-        <div class="highlighted">Olusegun Oke</div>
-        <div>Dele Amaebite</div>
-        <div>Mrs Yetunde Okafor</div>
-        <div>Kayode Ajiboye</div>
-        <div>Uchenna</div>
-        <div>Linda</div>
+        <div
+          *ngFor="let testimonial of allTestimonials"
+          (click)="showTestimonial(testimonial)"
+        >{{testimonial.name}}</div>
+
       </div>
     </div>
-        <div class="rightbar">
+        <div class="rightbar" *ngIf="selectedTestimonial">
            <div class="edit">
                Edit
            </div>
           <div class="intro">
-
             <div class="name">
-<!--              <h1>{{testimonials.name}}</h1>-->
-               <h5>Subtext:Lead trainer MTV institute</h5>
+               <h1>{{selectedTestimonial.name}}</h1>
+               <h5>{{selectedTestimonial.subtext}}</h5>
             </div>
-            <div class="picture">
-              <img src="../../../../assets/testinonial1.jpg" height="200" width="200"/></div>
-          </div>
-          <div class="bio">
+            <div class= "avatar">
+              {{selectedTestimonial.avatar}}
+            </div>
+          <div class="testimony">
             SPEAKING IS DIFFERENT FROM COMMUNICATION, You can Speak without
             communicating and this is what many people do not understand. A lot of
             People think that speaking with good diction is about faking an accent or
@@ -61,4 +56,5 @@
           </div>
         </div>
   </div>
+</div>
 </div>

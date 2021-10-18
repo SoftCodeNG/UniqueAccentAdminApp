@@ -24,7 +24,7 @@ const routes: Routes = [
     component: CreateTextQuestionComponent
   },
   {
-    path: 'audio-question/:id',
+    path: 'audio-question/:id/:slug',
     component: AudioQuestionComponent
   },
   // {

@@ -1,7 +1,7 @@
 <div class="createQuizDiv">
   <div class="saveButton">
     <button (click)="createQuiz()">Next</button>
-<!--    <button routerLink="audio-quiz/create-quiz/quiz-details/create-text-question">Next</button>-->
+    <!--    <button routerLink="audio-quiz/create-quiz/quiz-details/create-text-question">Next</button>-->
   </div>
 
   <ng-container [formGroup]="createQuizForm">
@@ -26,7 +26,10 @@
       <div>
         <label>
           <span>Organisational Logo</span>
-          <input formControlName="organisationLogo" type="text" placeholder="Select an image">
+          <!--          <input formControlName="organisationLogo" type="text" placeholder="Select an image">-->
+          <button *ngIf="!selectedThumbnailFile" (click)="showFileManager('image')">Select an Image</button>
+          <img *ngIf="selectedThumbnailFile" (click)="showFileManager('image')" [src]="selectedThumbnailFile"
+               alt="Selected Image">
         </label>
       </div>
       <div>
@@ -55,7 +58,7 @@
     <div class="row3">
       <label>
         <span>Instruction</span>
-        <input formControlName="instruction" type="text">
+        <textarea formControlName="instruction"></textarea>
       </label>
     </div>
   </ng-container>

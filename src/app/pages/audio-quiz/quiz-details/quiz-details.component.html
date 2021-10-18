@@ -62,7 +62,10 @@
       <button [routerLink]="'/audio-quiz/create-text-question/' + quizDetails.id + '/' + quizDetails.slug">
         Add Text Question
       </button>
-      <button>Add Audio Question</button>
+
+      <button [routerLink]="'/audio-quiz/audio-question/' + quizDetails.id + '/' + quizDetails.slug">
+        Add Audio Question
+      </button>
     </ng-container>
 
     <div class="buttons">

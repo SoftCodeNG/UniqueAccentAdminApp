@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {QuizService} from "../../../core/services/quiz.service";
-// import {FileManagerComponent} from "../../../shared/components/file-manager/file-manager.component";
+import {MatDialog} from "@angular/material/dialog";
+import {FileManagerComponent} from "../../../shared/components/file-manager/file-manager.component";
 
 @Component({
   selector: 'app-create-quiz',
@@ -11,7 +12,7 @@ import {QuizService} from "../../../core/services/quiz.service";
 })
 export class CreateQuizComponent implements OnInit {
   createQuizForm: FormGroup;
-  // selectedThumbnailFile: string;
+  selectedThumbnailFile: string;
   // quizDetails: any;
   // isEditing: boolean = false;
 
@@ -20,6 +21,7 @@ export class CreateQuizComponent implements OnInit {
     private quizService: QuizService,
     private fb: FormBuilder,
     private router: Router,
+    public dialog: MatDialog
   ) {
   }
 
@@ -68,27 +70,20 @@ export class CreateQuizComponent implements OnInit {
   //   });
   // }
 
-  // showFileManager(mediaType): void {
-  //   const dialogRef = this.dialog.open(FileManagerComponent, {
-  //     data: {
-  //       mediaType
-  //     }
-  //   });
-  //
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: `, result); // Pizza!
-  //
-  //     if (result.selectedMediaType === 'image') {
-  //       this.selectedThumbnailFile = result.selectedMedia;
-  //       this.createCourseForm.controls.thumbnail.setValue(result.selectedMedia);
-  //     }
-  //
-  //     if (result.selectedMediaType === 'video') {
-  //       this.selectedPreviewFile = result.selectedMedia;
-  //       this.createCourseForm.controls.video.setValue(result.selectedMedia);
-  //     }
-  //   });
-  // }
+  showFileManager(mediaType): void {
+    const dialogRef = this.dialog.open(FileManagerComponent, {
+      data: {
+        mediaType
+      }
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: `, result); // Pizza!
 
+      if (result.selectedMediaType === 'image') {
+        this.selectedThumbnailFile = result.selectedMedia;
+        this.createQuizForm.controls.organisationLogo.setValue(result.selectedMedia);
+      }
+    });
+  }
 }
