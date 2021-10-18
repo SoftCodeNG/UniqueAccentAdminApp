@@ -36,7 +36,7 @@ export class QuizService {
     const payload = new FormData();
     payload.append('title', data.title);
     payload.append('duration', data.duration);
-    payload.append('passcode', data.passcode);
+    payload.append('passCode', data.passCode);
     payload.append('endDate', data.endDate);
     payload.append('organisation', data.organisation);
     payload.append('organisationLogo', data.organisationLogo);

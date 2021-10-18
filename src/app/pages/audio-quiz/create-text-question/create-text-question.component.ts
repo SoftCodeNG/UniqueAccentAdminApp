@@ -22,7 +22,7 @@ export class CreateTextQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.createTextQuestionForm = this.fb.group({
-      quizId: [this.activatedRoute.snapshot.params.slug, Validators.required],
+      quizId: [this.activatedRoute.snapshot.params.id, Validators.required],
       question: ['', Validators.required],
       questionNo: ['', Validators.required],
       maxScore: ['', Validators.required],
